@@ -114,7 +114,7 @@
     <link href="http://blog.heckpsi.com/2016/03/18/how-alphago-works/"/>
     <id>http://blog.heckpsi.com/2016/03/18/how-alphago-works/</id>
     <published>2016-03-18T15:09:00.000Z</published>
-    <updated>2016-04-21T16:32:23.000Z</updated>
+    <updated>2016-04-21T17:15:40.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本来其实不想写这个的，但是看到很多网友以及一些围棋职业选手提出了一些疑问，比如「Google 没有顶尖的棋手为什么能开发出顶尖的围棋机器人？」还有「机械为什么可以在如此直觉主导的游戏中战胜人类？」。这些问题事实上在人工智能领域已经有很多理论来做解释。而且这些理论也并不是 Google 提出的。AlphaGo 所使用的理论大多还是十余年前左右的论文的一些成果。在此之前，使用了这些理论开发出来的人工智能其实已经在 2006 年就已经在 9x9 的小棋盘上战胜周俊勋九段，之后在 2013 年 CrazyStone 程序就已经在让四子前提下战胜过石田芳夫九段，而就在去年，Facebook 的围棋机器人在不让子的前提下，胜过职业选手。至于之前「前百度深度学习研究院」的吴韧所开发的异构神机也使用的是类似的理论，也在前几天战胜过职业棋手。&lt;/p&gt;
 &lt;p&gt;这些方法上，AlphaGo 并无太大创新，很大程度上是 Google 团队实现得相对完善以及训练程度更好，以及人工智能算法的实现和调参存在很大的偶然因素。那么究竟是什么方法让机械拥有了和人一样直觉，而不是简单的机械化的思考。这事我们还是要从头讲起。&lt;/p&gt;
@@ -146,7 +146,15 @@
     </summary>
     
     
-      <category term="AlphaGo,AI,Google,机器学习,科普" scheme="http://blog.heckpsi.com/tags/AlphaGo-AI-Google-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%A7%91%E6%99%AE/"/>
+      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
+    
+      <category term="AlphaGo" scheme="http://blog.heckpsi.com/tags/AlphaGo/"/>
+    
+      <category term="AI" scheme="http://blog.heckpsi.com/tags/AI/"/>
+    
+      <category term="Google" scheme="http://blog.heckpsi.com/tags/Google/"/>
+    
+      <category term="机器学习" scheme="http://blog.heckpsi.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
