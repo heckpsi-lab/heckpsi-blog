@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>HeckPsi Lab</title>
+  <title>HeckPsi Blog</title>
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
   <updated>2016-04-21T15:36:12.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
+  
+  <author>
+    <name>上海骇咕赛信息科技有限公司</name>
+    
+  </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
@@ -249,6 +254,54 @@
       <category term="Samsung" scheme="http://blog.heckpsi.com/tags/Samsung/"/>
     
       <category term="SuperAmoled" scheme="http://blog.heckpsi.com/tags/SuperAmoled/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从我能吞下玻璃而不伤身体说字体测试</title>
+    <link href="http://blog.heckpsi.com/2015/02/21/how-to-test-a-font/"/>
+    <id>http://blog.heckpsi.com/2015/02/21/how-to-test-a-font/</id>
+    <published>2015-02-21T08:38:54.000Z</published>
+    <updated>2016-04-21T16:59:45.000Z</updated>
+    
+    <content type="html">&lt;p&gt;许多使用Ubuntu操作系统的用户都会惊讶于Ubuntu打开一个字体文件的时候用于测试字体而显示的文字：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;我能吞下玻璃而不伤身体。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/961_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;为什么是用这样一句句子来测试字体呢？&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;这需要联系到一个由哈佛大学学生 Ethan Mollick 创建的一个语言学项目。叫做 &lt;a href=&quot;http://en.wikipedia.org/wiki/I_Can_Eat_Glass&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;I Can Eat Glass&lt;/a&gt;。根据 Ethan Mollick 的解释，他希望让一个人到一个陌生的国家后说出某句简单易学的话，但能让别人感觉他是这个语言的母语者，从而能更尊重地对待他。这句话要有这种神奇的吓唬人的力量，几经思考之后他们选择了 “I can eat glass, but it does not hurt me.” 这句句子。（虽然我完全没有办法理解为什么这句话有这样的作用）他们将这句话翻译成了许多种语言，并制作成了网页。非常糟糕的是，这些网页在今年已经无法正常访问，好在一些好心人制作了这一网站的 &lt;a href=&quot;http://reocities.com/nodotus/hbglass.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;镜像&lt;/a&gt;。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Wo ke yi chi bo li, wo bu huei sho shang.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;写作：我可藝吃玻璃，我不毀受傷。（显然地，他们还写了许多错别字）&lt;/p&gt;
+&lt;p&gt;但是他们所做的神奇之处并不是他们达到了他们一开始想要达到的目的（显然他们不能），相反地，之后哥伦比亚大学的同学在试图制作 UTF-8 编码的样例的时候想到了这个项目。众所周知，UTF-8 编码希望能通过一种编码正常显示世界上所有语言。而哈佛的这个项目恰好已经把一句话翻译成了各种各样的语言，用来做 UTF-8 编码的显示样例再好不过了。于是哥大的同学就做了这么一个 &lt;a href=&quot;http://www.columbia.edu/~fdc/utf8/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;项目&lt;/a&gt;。并优化了其中的翻译，其中简体中文的翻译被翻译成了 “我能吞下玻璃而不伤身体。”，也就是现在的样子。&lt;/p&gt;
+&lt;p&gt;那为什么 Ubuntu 会选择这样一句句子作为字体测试的句子呢？目的是为了测试编码的完整性，也就是这个字体支持的语言的数量。&lt;/p&gt;
+&lt;p&gt;但是这样的测试真的是好的吗？或者说是足够好的吗？我想可能并不是这样。&lt;/p&gt;
+&lt;p&gt;对于西文字体而言一个完整的字形测试也就四五十个字符（包含大小写和常用符号）。一种常见的测试方法是大家在 Windows 系统上常见到的范例句子。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;The quick brown fox jumps over the lazy dog.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;上面这句话使用了全部的26个字母（但并不包含每个大小写）。这样的句子基本上测试了西文字体在显示英文的主要效果。但是对于中文、日文、韩文这些非字母化的重灾区，几个字可能是很难测试好一个字体的。可能你能从中看出是衬线字体还是非衬线字体、宋体还是黑体，但对于其它很多问题并不能很好的测试到。比如对于常见的偏旁部首是怎么设计的、字体覆盖多少汉字、标点符号等宽还是不等宽之类的问题几个字是比较难测试的。靠一句“我能吞下玻璃而不伤身体。”几乎是没什么用的。而 Windows 的“中国智造，慧及全球”就更扯了，完全不能理解这句话能测试出什么东西出来。&lt;/p&gt;
+&lt;p&gt;Mac OS X 字体册在测试日文的时候非常巧妙。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/961_3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;测试了假名、汉字、标点符号、复杂汉字的显示效果。选用的是日本诗人 宮沢賢治 的 &lt;a href=&quot;http://www.aozora.gr.jp/cards/000081/files/1935_19925.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《ポラーノの広場》&lt;/a&gt; 的一节。不但用了一个短小的文字，而且测试了实际使用中的大多数字形的问题，可以说是解决地非常巧妙。&lt;/p&gt;
+&lt;p&gt;然而对于中文的字体测试显得就差了很多。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/961_2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;选择的几个字比起 Windows 和 Ubuntu 测试了更多的偏旁部首的显示，这点虽然更好一点，但堆砌了这样一堆没有意义的文字也不很能理解是出于什么样的目的。更重要的是，竟然没有测试标点符号，反而测试了一些奇奇怪怪的中文序号。这一点不但解决地不如日文测试时那么巧妙，甚至连功能都是不够完整的。不过 Mac OS X 在测试字体是支持“自定”测试，可以输入自己需要测试的内容保存下来，还是满足了功能上的需求。&lt;/p&gt;
+&lt;p&gt;其实比较下来，Ubuntu 的字体测试是最为通用的测试，能覆盖UTF-8编码下各种语言的测试，但是对于每种语言的测试却是不足够的。Mac OS X 确实对于设计者最为友好，但在中文测试的时候还是不够全面优秀。至于 Windows 嘛……&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;微软唯一的问题是没品位，他们根本的绝对的没品位。——史蒂夫·乔布斯&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;所以指望 Windows 在字体上搞出点什么还是省省吧。如果在 Windows 上对字体有比较高的要求，建议使用第三方的字体管理软件，比如 Adobe Typekit 之类的……&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;许多使用Ubuntu操作系统的用户都会惊讶于Ubuntu打开一个字体文件的时候用于测试字体而显示的文字：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;我能吞下玻璃而不伤身体。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/961_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;为什么是用这样一句句子来测试字体呢？&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="字体" scheme="http://blog.heckpsi.com/tags/%E5%AD%97%E4%BD%93/"/>
+    
+      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
     
   </entry>
   
