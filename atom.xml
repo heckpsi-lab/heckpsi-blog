@@ -146,9 +146,9 @@
     </summary>
     
     
-      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
-    
       <category term="Google" scheme="http://blog.heckpsi.com/tags/Google/"/>
+    
+      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
     
       <category term="AlphaGo" scheme="http://blog.heckpsi.com/tags/AlphaGo/"/>
     
@@ -313,9 +313,10 @@
     <link href="http://blog.heckpsi.com/2015/04/02/danger-of-hybrid-apps/"/>
     <id>http://blog.heckpsi.com/2015/04/02/danger-of-hybrid-apps/</id>
     <published>2015-04-02T05:18:38.000Z</published>
-    <updated>2016-04-22T06:40:25.000Z</updated>
+    <updated>2016-04-22T06:42:17.000Z</updated>
     
     <content type="html">&lt;p&gt;随着 HTML 5 的标准的提出、响应式布局的成熟、许多针对移动优化的网页架构的开源项目的推出，手机浏览器能做的已经远不是以前可以想象的了，它几乎可以做任何事情。所以许多概念认为手机上的浏览器应该起到主要作用，Web App 在手机上的一个用这几年成为了一个热点。Ubuntu Mobile 的手机 ROM 更是以 Web App 作为主要功能，也让人体验到了这种想法的可能性。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;网页最大的优势莫过于灵活，用户不需要去更新新版客户端，只要你后端悄悄上线就行了，甚至不需要有版本号这样可以的东西，并且能在各种平台上兼容，同步更新。容器可以随意变化，可以变身文章阅读器、视频播放器甚至是复杂的3D游戏，可以给应用带来各种各样的变化，而且这种变化是非常灵活的，随时都可以。但是就目前使用最常见的 Android iOS WP 系统而言，浏览器还不足以实现全部的特性以支撑整个系统，比如及时的通知系统、后台系统。&lt;/p&gt;
 &lt;p&gt;在这两者的矛盾下，很快就有人提出了混合应用（Hybrid App），这种应用通过系统私有的方法实现一些网页不能完成的事情，把剩下的内容全部用一个网页容器来实现，大大降低了开发成本。即使许多应用不完全采用这种模式，但多少也会整幅地使用 WebView，尤其是来部署一些灵活的活动信息等，比如微信、微博等都多少有这样的方法。&lt;/p&gt;
 &lt;p&gt;其实这样的开发虽然降低了复杂度并增加了灵活性，但是其中的安全性却是值得商榷的。比如之前在所有系统版本小于 Android 4.4 的手机上都曝出了 WebView 的 Javascript 注入漏洞，并且 Google 放弃了对这一漏洞的修补，因为认为就安全性而言用户应该先升级到 Android 4.4，无限的向下补丁是不现实的，这么说来也是有道理的。但也使得混合应用的开发存在了一丝疑问。如果这样的漏洞还只是偶然，实际情况中出现的问题常常更为简单，但是却很难想到。&lt;/p&gt;
@@ -340,7 +341,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;随着 HTML 5 的标准的提出、响应式布局的成熟、许多针对移动优化的网页架构的开源项目的推出，手机浏览器能做的已经远不是以前可以想象的了，它几乎可以做任何事情。所以许多概念认为手机上的浏览器应该起到主要作用，Web App 在手机上的一个用这几年成为了一个热点。Ubunt
+      &lt;p&gt;随着 HTML 5 的标准的提出、响应式布局的成熟、许多针对移动优化的网页架构的开源项目的推出，手机浏览器能做的已经远不是以前可以想象的了，它几乎可以做任何事情。所以许多概念认为手机上的浏览器应该起到主要作用，Web App 在手机上的一个用这几年成为了一个热点。Ubuntu Mobile 的手机 ROM 更是以 Web App 作为主要功能，也让人体验到了这种想法的可能性。&lt;/p&gt;
     
     </summary>
     
@@ -350,6 +351,70 @@
       <category term="Hybrid" scheme="http://blog.heckpsi.com/tags/Hybrid/"/>
     
       <category term="安全" scheme="http://blog.heckpsi.com/tags/%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>脑洞打开说联觉</title>
+    <link href="http://blog.heckpsi.com/2015/03/28/synesthesia/"/>
+    <id>http://blog.heckpsi.com/2015/03/28/synesthesia/</id>
+    <published>2015-03-28T12:42:09.000Z</published>
+    <updated>2016-04-22T06:52:40.000Z</updated>
+    
+    <content type="html">&lt;p&gt;在日本小说家野村美月的轻小说《文学少女》中天野远子拥有“尝书”的奇特能力。在阅读文字的过程中可以感受到书的美味。也就是说，远子学姐的视觉和她的味觉产生某种内部的关联，使得她视觉上的感知能自发地去刺激味觉的感知。这样子的体验看似非常的荒诞，却也十分的有趣，但非更有意思的是，现实生活中还确实存在这样的情况。&lt;/p&gt;
+&lt;p&gt;魅族 MX4 Pro 的发布会上魅族将其自身的音频解决方案包装命名为 Retina Sound —— 视网膜的声音… 考虑到魅族这样的大企业也不至于会去犯英语不过四级的错误，我们或许完全可以从中挖掘出更深层的秘密。黄章凭借 mp3 产品当年创造一代奇迹的真正原因是不是黄章本身拥有某些我们没有的能力。或许他能像远子学姐用视觉刺激味觉一样，用听觉去刺激视觉呢？&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;黄章是不是有这样的能力我不知道，但是现实中有这样类似能力的人倒是有不少。心理学上通常把这种现象叫做联觉认知现象(Synesthesia，有时也译作通感)。&lt;/p&gt;
+&lt;p&gt;联觉是一种特殊的认知现象。联觉人通常会因为一种感官刺激或认知途径自发且非主动地引起另一种感知或认识。比如当听到某一个声音的时候，会感觉出某一种颜色；看到某一些文字，会感受到某一种味觉；更复杂的还有当看到某个数字的时候，会感觉具体出现在某一个位置等等。联觉通常是无意识的，联觉者一般会认为这样的联系非常的正常而不会刻意地注意到这点。根据估算，人群中平均每23个人会出现一个联觉人。而概率更小的甚至有多联觉人，比如看到某个数字会感觉到某种颜色，同时还能出现在空间中的某一个位置。&lt;/p&gt;
+&lt;p&gt;对于联觉上的认识不断深入，尤其是本世纪以来的一些研究发展使得神经科学家已经逐渐揭示了联觉现象背后的机理。枯燥的研究论文大煞联觉神秘风景的同时，也带来了不少有意义的应用。比如，我们甚至可以通过一些手段去人工创造一些类似“联觉现象”的产生。比如当你看到某个颜色的时候我们特意去发出某个声音或者去触碰身体的某个部位，通过长期对大脑的不断学习之后，也会产生这样子的联觉的认知。这种认知的产生也可以更有利地去训练一些听力、视力障碍的一些患者去获得这些感知的体验。&lt;/p&gt;
+&lt;p&gt;通常而言，联觉收到感性化的影响是比较大的，而对于许多联觉人来说，这种体验基本是中性的，甚至有时是比较愉悦的。我们回到我们一开始举的几个例子上。如果黄章真的有这样联觉的认知，把自己的音频产品命名为“视网膜声音”也就不再见怪了。相反的，这显示出了其声音的清晰度，如视网膜看到东西一般“可视化的音频”。黄章使用音频设备播放音乐的时候应该能比常人拥有更深刻的体验。而天野远子那样能将书中的文字转化成味觉的，能使她在阅读上有更加感性的认知，也非常有意思。&lt;/p&gt;
+&lt;p&gt;这种有意思的体验常常被用于艺术创作之中。比如1940年迪斯尼创作的电影《幻想曲(Fantasia)》中的许多镜头声音的变化会随着画面颜色的变化一同进行。联觉被广泛运用于文学、音乐、绘画、电影、动画之中，并且许多艺术家也是联觉人，联觉给他们带来的体验成为了他们创作过程的源泉。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在日本小说家野村美月的轻小说《文学少女》中天野远子拥有“尝书”的奇特能力。在阅读文字的过程中可以感受到书的美味。也就是说，远子学姐的视觉和她的味觉产生某种内部的关联，使得她视觉上的感知能自发地去刺激味觉的感知。这样子的体验看似非常的荒诞，却也十分的有趣，但非更有意思的是，现实生活中还确实存在这样的情况。&lt;/p&gt;
+&lt;p&gt;魅族 MX4 Pro 的发布会上魅族将其自身的音频解决方案包装命名为 Retina Sound —— 视网膜的声音… 考虑到魅族这样的大企业也不至于会去犯英语不过四级的错误，我们或许完全可以从中挖掘出更深层的秘密。黄章凭借 mp3 产品当年创造一代奇迹的真正原因是不是黄章本身拥有某些我们没有的能力。或许他能像远子学姐用视觉刺激味觉一样，用听觉去刺激视觉呢？&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
+    
+      <category term="魅族" scheme="http://blog.heckpsi.com/tags/%E9%AD%85%E6%97%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一封致用户的道歉信</title>
+    <link href="http://blog.heckpsi.com/2015/03/27/apology-to-visitors/"/>
+    <id>http://blog.heckpsi.com/2015/03/27/apology-to-visitors/</id>
+    <published>2015-03-27T10:25:28.000Z</published>
+    <updated>2016-04-22T06:50:34.000Z</updated>
+    
+    <content type="html">&lt;p&gt;HeckPsi 对所有访问我们网站的用户道歉。&lt;/p&gt;
+&lt;p&gt;在今天上午 HeckPsi 作为“帮凶”对 GitHub 的两个项目 greatfire 和 cn-nytimes 进行了 DDoS 攻击。&lt;/p&gt;
+&lt;p&gt;对此，我们深表遗憾并且必须致以我们最为诚挚的道歉。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;造成这样的问题，是由于我们网页内嵌了 百度统计 的代码以统计我们的页面访问量。而今天，百度统计的代码被恶意内嵌了进行 DDoS 攻击的代码。目前暂时不知道这些代码是由百度嵌入的还是由政府要求嵌入的亦或者是黑客攻击百度嵌入的。但其实际造成了严重的影响，造成了严重的后果。&lt;/p&gt;
+&lt;p&gt;HeckPsi 一向支持开源软件事业，开源软件对我们很重要。我们的服务中所使用的部分软件也是根据开放源代码许可提供的。HeckPsi 绝对不会有意去攻击 GitHub 这样的网站。但是事实上，我们无意中参与了这样的攻击，我们也必须要为如此愚蠢的行为负责。&lt;/p&gt;
+&lt;p&gt;由于之前百度的种种恶迹，我们在选用第三方服务时已经尽量避开了百度的服务。在过去的几个月内，我们也逐渐将存放于百度云存储的、百度静态库CDN的一些服务出于安全原因进行了几次迁移，但忘记了网页统计使用的依然是百度的服务，没有进行及时的变更，才造成了今天的问题。&lt;/p&gt;
+&lt;p&gt;目前，HeckPsi 已经停用了全部百度统计的代码，并强制更新了所有页面缓存。临时使用了 Google Analytics 对我们的网站进行统计。同时，我们会在接下来几周内深度检查网页中的各种代码，以避免使用百度的全部服务。同时，我们将在未来使用第三方服务的时候，严格考察第三方服务的可靠性。&lt;/p&gt;
+&lt;p&gt;对此，给各位造成的影响，表示最大程度的道歉。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;HeckPsi 对所有访问我们网站的用户道歉。&lt;/p&gt;
+&lt;p&gt;在今天上午 HeckPsi 作为“帮凶”对 GitHub 的两个项目 greatfire 和 cn-nytimes 进行了 DDoS 攻击。&lt;/p&gt;
+&lt;p&gt;对此，我们深表遗憾并且必须致以我们最为诚挚的道歉。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="站务" scheme="http://blog.heckpsi.com/tags/%E7%AB%99%E5%8A%A1/"/>
+    
+      <category term="百度" scheme="http://blog.heckpsi.com/tags/%E7%99%BE%E5%BA%A6/"/>
     
   </entry>
   
@@ -617,6 +682,73 @@
       <category term="DDoS" scheme="http://blog.heckpsi.com/tags/DDoS/"/>
     
       <category term="网络" scheme="http://blog.heckpsi.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>情理之中，意料之外——简评Google I/O 2014</title>
+    <link href="http://blog.heckpsi.com/2014/06/25/google-io-2014/"/>
+    <id>http://blog.heckpsi.com/2014/06/25/google-io-2014/</id>
+    <published>2014-06-25T12:04:05.000Z</published>
+    <updated>2016-04-22T07:00:45.000Z</updated>
+    
+    <content type="html">&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;本文所涉及的主要是太平洋时间 6 月 24 日早上 9 点到 11 点的 Keynote 活动，也就是大家最为关心的发布会的相关内容的评价。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;至于其他活动，我将就几个有转播的且有意思的活动额外写一些Review。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果说今天凌晨对于许多人最大的纠结之处莫过于是看 Google I/O 大会还是世界杯了。显然，我开了两个屏幕都在看……不过，Youtube 作为谷歌的亲儿子承接了 Google I/O 的直播工作，虽然无论是清晰度还是流畅程度都非常的优秀，但是……对于中国大陆用户而言，恐怕看起来就比较困难了……&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;作为这种发布会的传统，Google 开始用数据来喷竞争对手。毫无疑问，Android 设备的出货量是远大于 iOS 设备的，所以各种数据规模也不是 Apple 能比的。其实数据这东西本来就是在吹牛，拿来演示的数据永远是有利的。就像 Apple 和 Microsoft 比桌面设备的时候就喜欢比增长率（想想Windows的总量是你比得过？）。Apple 和 Google 比移动端的时候就喜欢比碎片化（Android 的出货量和增长率是你比得过？）。所以当 Google 拿数据说话的时候，恩就是出货量和增长率。但是 Google 在碎片化上这次举了一个有意思的数据。虽然 Kitkat 的市场占有率只有 15%，但是 93% 使用 Google 服务的用户，都已经把 Google Services 的套件更新到了最新。这意味着，虽然系统版本号没有完全跟上，但 Google 用应用的形式能尽力拉进各个版本之间的区别。这一点可以说是曲线救国的方法。不过大家别看这几家大公司嘴炮来嘴炮去的，其实一个都离不开，他们的业务是互相依赖的，这个真的就是打嘴炮而已。&lt;/p&gt;
+&lt;h3 id=&quot;然后，发布会正式开始发布内容。&quot;&gt;&lt;a href=&quot;#然后，发布会正式开始发布内容。&quot; class=&quot;headerlink&quot; title=&quot;然后，发布会正式开始发布内容。&quot;&gt;&lt;/a&gt;然后，发布会正式开始发布内容。&lt;/h3&gt;&lt;p&gt;第一个登场的是 Android One。这是一款硬件产品。其作用类似于 Nexus 的标杆作用，不过它是针对低端市场的。Android One 拥有一块4.5英寸的屏幕，双卡双待，支持 SD卡拓展和 FM 收音机。其针对的是发展中国家，售价低于 100 美元。希望能更好地规范安卓在低端市场的表现，而不是现在安卓机器低端市场乱成一锅粥的局面。这款手机最快将于今年秋天在印度发售。它的标杆意义确实能规范一些市场行为，希望能带来一些积极的作用。但和 Nexus 一样，这款手机在中国上市的可能性为 0，因为它还搭载完整的 Google 服务。&lt;/p&gt;
+&lt;p&gt;接下来登场的是 L。什么是 L 呢？也就是之前疯传的 Android 5.0。至于是不是 5.0 呢，Google 也没承认，也没否认。它的开发代号是 L。全新的 UI 将扁平化和卡片式设计进一步贯彻了下去，并进一步柔化了界面的边缘。Google 向我们展示了一些应用，并且承诺，许多应用都会在不久之后就会发生这样的改变。开发人员在开发过程中通过一些简单的代码就能很好的创建这样的 UI，大大简化了设计成本。(除了设计上的变化，L 将把 ART 作为默认模式，并且进一步优化了 ART 的执行效率。加入了省电模式，更好处理续航。系统更新将由Play市场提供。（PS：昨天凌晨写稿的时候居然漏了……）但是L系统何时发布，并没有公布。&lt;/p&gt;
+&lt;p&gt;Google 这时给出了一个数据，说 Chrome 的 30 天活跃用户的数量已经超过了 3 亿，加上之前说 Android 的 30 天活跃用户超过了 10 亿。下一步 Google 必然将整合这些资源，统一体验。接下来，Google 给我们演示了全新的 ChromeOS 在令人吃惊的整合能力。记得前不久 WWDC 2014 上苹果展示 Mac OS X 的整合能力已经很恐怖了。而 ChromeOS 的能力除了不能用电脑打电话外，简直是有过之而无不及。手机没电了电脑会提醒你这些已经是小事了。更可怕的是，ChromeOS上可以运行所有的Android应用（演示起来非常非常流畅）。你甚至可以在ChromeOS上刷Flipboard。手机内容可以随时投屏到电脑上，所有的，所有的信息都能得到同步。最后，Android将会在新版本中区分工作模式和家庭模式，两者应用和数据完全独立。可以确保你使用一个设备，管理好两者关系，又能保证安全性。&lt;/p&gt;
+&lt;h3 id=&quot;Android-TV、Android-Auto、Android-Wear&quot;&gt;&lt;a href=&quot;#Android-TV、Android-Auto、Android-Wear&quot; class=&quot;headerlink&quot; title=&quot;Android TV、Android Auto、Android Wear&quot;&gt;&lt;/a&gt;Android TV、Android Auto、Android Wear&lt;/h3&gt;&lt;p&gt;这三个安卓定制版本分别针对的是智能电视、汽车导航和可穿戴式设备。Android TV的最大亮点在于其背后强大的搜索支持。要找一个节目直接语音说出来就好了。Google的自然语义分析和知识图谱将自动将你语句中要找的内容分析出来，将结果搜索出来。非常方便。&lt;/p&gt;
+&lt;p&gt;Android Auto基于最新的 Android L 系统，并且置入了Google Now，这使得它不仅支持语音命令，还可以根据你当前汽车行进的情况，将信息在你需要的时间呈现给你。同时，可以读取所有手机上的数据，让你在开车时不受到手机的束缚，安心驾驶。而且 Google 的 TTS 的发音还是比较接近人声的，比起 CarPlay 上那个机械一样的声音不知道高到哪里去。同时开放了 Android Auto SDK，第三方开发者可以进一步进行开发应用。&lt;/p&gt;
+&lt;p&gt;而至于 Android Wear，由于早先已经公布了具体相关标准，并不是很惊喜。Android Wear 标准的出现，也使得可穿戴式设备在发展初期就有一定的规范，有利于 Google 的长期影响。相当有意思的是，Android Wear 可以控制 Android TV。比起什么找不到遥控器用手机控制，用手表这种拴在手上的东西才更靠谱吧。同时，两款 Android Wear设备 LG G Watch 和 Galaxy Gear (Android Wear 版) 将于今天再 Google Play 上开售，而 Moto 360 (圆形屏幕更像表而不像玩具) 将于夏天开售。&lt;/p&gt;
+&lt;h3 id=&quot;Google-Cloud-Platform&quot;&gt;&lt;a href=&quot;#Google-Cloud-Platform&quot; class=&quot;headerlink&quot; title=&quot;Google Cloud Platform&quot;&gt;&lt;/a&gt;Google Cloud Platform&lt;/h3&gt;&lt;p&gt;接下来说的就是 Google Cloud Platform。新的云服务提供了一套更好的开发工具和调试环境，大大简化了工作难度。如果说 Swift 语言更像玩具的话，Google 提供的这些改变更像瑞士军刀。刀刀是完全的实用主义。对于大数据分析，数据的监控，云开发的在线修改，在线调试是拿来就能用的东西。其中非常有意思的是对世界杯大数据的分析。许多国内大数据团队也在做类似的东西。但大多需要网民的主观参与，比如投票。而 Google 做的 Example 确是主动收集整个互联网上的数据（比如 Twitter）来分析。这入手点的不同直接看出了 Google 的大数据的意识。所以我一直说，中国这些大数据部门，只不过是数据部门换了个招牌罢了。&lt;/p&gt;
+&lt;p&gt;另外，Google 在健康领域开始测试 Google Fit Platform。许多人曾质疑它和 Apple Healthkit 的相似性不过还是有点区别的。Healthkit 的应用和设备是一一对应的。每个厂商开发设备为自己的应用服务。而 Google Fit 更像是一种共享模式。数据和处理分离了开来。这个设备能提供这样的数据，别的应用也可以来调用。看起来更为合理一些。但是考虑到健康应用尚处于萌芽状态，是不是真的有用，还是只是一句空头支票不得而知。&lt;/p&gt;
+&lt;p&gt;最后，说说我看完后的总体感受。发布会里面的大多数的东西之前都是略有听闻了的。但是 Google 还是给我们带来了许多惊喜。比如大家都知道了 GCP 的大数据处理能力，但是 Google 却能在大数据上给我们一个不同的思路。比如我们都知道 Google 要发 Android Wear、TV，但却很难想象，他们能将其整合。同样是整合，我们又很难想象 ChromeOS 的整合能达到如此高的程度。&lt;/p&gt;
+&lt;p&gt;对比 WWDC 来看，其实 WWDC2014 虽然不是很优秀，但也不差。不过因为提前泄露了很多内容，让人有些失望。这是因为苹果在乔布斯死后把每次发布会的重点往往在几个点上，一旦泄露了就什么也没有了。而 Google I/O 能把优势保持在思路上，这使得只言片语的泄露不能造成很大的影响。再加上 Google 能做的许多创新都基于其强大的搜索功底，这是别的厂商根本做不到的，是别人想都不敢想的。所以说，厚积而薄发，Google 这些创新看似轻描淡写的不断涌出，也确实给其他互联网公司一些启示。要做真正的互联网巨头，究竟是要把什么作为根本呢？&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;另外，Google 今天股票大涨，Apple 股票虽然没有大跌，但也没有跟上大盘的涨幅。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;WWDC 开完 Apple 股票跌，Google 股票涨，Google I/O 开完还是 Apple 股票跌，Google 股票涨的事也不是第一次发生了。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;本文所涉及的主要是太平洋时间 6 月 24 日早上 9 点到 11 点的 Keynote 活动，也就是大家最为关心的发布会的相关内容的评价。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;至于其他活动，我将就几个有转播的且有意思的活动额外写一些Review。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果说今天凌晨对于许多人最大的纠结之处莫过于是看 Google I/O 大会还是世界杯了。显然，我开了两个屏幕都在看……不过，Youtube 作为谷歌的亲儿子承接了 Google I/O 的直播工作，虽然无论是清晰度还是流畅程度都非常的优秀，但是……对于中国大陆用户而言，恐怕看起来就比较困难了……&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Google" scheme="http://blog.heckpsi.com/tags/Google/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>免费的代价还是畸形的产物——浅谈中国视频网站广告制度</title>
+    <link href="http://blog.heckpsi.com/2014/05/01/ads-on-videos-in-china/"/>
+    <id>http://blog.heckpsi.com/2014/05/01/ads-on-videos-in-china/</id>
+    <published>2014-05-01T13:34:52.000Z</published>
+    <updated>2016-04-22T06:48:23.000Z</updated>
+    
+    <content type="html">&lt;p&gt;这周倒是有不少大消息。其中一条比较有意思的就是看到爱奇艺视频全部退出了B站，各方的反应是相当不一的。借着这个机会来谈一下我对中国视频网站广告制度的看法。&lt;/p&gt;
+&lt;p&gt;一切一切都开始，我们先要确定一个重要的观点。公司是要赚钱的，否则是要饿死的。有关于这个问题，我之前说中国的软件业的时候就提到过。我说在中国卖软件是一件很不靠谱的事情。目前中国人就把看不到实物的东西都当不要钱，还跑到店里大吵“我都花了两千元买了电脑，你给我装的系统还是盗版的！”。同理，中国所有的知识产权业都很难考出售产品本身来赚钱。比如唱片业，比如印刷业。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;同样的，视频网站是要赚钱的。同样的，在中国搞什么付费视频订阅是极度不靠谱的事情。不只是在中国，其实国外的视频网站也多是以广告收入作为主要收入的。别小看这广告收入啊，大家要明白一个重要的道理：免费的就是最贵的！有人说是 360 让中国杀毒软件进入了免费时代，实际上却是 360 让中国杀毒软件进入了群体性流氓状态。各种捆绑，各种弹窗，最赚钱了。你看卡巴斯基上市了吗？360 居然上市啦！&lt;br&gt;在网络视频里，最赚钱的莫过于 Google 旗下的 Youtube 咯。不说别的，光一曲《江南Style》的视频播放的广告点击量就给谷歌带来净利润约 51000 美金（约合 33 万人民币）。以 2012 年一年为例，Google 在 Youtube 上就赚了 24 亿美金。要知道优酷的市值不过 30 来亿美金。&lt;/p&gt;
+&lt;p&gt;但是，我们却发现，我们在优酷上看的广告时长是 Youtube 的好几倍。国内的各大视频公司的盈利率一般在 30% 左右，而 Youtube 的盈利率达到了 35%。为什么 Youtube 只有这么点广告（一般就十来秒，而且不感兴趣可跳过），而国内广告那么多，却达不到 Youtube 的盈利率呢？&lt;br&gt;其实就是一个问题。广告点击率低！为什么广告点击率低？因为你不知道用户想要什么广告！为什么不知道用户想要什么广告？因为你技术不够硬啊！Youtube 会根据用户观看视频的记录以及看和他类似视频的人点了哪些广告来分析，这个人可能需要什么广告，当然这背后也包括了 Google 的相关数据。所以 Youtube 能提供给用户他们想要的广告。广告点击率高了，自然不用很长的广告也能带来足够的利润。&lt;/p&gt;
+&lt;p&gt;爱奇艺为什么被 B 站网友喷呢？广告时间太长、各种闪退、各种崩溃问题其实无不透露出爱奇艺产品部门的无能。退出后还摆出一副高姿态的样子说是好心给网友看版权视频，却被喷。实际情况，确是因为自己技术差，被人骂了，受不了刺激，还摆出阿Q精神，说这是你们的错。你以正版片源为要挟，给用户看劣质、崩溃、大量广告、极差的用户体验的视频，能不被喷吗？&lt;/p&gt;
+&lt;p&gt;中国公司总喜欢干一件事，叫多元化。也就是做大做强里面的做大。强还不强，大一定要大。做大之前请先把本分工作做好了。你爱奇艺搞直播、搞电视、还搞新闻、搞电影。求你先把你自己的用户体验好好做好吧。&lt;/p&gt;
+&lt;p&gt;对于许多中国的互联网公司啊，其实我只有一句话来评价他们：&lt;br&gt;&lt;code&gt;Jack of all trades.Master of none.&lt;/code&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这周倒是有不少大消息。其中一条比较有意思的就是看到爱奇艺视频全部退出了B站，各方的反应是相当不一的。借着这个机会来谈一下我对中国视频网站广告制度的看法。&lt;/p&gt;
+&lt;p&gt;一切一切都开始，我们先要确定一个重要的观点。公司是要赚钱的，否则是要饿死的。有关于这个问题，我之前说中国的软件业的时候就提到过。我说在中国卖软件是一件很不靠谱的事情。目前中国人就把看不到实物的东西都当不要钱，还跑到店里大吵“我都花了两千元买了电脑，你给我装的系统还是盗版的！”。同理，中国所有的知识产权业都很难考出售产品本身来赚钱。比如唱片业，比如印刷业。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="互联网" scheme="http://blog.heckpsi.com/tags/%E4%BA%92%E8%81%94%E7%BD%91/"/>
+    
+      <category term="广告" scheme="http://blog.heckpsi.com/tags/%E5%B9%BF%E5%91%8A/"/>
     
   </entry>
   
