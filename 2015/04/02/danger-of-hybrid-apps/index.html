@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 混合应用 —— 一场美味却危险的盛宴 · HeckPsi Blog</title><meta name="description" content="混合应用 —— 一场美味却危险的盛宴 - 上海骇咕赛信息科技有限公司"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div id="mask" style="display: none;"><img id="mask-image" src="#" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/logo.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="http://heckpsi.com" target="_blank" class="nav-list-link">首页</a></li><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">博客</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="http://weibo.com/HeckPsi" target="_blank" class="nav-list-link">微博</a></li><li class="nav-list-item"><a href="https://github.com/heckpsi-lab" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">混合应用 —— 一场美味却危险的盛宴</h1><div class="post-time">2015年4月2日</div><div class="post-content"><p>随着 HTML 5 的标准的提出、响应式布局的成熟、许多针对移动优化的网页架构的开源项目的推出，手机浏览器能做的已经远不是以前可以想象的了，它几乎可以做任何事情。所以许多概念认为手机上的浏览器应该起到主要作用，Web App 在手机上的一个用这几年成为了一个热点。Ubuntu Mobile 的手机 ROM 更是以 Web App 作为主要功能，也让人体验到了这种想法的可能性。</p>
+<p>网页最大的优势莫过于灵活，用户不需要去更新新版客户端，只要你后端悄悄上线就行了，甚至不需要有版本号这样可以的东西，并且能在各种平台上兼容，同步更新。容器可以随意变化，可以变身文章阅读器、视频播放器甚至是复杂的3D游戏，可以给应用带来各种各样的变化，而且这种变化是非常灵活的，随时都可以。但是就目前使用最常见的 Android iOS WP 系统而言，浏览器还不足以实现全部的特性以支撑整个系统，比如及时的通知系统、后台系统。</p>
+<p>在这两者的矛盾下，很快就有人提出了混合应用（Hybrid App），这种应用通过系统私有的方法实现一些网页不能完成的事情，把剩下的内容全部用一个网页容器来实现，大大降低了开发成本。即使许多应用不完全采用这种模式，但多少也会整幅地使用 WebView，尤其是来部署一些灵活的活动信息等，比如微信、微博等都多少有这样的方法。</p>
+<p>其实这样的开发虽然降低了复杂度并增加了灵活性，但是其中的安全性却是值得商榷的。比如之前在所有系统版本小于 Android 4.4 的手机上都曝出了 WebView 的 Javascript 注入漏洞，并且 Google 放弃了对这一漏洞的修补，因为认为就安全性而言用户应该先升级到 Android 4.4，无限的向下补丁是不现实的，这么说来也是有道理的。但也使得混合应用的开发存在了一丝疑问。如果这样的漏洞还只是偶然，实际情况中出现的问题常常更为简单，但是却很难想到。</p>
+<p>这一类问题往往出现在 Native - WebView 层上。昨天早上人人网愚人节活动系统曝出了系统漏洞，使得黑客在调用后可以任意以任何用户的身份进行发帖，这实在是愚人不成反被愚。曝出后人人的公关部门进行了紧急的处理制止了事态的进一步扩展，实际上，在4月1日一结束后，人人网草草撤下了页面，因为从技术上来说，修复的可能性非常小。</p>
+<p>为什么非常小呢？其实核心问题在于，如果 WebView 拥有可以发帖的权限时，我们应该如何确认发帖者的身份。这个问题通常是显然的，常用的方法就是 user - token 验证。即验证用户的 id 和登录成功后系统返回的唯一编号是否一致。但是，在混合应用上这一点却存在一定的问题。有时 token 并不直接由网页获取到，而是由客户端的 Native 部分获取到的。那么当它打开 WebView 的时候就需要将这参数传递进去，这通常是通过创建一个 Cookie 来实现的，在技术上也没有问题。</p>
+<p>但是实际问题是，什么时候传呢？</p>
+<p>我们继续以昨天人人网的漏洞为例，由于人人在聊天时也可以调用 WebView 来打开第三方的链接，所以就使得传输这个参数成为一个比较难的问题。如果打开第三方链接的时候也把参数传递进去，显然地，我们可以通过伪造一个链接来抓取这个 Cookie 使得 user - token 泄露，实现对用户权限的全部控制，所以是绝对不可取的。所以人人采取的方法是 —— 不传 token。</p>
+<p>不传 token 带来的问题叫做 “死无对证”，用户的ID是可以随便并且非常轻易的伪造的。尤其是当人人今天愚人节活动页面最后会发送一条可编辑的消息到用户网页上时，通过伪造 user 可以对所有用户进行操作，造成了重大安全漏洞的爆发。而且更糟糕的是，传递参数这事是在客户端完成的，如果不更新客户端，就永远不会多传一个参数进来，出了问题也无法及时解决。</p>
+<p><img src="http://7u2lcg.com1.z0.glb.clouddn.com/1009_1.png" alt=""></p>
+<p>（通过绕过 token 可以任意账号发布信息）</p>
+<p>而这一问题同样存在于许多混合应用之中，不过是他们对待 token 的传递处理方式不同，问题的细节上各有差别。那么，我们也可以来思考一下，假如你是人人网的程序员，同时，你也知道不传 token 和见谁都传 token 都是不对的（其实许多应用都是栽在这前两个问题上）。现在要修复这一问题，你会如何重新选择你何时传递 token 参数这一问题呢？</p>
+<p>一、当访问的网址以 <a href="http://www.renren.com" target="_blank" rel="external">http://www.renren.com</a> 开始时，将参数传入。</p>
+<p>我想，这是很多人的第一想法。这个方法看起来逻辑是正确的。只有网址以自己网站的目标地址开头时再传，而且这一点是非常容易从 URL 上判断出来的，并且也可以避免访问第三方网站时传入。但是这种方法真的是正确的吗？</p>
+<p>答案是否。如果你这么操作了，其实是你对 http 协议的认识不够完备。显然我可以伪造一个这样的地址 <a href="http://www.renren.com@heckpsi.com" target="_blank" rel="external">http://www.renren.com@heckpsi.com</a> 。这个地址也是以自己目标网站开始的，但是用了@符号，这事实上指的是用 www.renren.com 为用户名登录 heckpsi.com 的网站。不信的用户可以复制上面的地址到浏览器里看一下，它绝对会打开 heckpsi.com 的。所以这么操作是不行的。</p>
+<p>二、判断 WebView 访问的目标 Host 是不是 www.renren.com。</p>
+<p>这种方法比上面一种显然更靠谱，因为判断的是目标 Host。像上面这种障眼法是不可能改变实际的目标服务器的。但是这种操作在实现上往往会遇到问题，因为当从一个 URL 变成一个目标 Host 的时候实际上浏览器已经开始了解析的工作，这使得你无法及时传入参数了。这样的实现方法在主流的操作系统上都是非常困难的，因为在运行着的 WebView 上试图再写入数据在安全性上是比较有问题的，操作系统一般也不会允许你这么做。而且这么做也并非完全避开了真正的危险，因为显然这种方法可以被下面这种方法所替代。</p>
+<p>三、通过字符串解析 URL，算出实际的访问地址，再判断。</p>
+<p>这一点其实模拟了浏览器解析 Host 的地址的行为。但解析 URL 这事是否安全本身取决于你解析的方法，当然，我们假设，解析不存在任何问题，它得到了目标的访问地址。这时候再判断一定可以确认用户是否访问的是 www.renren.com 这个地址。这通常来说是安全的了，但是其实还是可以进行攻击的，只不过攻击范围减小了，需要进行路由上的攻击。只要我们将 www.renren.com 的包进行解析商的伪造引向我们的攻击地址，依然可以实现攻击。但是这一点，我认为可以不用很深刻考虑。因为同样我们也能发现，Native 的应用也可以用这种方法进行攻击，已经不是混合应用才有的问题了。</p>
+<p>但是真正的安全是不存在的吗？其实也不见得。对于这种伪造地址的方法最方便的解决方案当然是 HTTPS。至于能解决的原因可以参见<a href="http://blog.heckpsi.com/2015/04/16/how-https-makes-communication-secured/">“HTTPS 是如何保证安全的？”</a> 。HTTPS 可以从根本上杜绝嗅探攻击和中间人攻击。对于所有的敏感数据如密码、token 传输的唯一解决方案只有可靠的加密。相比之下，twitter 全网支持 https 传输，Facebook 全网支持 https 传输，而微博和人人都全部不支持 https 传输，可见安全意识之差。</p>
+<p>所以混合应用增加了一层传输使得安全性上存在未知的隐患。但大多数安全问题并不是出在理论意义的系统层面上，不过是安全意识差导致的。而归根究底，其实还是做产品的时候，究竟是有什么作为根本驱动的。</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2015/04/16/how-https-makes-communication-secured/" class="prev">上一篇</a><a href="/2015/02/25/fix-nexus-5-lens/" class="next">下一篇</a></div><div data-thread-key="2015/04/02/danger-of-hybrid-apps/" data-title="混合应用 —— 一场美味却危险的盛宴" data-url="http://blog.heckpsi.com/2015/04/02/danger-of-hybrid-apps/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"heckpsi-blog"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+
+</script><div class="copyright"><p>© 2012 - 2016 <a href="http://blog.heckpsi.com">上海骇咕赛信息科技有限公司</a>.</p></div></footer></div><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-61251352-2",'auto');ga('send','pageview');</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
