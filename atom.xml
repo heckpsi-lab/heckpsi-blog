@@ -146,6 +146,8 @@
     </summary>
     
     
+      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
+    
       <category term="AlphaGo" scheme="http://blog.heckpsi.com/tags/AlphaGo/"/>
     
       <category term="AI" scheme="http://blog.heckpsi.com/tags/AI/"/>
@@ -153,8 +155,6 @@
       <category term="Google" scheme="http://blog.heckpsi.com/tags/Google/"/>
     
       <category term="机器学习" scheme="http://blog.heckpsi.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
     
   </entry>
   
@@ -445,9 +445,9 @@
     
       <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
     
-      <category term="操作系统" scheme="http://blog.heckpsi.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
       <category term="DPI" scheme="http://blog.heckpsi.com/tags/DPI/"/>
+    
+      <category term="操作系统" scheme="http://blog.heckpsi.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
@@ -576,13 +576,134 @@
   </entry>
   
   <entry>
+    <title>什么是真正的视网膜屏幕</title>
+    <link href="http://blog.heckpsi.com/2013/08/24/why-retina-isnt-enough/"/>
+    <id>http://blog.heckpsi.com/2013/08/24/why-retina-isnt-enough/</id>
+    <published>2013-08-24T03:21:50.000Z</published>
+    <updated>2016-04-22T06:35:10.000Z</updated>
+    
+    <content type="html">&lt;p&gt;编译自 Why Retina Isn’t Enough 作者：John Brownlee 日期：2012年7月15日&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;注：文中所说的 20/20 视力是英国标准，大约是中国所采用的标准对数视力表的 4.9-5.0 或 0.9-1.0&lt;/p&gt;
+&lt;p&gt;借以此文来回应前面某主页菌所说的 538 PPI 远超了人类极限。人类的极限还远得很…&lt;/p&gt;
+&lt;p&gt;为什么Retina是不够的呢？&lt;/p&gt;
+&lt;p&gt;在这一点上，大家都知道，史蒂夫·乔布斯，表演大师，他早在 2010 年推出 iPhone 4 的 Retina 显示屏就捏造了事实。&lt;/p&gt;
+&lt;p&gt;史蒂夫·乔布斯当时是这样说的：&lt;/p&gt;
+&lt;p&gt;研究表明，当你持有距离你眼睛大约 25 或 30 厘米的东西，人类视网膜的极限能力能够区分 300PPI。&lt;/p&gt;
+&lt;p&gt;苹果定义这样一个 Retina 显示屏，而当 New iPad 在 3 月发布时，蒂姆·库克自己澄清了定义的视网膜上的一点：&lt;/p&gt;
+&lt;p&gt;您可能还记得，与 iPhone 保持在一个正常的距离，你的视网膜无法分辨单个像素。当 iPad 保持在一个正常的距离 [38厘米]，它是相同的结果。&lt;/p&gt;
+&lt;p&gt;换句话说，因为一般人使用平板比他们的电话离眼睛更远，新的 iPad 并不需要有 iPhone 的小像素，这意味着新 iPad 像素密度 264 PPI。同样，人坐在更远的地方使用他们的 MacBook Pro 笔记本电脑，这意味着他们的视网膜显示只需要 220 PPI。&lt;/p&gt;
+&lt;p&gt;到目前为止，一切都不错。只有一个问题：史蒂夫·乔布斯说，人眼从 25 厘米观看显示器，无法分辨单个像素密度高达 300 PPI 的说法本身就是错误的。真正的数字是接近 900 PPI 。苹果的 Retina 显示屏只有三分之一的密度。&lt;/p&gt;
+&lt;p&gt;为什么苹果的“视网膜”是不是真正的视网膜&lt;/p&gt;
+&lt;p&gt;苹果使用的 Retina 作为一个营销术语，它是伟大的。但是，这也意味着，它涉及到的分辨率是不正确。从现在起过十年，我们将发现所有自己的 Mac，iPhone 和 iPad 屏幕那么差，看着 iPhone 4S 或新的 MacBook Pro 将会像现在去看 2002 年的 1024 x 768 的 CRT 是那样曾经令我们兴奋的东西。&lt;/p&gt;
+&lt;p&gt;要理解为什么远没有达到标准是比较复杂的。你需要了解史蒂夫·乔布斯如何想出了他最初的 Retina 定义：总之，他基于对一个人有 20/20 的视力。似乎是合理的，因为 20/20 是拥有完美视力的代名词。&lt;/p&gt;
+&lt;p&gt;唯一的问题是什么？ 20/20 是不完美的视力。&lt;/p&gt;
+&lt;p&gt;苹果视网膜的定义是根据老年人的视野来定义的&lt;/p&gt;
+&lt;p&gt;当我们谈论一个人的视力 20/20，我们实际上指的是什么？如果一个人有 20/20 的视力，这意味着一个人站在 6 米远看清英制视力表第八排内容。这曾被认为是标准视力。&lt;/p&gt;
+&lt;p&gt;不过，虽然 20/20 的视力传统上是指“标准视力”大多数的研究表明，正常的视力实际上是远远优于 20/20。事实上，视力正常的人通常直到他们60岁或70岁才会降低到 20/20！&lt;/p&gt;
+&lt;p&gt;明白了吗？苹果视网膜的定义是根据老年人的视野。&lt;/p&gt;
+&lt;p&gt;人眼的分辨率是多少？&lt;/p&gt;
+&lt;p&gt;你的眼睛能看到的最小的像素有多小？比你想象的更小。&lt;br&gt;那么，什么是视觉的限制？要讨论这个问题，我们首先需要一个技术名词解释：视角。&lt;br&gt;大家可以看下面这个E字，它由15个像素组成，包括11个黑色像素和4个白色像素，在与这个E字的距离到达某个特定值时，你的眼睛就无法看出那两条在黑色像素之间的白线，此时E字两端在观察眼内结点形成的夹角就是视角。如果你的视力水平是“20/20”，代表你的视角是1分，也就是1/60度。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/E-eye-sight-test.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;但是，正如我们已经看到的，20/20 的视力并不意味着完美的视觉，可以说甚至低于全世界一半人的视力。像素太大。如何变小，才能得到真正的 Retina 显示屏？&lt;/p&gt;
+&lt;p&gt;不幸的是，人眼可以看到的极限目前还不能确定。根据 DisplayMate 的总裁 Raymond Soneira 说，一个完美的人类视网膜的分辨率为每像素 0.6 弧分。索内拉的分辨率虽然没有被普遍接受。其他人不同意，认为眼睛是强大得多。  J.Blackware 在美国光学学会早在 1946 年，确定了人眼的分辨率是实际上更接近 0.35 弧分。一个真正的 Retina 显示屏，像素要比 iPhone 4S 的 Retina 小 65%。一些研究人类视觉的限制认为还会更小一些。&lt;br&gt;然而，科学家们还是普遍同意大多数人视线的限制，它不能分辨单个像素的小于 0.3 弧分，徘徊在 0.3 和 0.4 之间是大多数人的视觉极限水平。&lt;/p&gt;
+&lt;p&gt;换句话说，无可争议地符合人眼的分辨率，被认为是真正的视网膜的屏幕，它需要有从平均收视距离不大于 0.3 弧分大小的像素。因此计算可得真正的视网膜屏幕的对照表&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Model&lt;/th&gt;
+&lt;th&gt;Screen Size (Inches)&lt;/th&gt;
+&lt;th&gt;Average Distance&lt;/th&gt;
+&lt;th&gt;Retina Res (Apple)&lt;/th&gt;
+&lt;th&gt;True Retina Res&lt;/th&gt;
+&lt;th&gt;PPI&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;iPhone&lt;/td&gt;
+&lt;td&gt;3.5&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;960 x 640&lt;/td&gt;
+&lt;td&gt;2772 x 1848&lt;/td&gt;
+&lt;td&gt;952&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;iPad&lt;/td&gt;
+&lt;td&gt;9.7&lt;/td&gt;
+&lt;td&gt;15&lt;/td&gt;
+&lt;td&gt;2048 x 1536&lt;/td&gt;
+&lt;td&gt;5968 x 4486&lt;/td&gt;
+&lt;td&gt;769&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11-inch MacBook Air&lt;/td&gt;
+&lt;td&gt;11.6&lt;/td&gt;
+&lt;td&gt;22&lt;/td&gt;
+&lt;td&gt;2732 x 1536&lt;/td&gt;
+&lt;td&gt;5184 x 2916&lt;/td&gt;
+&lt;td&gt;513&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;13-Inch MacBook Air&lt;/td&gt;
+&lt;td&gt;13.3&lt;/td&gt;
+&lt;td&gt;22&lt;/td&gt;
+&lt;td&gt;2880 x 1800&lt;/td&gt;
+&lt;td&gt;5872 x 3670&lt;/td&gt;
+&lt;td&gt;520&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;15-Inch MacBook Pro&lt;/td&gt;
+&lt;td&gt;15.4&lt;/td&gt;
+&lt;td&gt;24&lt;/td&gt;
+&lt;td&gt;2880 x 1800&lt;/td&gt;
+&lt;td&gt;6096 x 3810&lt;/td&gt;
+&lt;td&gt;467&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;21-Inch iMac&lt;/td&gt;
+&lt;td&gt;21.5&lt;/td&gt;
+&lt;td&gt;28&lt;/td&gt;
+&lt;td&gt;3840 x 2160&lt;/td&gt;
+&lt;td&gt;7408 x 4168&lt;/td&gt;
+&lt;td&gt;395&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;27-Inch iMac&lt;/td&gt;
+&lt;td&gt;27&lt;/td&gt;
+&lt;td&gt;28&lt;/td&gt;
+&lt;td&gt;5120 x 2880&lt;/td&gt;
+&lt;td&gt;9120 x 5130&lt;/td&gt;
+&lt;td&gt;388&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;译者：可见，要想达到一款手机日常使用达到人类视网膜极限需要达到952PPI，这是现在技术所不能达到的。而我们确实需要真正的视网膜屏幕，因为显然物体越精细，越是显得真实。完美的显示屏要能达到和人眼看到真实的图像一模一样，这是显示器的目标，而且还很遥远。&lt;/p&gt;
+&lt;p&gt;译者注：请无视我的翻译腔。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;编译自 Why Retina Isn’t Enough 作者：John Brownlee 日期：2012年7月15日&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Apple" scheme="http://blog.heckpsi.com/tags/Apple/"/>
+    
+      <category term="屏幕" scheme="http://blog.heckpsi.com/tags/%E5%B1%8F%E5%B9%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android 的虚拟按键</title>
     <link href="http://blog.heckpsi.com/2013/06/30/things-about-android-touchkeys/"/>
     <id>http://blog.heckpsi.com/2013/06/30/things-about-android-touchkeys/</id>
     <published>2013-06-30T00:16:36.000Z</published>
-    <updated>2016-04-22T06:24:22.000Z</updated>
+    <updated>2016-04-22T06:30:21.000Z</updated>
     
     <content type="html">&lt;p&gt;相较于 iPhone 单一的实体 Home 键，安卓按键相对来说丰富很多。第一款安卓手机 HTC G1，正面就采用了6个按键，还采取了侧滑全键盘。暂且不说侧滑全键盘对生产力提高的影响（iPhone可以说就是个玩具）。六个实体按键也为操作带来了不少好处，除了操作上简便了不少，也分担了各个按键的损坏速度…（这算是个附加的好处吧）。不过缺点也显而易见，在产品设计上和iPhone看起来确实不够前卫，也和内容常常格格不入，更要命的是大大增加了学习成本。在智能手机还不是很普及的年代，学习成本确实是个相当要命的东西。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/iPhone-2G.JPG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/htc-g1-dream.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;在接下来的几年，安卓阵营慢慢开始发生了一些改变。按键变成了三到四个，一般为 Menu、Home 和 Back，按键也从实体变为触摸，这样使用寿命也变长了不少，而且设计更为简洁。为了增加 Feedback，默认按上去还是有震动的，使用相当舒服。但是几年下来，又发现了新的问题。各个厂家相当地不统一。有的是 Menu Home Back，有的是 Search Menu Home Back，更有丧心病狂的是 Back Menu Home Search。我还用过一个特别有意思的，联想 K1 平板电脑，看起来只有一个 Home 实体按键，但是 Home 键里左右各隐藏了一个红外距离传感器，从左向右滑动 Home 键就是 Menu，从右往左滑动就是 Back。但有一点我不能理解，塑料对红外几乎是透明的，联想为什么非要把这块塑料做成半透明的呢？你可以清楚看到里面的控制 IC，大大影响整体美观，这实在令人难以理解。&lt;/p&gt;
@@ -595,20 +716,20 @@
     
     <summary type="html">
     
-      &lt;p&gt;相较于 iPhone 单一的实体 Home 键，安卓按键相对来说丰富很多。第一款安卓手机 HTC G1，正面就采用了6个按键，还采取了侧滑全键盘。暂且不说侧滑全键盘对生产力提高的影响（iPhone可以说就是个玩具）。六个实体按键也为操作带来了不少好处，除了操作上简便了不少，
+      &lt;p&gt;相较于 iPhone 单一的实体 Home 键，安卓按键相对来说丰富很多。第一款安卓手机 HTC G1，正面就采用了6个按键，还采取了侧滑全键盘。暂且不说侧滑全键盘对生产力提高的影响（iPhone可以说就是个玩具）。六个实体按键也为操作带来了不少好处，除了操作上简便了不少，也分担了各个按键的损坏速度…（这算是个附加的好处吧）。不过缺点也显而易见，在产品设计上和iPhone看起来确实不够前卫，也和内容常常格格不入，更要命的是大大增加了学习成本。在智能手机还不是很普及的年代，学习成本确实是个相当要命的东西。&lt;/p&gt;
     
     </summary>
     
     
       <category term="Android" scheme="http://blog.heckpsi.com/tags/Android/"/>
     
-      <category term="Google" scheme="http://blog.heckpsi.com/tags/Google/"/>
+      <category term="操作系统" scheme="http://blog.heckpsi.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
       <category term="Apple" scheme="http://blog.heckpsi.com/tags/Apple/"/>
     
-      <category term="iOS" scheme="http://blog.heckpsi.com/tags/iOS/"/>
+      <category term="Google" scheme="http://blog.heckpsi.com/tags/Google/"/>
     
-      <category term="操作系统" scheme="http://blog.heckpsi.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="iOS" scheme="http://blog.heckpsi.com/tags/iOS/"/>
     
   </entry>
   
