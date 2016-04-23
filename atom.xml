@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
-  <updated>2016-04-23T17:42:52.000Z</updated>
+  <updated>2016-04-23T17:53:03.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.heckpsi.com/2016/04/24/problems-of-it-textbooks-now/"/>
     <id>http://blog.heckpsi.com/2016/04/24/problems-of-it-textbooks-now/</id>
     <published>2016-04-23T17:10:44.000Z</published>
-    <updated>2016-04-23T17:42:52.000Z</updated>
+    <updated>2016-04-23T17:53:03.000Z</updated>
     
     <content type="html">&lt;p&gt; 今天的计算机行业，特别是互联网行业，又一次成为了人人谈论的朝阳产业，越来越多的人希望加入到这个行业里。但是，不得不指出的是，计算机科学，作为一门工程与科学相结合的学科，并没有任何捷径可走。任何人，如果想在这个行业中哪怕是进入一个平均水平，也需要系统地进行学习。&lt;/p&gt;
 &lt;p&gt;越来越多的人渴望得到计算机科学上的教学，但同时，计算机行业又在以一个非常快速的方式在发展和进步着。每年、每个月甚至是每天，都能见到一些令人兴奋的新特性、新技术的产生。不得不说，今天的计算机教学，很大程度上，与计算机行业的发展已经拖了钩。任何一门课程、教科书都无法及时跟上最新技术发展的脚步，成为了新人进入行业很大的阻碍。&lt;/p&gt;
@@ -31,7 +31,7 @@
 &lt;p&gt;&lt;strong&gt;落后、无用、有害，能够从根本上被改变吗？&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;如果要回答如何缩短技术的更新到教科书更新的时间，我们不妨先问这样一个问题：为什么互联网技术更新如此迅速呢？其答案是互联网技术本身。基于互联网、社区的协同办公，使得一项技术得到社区的普遍认同变得前所未有的迅速。然而教科书在今天，依然还是依赖于传统的编写、审稿、出版的步骤。为什么我们不能依赖互联网技术本身、依赖社区，来编写教科书呢？&lt;/p&gt;
 &lt;p&gt;这样操作甚至能带来一个连带的作用，那就是，利用社区的力量来减少教科书中出现错误的可能性。谭浩强老师的《C 语言程序设计》整本书仿佛都写着「错误」两字，但正是由于广泛的使用，几乎每个错误你都能在网上找到。但如果社区从编写教科书时就参与，是不是错误能从教科书中就被直接删除呢？&lt;/p&gt;
-&lt;p&gt;今天，长期关注于计算机教学领域的 HeckPsi 将启动全新的实验性项目&lt;a href=&quot;http://edu.heckpsi.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;「HeckPsi Education」/「HeckPsi 公开课」&lt;/a&gt; —— 一个依赖于社区进行的免费、开源、实时的教科书计划。一个社区中的每个人都能参与新建、更新、修正教科书的计划，它让教学变得前所未有地与时俱进。而 HeckPsi 从中扮演的角色，仅限于审核的工作。在未来数日内，HeckPsi 将逐步公开社区参与的具体流程，我们希望这次试验能使得计算机科学的教学卖上真正的计算机时代。&lt;/p&gt;
+&lt;p&gt;今天，长期关注于计算机教学领域的 HeckPsi 将启动全新的实验性项目&lt;a href=&quot;http://edu.heckpsi.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;「HeckPsi Education」/「HeckPsi 公开课」&lt;/a&gt; —— 一个依赖于社区进行的免费、开源、实时的教科书计划。一个社区中的每个人都能参与新建、更新、修正教科书的计划，它让教学变得前所未有地与时俱进。而 HeckPsi 从中扮演的角色，仅限于审核的工作。在未来数日内，HeckPsi 将逐步公开社区参与的具体流程，我们希望这次试验能使得计算机科学的教学迈上真正的计算机时代。&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -463,9 +463,9 @@
     </summary>
     
     
-      <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="算法" scheme="http://blog.heckpsi.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -804,9 +804,9 @@
     
       <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
     
-      <category term="DPI" scheme="http://blog.heckpsi.com/tags/DPI/"/>
-    
       <category term="操作系统" scheme="http://blog.heckpsi.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+      <category term="DPI" scheme="http://blog.heckpsi.com/tags/DPI/"/>
     
   </entry>
   
