@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 撞库是什么？说说12306是怎么泄露用户数据的 · HeckPsi Blog</title><meta name="description" content="撞库是什么？说说12306是怎么泄露用户数据的 - 上海骇咕赛信息科技有限公司"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/logo.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="http://heckpsi.com" target="_blank" class="nav-list-link">首页</a></li><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">博客</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="http://weibo.com/HeckPsi" target="_blank" class="nav-list-link">微博</a></li><li class="nav-list-item"><a href="https://github.com/heckpsi-lab" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">撞库是什么？说说12306是怎么泄露用户数据的</h1><div class="post-time">2014年12月26日</div><div class="post-content"><p>最近12306的数据库泄露事件闹得沸沸扬扬。事情还没调查清楚，12306就发出文章，极力撇清和自己的关系，说不是从自己这里泄露出去的，自己数据库里用户的密码都是加密过的，泄露的密码是明文的，然后把罪责推卸给那些抢票软件。</p>
+<p>但是这个理由站得住脚吗？其实不能。根据目前业内的普遍看法，这次的泄露是典型的撞库攻击，和12306完全脱离不了关系。</p>
+<p>那么，什么是撞库呢？</p>
+<a id="more"></a>
+<p>简单说，撞库就是拿一个已经被攻破的数据库的数据去攻击另一个数据库。</p>
+<p>比如说，网站A的数据库存储着1000万用户的数据，这家网站的安全做得很差——用户的密码并没有被加密。而且，更不巧的是，这个网站被成功攻击，数据库里的所有数据都被骇客下载了下来。虽然说这个网站和12306订票网站一点关系都没有，但是用户的信息是存在一定的，甚至是很大的关联的，比如说用户使用了相同的邮箱注册了网站A和12306的订票网站。然而，这其中，更有人（许多人），用的是相同的密码注册的两个网站（甚至是所有的网站）。于是骇客尝试用网站A里的用户的邮箱和密码去登录12306订票系统。发现其中30%的用户（那可是有整整300万哦~）使用的是相同的邮箱和密码注册的12306订票系统。</p>
+<p>于是骇客拿着这300万可用的登录账号和密码就可以到订票网站内去查询更多的个人隐私信息，包括个人的地址、电话、身份证号码等只有12306才收集的个人隐私信息。</p>
+<p>这种攻击模式就被叫做撞库。事实上，12306订票网站这次撞库事件一共泄露了13万人的个人信息。说大不大，说小不小。</p>
+<p>那么，对于这种攻击，应该通过什么方法来防范呢？</p>
+<p>对于用户，应该尽量避免使用相同的密码，即使做不到不同网站都有不同的密码，也请尽量按照网站对个人隐私的影响使用3-4个不同的密码，并且定期更换。一旦发生这样的撞库事件，并查询到自己被黑，请尽快更换自己的密码。</p>
+<p>而对于服务提供商，撞库攻击真的是不可避免的吗？一派胡言~。防范的方法多如牛毛。</p>
+<p>首先，应该加强验证码机制以及IP验证机制，大大拖慢骇客对数百万的登录信息验证的时间。</p>
+<p>其次，对于个人隐私信息应该一次输入不予查看。比如身份证号码，显示在网页上的就应该是31010xxxxxxxxxxx17这样，使得骇客即使登录也获得不到有价值的信息。而这一点，在支付宝等安全系数比较高的网站上早已是这么实行的了。</p>
+<p>所以说，这次12306无论从什么角度来看都是脱离不了关系，这种以密码加了密这样的理由来不承认自己在网站安全上的失责实在是不负责任的做法。（一个连SSL证书都不肯买的公司，我们是无法奢望这家公司对安全有任何兴趣的。）</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2015/01/17/what-is-ddos/" class="prev">上一篇</a><a href="/2014/10/19/can-a-program-runs-faster-when-data-goes-larger/" class="next">下一篇</a></div><div data-thread-key="2014/12/26/what-is-hit-library/" data-title="撞库是什么？说说12306是怎么泄露用户数据的" data-url="http://blog.heckpsi.com/2014/12/26/what-is-hit-library/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"heckpsi-blog"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+
+</script><div class="copyright"><p>© 2012 - 2016 <a href="http://blog.heckpsi.com">上海骇咕赛信息科技有限公司</a>.</p></div></footer></div><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-61251352-2",'auto');ga('send','pageview');</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
