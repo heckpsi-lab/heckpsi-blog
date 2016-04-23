@@ -432,9 +432,9 @@
     </summary>
     
     
-      <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="算法" scheme="http://blog.heckpsi.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -641,7 +641,7 @@
     <link href="http://blog.heckpsi.com/2015/02/25/fix-nexus-5-lens/"/>
     <id>http://blog.heckpsi.com/2015/02/25/fix-nexus-5-lens/</id>
     <published>2015-02-25T10:16:02.000Z</published>
-    <updated>2016-04-21T18:23:11.000Z</updated>
+    <updated>2016-04-23T13:45:52.000Z</updated>
     
     <content type="html">&lt;p&gt;手上这台Nexus 5已经用了快要一年的时间了。大概三个月起摄像头画质出现了非常严重的问题。记得以前我们都说一个笑话：“Nexus 4的摄像头，哈哈哈哈哈哈哈哈”。 可是Nexus 5的摄像头还成啊，怎么突然画质变得这么糟糕呢。而且不是一般地糟糕，糟糕到几乎不能看的水平。我给大家上个图，大家感受一下。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
@@ -650,7 +650,7 @@
 &lt;p&gt;于是默默看了一眼摄像头，保护玻璃上全部都是灰！理论上像这种一体式的手机进灰比起以前可开后盖的难度高了不少，进一两粒也可以理解，也不会影响画质，但是这大片大片的进灰就不对了。我打开闪光灯给大家看一下进灰有多严重。。。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_2.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;显然地，为了正常使用这块摄像头，必须要进行灰尘清理了。据之前 iFixit 做的 &lt;a href=&quot;https://www.ifixit.com/Teardown/Nexus+5+Teardown/19016&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;拆机评测&lt;/a&gt;，显示只要不换屏幕，Nexus 5 的维修难度是极易的。那么我们就开始拆机维修吧。&lt;/p&gt;
-&lt;p&gt;&amp;lt;img class=&amp;quot; aligncenter&amp;quot; src=&amp;quot;&lt;a href=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_3.jpg&amp;amp;quot&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://7u2lcg.com1.z0.glb.clouddn.com/974_3.jpg&amp;amp;quot&lt;/a&gt;; alt=&amp;quot;&amp;quot; width=&amp;quot;663&amp;quot; height=&amp;quot;441&amp;quot; /&amp;gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;我并没有用塑料片打开后盖，因为找不到那么薄的塑料片……于是我用吸盘吸起了一个卡扣，然后用指甲一点点打开了后盖。使用吸盘是一个非常好用的拆机技巧。用来拆一体式后盖设计的机器非常方便。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;让人非常高兴的是，Nexus 5 的 NFC 天线并没有使用“飞线”来连接，而是使用了一组弹簧触片。这使得打开后盖后安装回去不需要用电烙铁焊回去，还是比较方便的。&lt;/p&gt;
