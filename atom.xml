@@ -179,13 +179,13 @@
     
       <category term="Google" scheme="http://blog.heckpsi.com/tags/Google/"/>
     
+      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
+    
       <category term="AlphaGo" scheme="http://blog.heckpsi.com/tags/AlphaGo/"/>
     
       <category term="AI" scheme="http://blog.heckpsi.com/tags/AI/"/>
     
       <category term="机器学习" scheme="http://blog.heckpsi.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
     
   </entry>
   
@@ -463,9 +463,9 @@
     </summary>
     
     
-      <category term="算法" scheme="http://blog.heckpsi.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="算法" scheme="http://blog.heckpsi.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
