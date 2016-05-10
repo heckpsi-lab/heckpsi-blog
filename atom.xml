@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
-  <updated>2016-04-23T17:53:03.000Z</updated>
+  <updated>2016-05-03T18:36:55.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
   
   <author>
@@ -14,6 +14,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>名师出高徒 —— 中国流氓软件的前世今生</title>
+    <link href="http://blog.heckpsi.com/2016/05/04/chinese-rogue-software-history/"/>
+    <id>http://blog.heckpsi.com/2016/05/04/chinese-rogue-software-history/</id>
+    <published>2016-05-03T18:32:30.000Z</published>
+    <updated>2016-05-03T18:36:55.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>当今计算机教学的普遍问题</title>
@@ -179,13 +195,13 @@
     
       <category term="Google" scheme="http://blog.heckpsi.com/tags/Google/"/>
     
-      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
-    
       <category term="AlphaGo" scheme="http://blog.heckpsi.com/tags/AlphaGo/"/>
     
       <category term="AI" scheme="http://blog.heckpsi.com/tags/AI/"/>
     
       <category term="机器学习" scheme="http://blog.heckpsi.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
     
   </entry>
   
@@ -463,9 +479,9 @@
     </summary>
     
     
-      <category term="算法" scheme="http://blog.heckpsi.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="算法" scheme="http://blog.heckpsi.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -851,49 +867,6 @@
       <category term="Edge" scheme="http://blog.heckpsi.com/tags/Edge/"/>
     
       <category term="浏览器" scheme="http://blog.heckpsi.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数码相机是如何对各种颜色分别感光的？</title>
-    <link href="http://blog.heckpsi.com/2015/01/20/how-cmos-works/"/>
-    <id>http://blog.heckpsi.com/2015/01/20/how-cmos-works/</id>
-    <published>2015-01-20T05:55:08.000Z</published>
-    <updated>2016-04-22T02:56:21.000Z</updated>
-    
-    <content type="html">&lt;p&gt;说到数码相机，我们已经很不陌生这个名字了。它的核心是用图像传感器取代了胶片相机的胶片，而这种传感器，如今已经被应用于各种设备上，比如你的单反、微单、卡片机，甚至是手机上。&lt;/p&gt;
-&lt;p&gt;图像传感器的感光元件的原理也从 CCD 发展到了 CMOS。并且随着制造技术和工艺的提升，像素数量也逐渐提高。从最早的 1 万像素（柯达于 1975 年研制成功），到现在的800万、1300万、2400万、4100万、甚至有 6000万 (哈苏H5D-60) 有效感光像素。但是对于任何一个彩色发光/感光的东西而言，我们知道，是需要将像素分为更细腻的子像素——也就是红、绿、蓝三个单色的感光像素来考虑的。既然感光的原理和发光类似，只要将光线分离成单色的子像素，最后再合成成一个像素，我们很容易地拿屏幕作类比，数码相机的每一个像素都是由一个红、一个绿、一个蓝色子像素组成的。可是事实是这样的吗？&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;我们来考虑一下显示器发光和相机感光有没有什么其他的区别。我们常用的背光式液晶屏幕使用一整个统一亮度的白色光源，用液晶分子的旋光性和偏振片搭配来遮掉一部分光，从而控制透光率。每个红绿蓝的子像素的形状一般是可以自行选择的。一般是长方形的，这样三个长方形的子像素组成一个正方形的像素。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/889_LCD.jpg&quot; alt=&quot;传统的液晶屏幕工作原理&quot;&gt;&lt;/p&gt;
-&lt;p&gt;传统的液晶屏幕工作原理&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/889_RGB.png&quot; alt=&quot;常见的RGB子像素排列在放大镜下观察&quot;&gt;&lt;br&gt;（常见的RGB子像素排列在放大镜下观察）&lt;/p&gt;
-&lt;p&gt;然而各个颜色的感光元件的尺寸通常是不同的。这就带来了很大的问题。如果三个子像素拍成一个像素的话，这个像素是一样大小的长方形的，显然不符合实际要求。当然，我们可以拉大子像素的间距，使得它大致成一个正方形，不过这样的话，总的像素数就实在少得可怜。&lt;/p&gt;
-&lt;p&gt;这样的情况我们似乎在另一种屏幕上遇到过，就是在三星的旗舰手机上常见的OLED屏幕，因为LED灯光是一个个单独控制每个颜色的发光亮度的，这样就很像一个个颜色单独感光的感光元件。而且发不同光使用材料不同，尺寸也不同，如果硬是要RGB排列，并要达到相同的亮度一定会导致子像素的寿命缩短。不过，你还记得三星是怎么优化这项技术的吗？Pentile排列。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/889_Pentile.png&quot; alt=&quot;三星在Galaxy S3中最早引入了Pentile排列&quot;&gt;&lt;/p&gt;
-&lt;p&gt;（三星在Galaxy S3中最早引入了Pentile排列）&lt;br&gt;实际上，我们相机感光片的子像素分布采用了一种叫做拜耳阵列的方式进行排列。他是以现代彩色数码摄影的开创者，柯达的科学家Bryce Bayer的名字命名，而且这项技术比Pentile不知道早多少年了。相机的彩色数码感光元件自开始以来就是这么排列的。这种排列被称为拜耳阵列。一个阵列包含四个子像素红、绿、绿、蓝，组成一个正方形。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/889_Bayer.jpg&quot; alt=&quot;拜耳阵列示意图&quot;&gt;&lt;/p&gt;
-&lt;p&gt;（拜耳阵列示意图）&lt;br&gt;拍摄后利用差值算法，算出一张每个像素都是RGB的图。听起来很不错吧。不过，熟悉手机的朋友都知道Pentile排列有什么问题吗？边缘处理会出现有色边缘，同样像素下会给人很强的锯齿感。恩，拜耳阵列也有类似的问题，不过这问题叫做，摩尔纹。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/889_Mole.jpg&quot; alt=&quot;摩尔纹&quot;&gt;&lt;/p&gt;
-&lt;p&gt;（采用拜耳阵列的相机拍摄拥有重复纹理的西装时产生的摩尔纹）&lt;br&gt;在拍摄具有重复细节（如纺织品）的画面时，容易产生彩色干扰信息。该问题是由于其规则的分布方式而造成的。其具体表现为在画面中产生难看的色带，而解决该问题的方法是在传感器其安装一块会将画面细节模糊化的AA（或称低通）滤镜。不过，这块滤镜虽然消除了摩尔纹，但是这种细节模糊化的方式，同时也降低了相机分辨率。&lt;/p&gt;
-&lt;p&gt;当然，试图解决这样的问题的公司其实不少，给大家举两个例子，常见的比如富士的X-trans传感器。这块传感器的方案是，将2 x 2的阵列改成 6 x 6。，大大增加了子像素的无序性。由于摩尔纹从物理本质上说是波的干涉，那么无序性的增加，在运算过程中更不容易出现摩尔纹。这样确实大大避免了摩尔纹的产生，但是相应地，由于阵列单元的增加，单位面积下容纳的像素就变少了。目前搭载这款感光片的机器也是非常少的。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/889_Xtrans.jpg&quot; alt=&quot;X-Trans排列示例&quot;&gt;&lt;/p&gt;
-&lt;p&gt;（X-Trans排列示例）&lt;br&gt;而适马提出的Foveon X3感光片则更是解决得彻底，既然，我们所纠结的是一个平面无法将三个子像素排成正方形，那么我们就立体地解决。适马的X3感光片其实有三块，每一块只感应一种颜色，从平面上看，就是个正方形。以适马SD1为例，官方号称是4600万像素，其实是4600万子像素，实际照片是1500万像素的。由于从理论上完全杜绝了摩尔纹的存在，线条还原能力强，和同样1500万像素采用拜耳阵列的机器比起来细节上的表现简直令人感到恐怖。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/889_X3.jpg&quot; alt=&quot;Foveon X3&quot;&gt;&lt;/p&gt;
-&lt;p&gt;（Foveon X3工作原理）&lt;br&gt;不过，上面这两块感光片仍属于一种比较初级的研发阶段，各自存在一些奇奇怪怪的问题，而且产量也比饺小，价钱也是贵得可怕，短时间内几乎没有普及的可能性。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;说到数码相机，我们已经很不陌生这个名字了。它的核心是用图像传感器取代了胶片相机的胶片，而这种传感器，如今已经被应用于各种设备上，比如你的单反、微单、卡片机，甚至是手机上。&lt;/p&gt;
-&lt;p&gt;图像传感器的感光元件的原理也从 CCD 发展到了 CMOS。并且随着制造技术和工艺的提升，像素数量也逐渐提高。从最早的 1 万像素（柯达于 1975 年研制成功），到现在的800万、1300万、2400万、4100万、甚至有 6000万 (哈苏H5D-60) 有效感光像素。但是对于任何一个彩色发光/感光的东西而言，我们知道，是需要将像素分为更细腻的子像素——也就是红、绿、蓝三个单色的感光像素来考虑的。既然感光的原理和发光类似，只要将光线分离成单色的子像素，最后再合成成一个像素，我们很容易地拿屏幕作类比，数码相机的每一个像素都是由一个红、一个绿、一个蓝色子像素组成的。可是事实是这样的吗？&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
-    
-      <category term="影像" scheme="http://blog.heckpsi.com/tags/%E5%BD%B1%E5%83%8F/"/>
     
   </entry>
   
