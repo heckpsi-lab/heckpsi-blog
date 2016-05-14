@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
-  <updated>2016-05-14T09:44:44.000Z</updated>
+  <updated>2016-05-14T09:47:58.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://blog.heckpsi.com/2016/05/14/customized-machanical-keyboard/"/>
     <id>http://blog.heckpsi.com/2016/05/14/customized-machanical-keyboard/</id>
     <published>2016-05-14T08:31:15.000Z</published>
-    <updated>2016-05-14T09:44:44.000Z</updated>
+    <updated>2016-05-14T09:47:58.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;引&quot;&gt;&lt;a href=&quot;#引&quot; class=&quot;headerlink&quot; title=&quot;引&quot;&gt;&lt;/a&gt;引&lt;/h2&gt;&lt;p&gt;去年的时候就打算购买一款 60% 键盘以方便日常携带。时值开源哥在搞团购 Vim 布局的机械键盘的订购，就订了一把，结果由于一些原因，这单子被取消了。于是我就购买了一把 HHKB pro 2 静电容键盘。虽然说 HHKB 的键位设置和跳线的设计携带起来非常好，但是缺乏段落感的按键还是让人没有那种敲打起来的爽快感。于是我就打算客制化一把机械键盘来满足这个要求。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;硬件&quot;&gt;&lt;a href=&quot;#硬件&quot; class=&quot;headerlink&quot; title=&quot;硬件&quot;&gt;&lt;/a&gt;硬件&lt;/h2&gt;&lt;p&gt;如果要说 60% 的客制化套件的话，主要还是以 GH60 以及其延伸的一系列板子为主。开源哥之前推荐我使用 NerD60 的板子，可惜这块板子在国内并不容易买到。&lt;/p&gt;
 &lt;p&gt;轴体的选择使用了相对非常激进的 Cherry 绿轴，比起青轴，同样拥有二段式设计的绿轴的压力克数更高（clerk 声也更像），敲击感非常强，反馈非常明确，当然，对于害怕吵到其他人的话，这轴显然不是一个好选择。&lt;/p&gt;
 &lt;p&gt;键帽使用了三种颜色搭配的 PBT 无刻键帽，主要是因为现成的刻字键帽来说，显然是无法印刷修改非常严重的自定义按键的，而定制刻字的 PBT 键帽成本又太高，索性也就选择了无刻。&lt;/p&gt;
@@ -86,7 +87,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;引&quot;&gt;&lt;a href=&quot;#引&quot; class=&quot;headerlink&quot; title=&quot;引&quot;&gt;&lt;/a&gt;引&lt;/h2&gt;&lt;p&gt;去年的时候就打算购买一款 60% 键盘以方便日常携带。时值开源哥在搞团购 Vim 布局的机械键盘的订购，就订了一把，结果由于一些原因，这单子被取消了
+      &lt;h2 id=&quot;引&quot;&gt;&lt;a href=&quot;#引&quot; class=&quot;headerlink&quot; title=&quot;引&quot;&gt;&lt;/a&gt;引&lt;/h2&gt;&lt;p&gt;去年的时候就打算购买一款 60% 键盘以方便日常携带。时值开源哥在搞团购 Vim 布局的机械键盘的订购，就订了一把，结果由于一些原因，这单子被取消了。于是我就购买了一把 HHKB pro 2 静电容键盘。虽然说 HHKB 的键位设置和跳线的设计携带起来非常好，但是缺乏段落感的按键还是让人没有那种敲打起来的爽快感。于是我就打算客制化一把机械键盘来满足这个要求。&lt;/p&gt;
     
     </summary>
     
@@ -543,9 +544,9 @@
     </summary>
     
     
-      <category term="算法" scheme="http://blog.heckpsi.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="算法" scheme="http://blog.heckpsi.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
