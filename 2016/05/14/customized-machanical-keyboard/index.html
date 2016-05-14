@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="theme-color" content="#43bea2"><title> 一款祖传的机械键盘 · HeckPsi Blog</title><meta name="description" content="一款祖传的机械键盘 - 上海骇咕赛信息科技有限公司"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="http://heckpsi.com" target="_blank" class="nav-list-link">HOME</a></li><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/heckpsi" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/heckpsi-lab" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">一款祖传的机械键盘</h1><div class="post-info">2016年5月14日</div><div class="post-content"><h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>去年的时候就打算购买一款 60% 键盘以方便日常携带。时值开源哥在搞团购 Vim 布局的机械键盘的订购，就订了一把，结果由于一些原因，这单子被取消了。于是我就购买了一把 HHKB pro 2 静电容键盘。虽然说 HHKB 的键位设置和跳线的设计携带起来非常好，但是缺乏段落感的按键还是让人没有那种敲打起来的爽快感。于是我就打算客制化一把机械键盘来满足这个要求。</p>
+<h2 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h2><p>如果要说 60% 的客制化套件的话，主要还是以 GH60 以及其延伸的一系列板子为主。开源哥之前推荐我使用 NerD60 的板子，可惜这块板子在国内并不容易买到。</p>
+<p>轴体的选择使用了相对非常激进的 Cherry 绿轴，比起青轴，同样拥有二段式设计的绿轴的压力克数更高（clerk 声也更像），敲击感非常强，反馈非常明确，当然，对于害怕吵到其他人的话，这轴显然不是一个好选择。</p>
+<p>键帽使用了三种颜色搭配的 PBT 无刻键帽，主要是因为现成的刻字键帽来说，显然是无法印刷修改非常严重的自定义按键的，而定制刻字的 PBT 键帽成本又太高，索性也就选择了无刻。</p>
+<p>虽然阳极氧化铝的底座轻便又质感十足，通常是首选。不过既然作为一款码农世家祖传的键盘，最终选择了相对来说观感上更有冲击力的红花梨木底座。其余配置见下表：</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>选料</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主板</td>
+<td>GH60 (Rev.CHN)</td>
+</tr>
+<tr>
+<td>轴体</td>
+<td>Cherry 绿轴</td>
+</tr>
+<tr>
+<td>键帽</td>
+<td>PBT 无刻（红色、灰色、白色）</td>
+</tr>
+<tr>
+<td>LED</td>
+<td>白色</td>
+</tr>
+<tr>
+<td>定位板</td>
+<td>黑色阳极氧化铝上色</td>
+</tr>
+<tr>
+<td>底座</td>
+<td>红花梨木</td>
+</tr>
+<tr>
+<td>USB</td>
+<td>LINDY Mini-USB</td>
+</tr>
+</tbody>
+</table>
+<p>由于我这个烙铁苦手，就上淘宝找了一家常州的 <a href="https://yikewaishe.taobao.com/shop/view_shop.htm?user_number_id=134583372" target="_blank" rel="external">厂家</a>（并没有广告关系，也没有肮脏的交易），对方当天就组装完发货，第二天一大早竟然就送到了。于是拿到手后就进入了修改固件，修改键位的过程了。</p>
+<p>到手的货物长这样：</p>
+<p><img src="http://7u2lcg.com1.z0.glb.clouddn.com/keyboard-2.jpg" alt=""></p>
+<p><img src="http://7u2lcg.com1.z0.glb.clouddn.com/keyboard-1.jpg" alt=""></p>
+<h2 id="固件"><a href="#固件" class="headerlink" title="固件"></a>固件</h2><p>客制化键盘的一大好处就是客制化的按键配列，这一点在 60% 和 40% 的键盘上非常重要。我结合我之前 HHKB 的使用经验，我就大致设计了一个如下的配列：</p>
+<p><img src="http://7u2lcg.com1.z0.glb.clouddn.com/keyboard_5.png" alt=""></p>
+<p>（其中左前方的按键为 Fn 组合键，左右方的是 Fn1 组合键）</p>
+<p>然而客制化固件的刷入还有一些问题。首先这板子是 Rev.CHN 的，一上来刷入就失败了好几次。直到看到了大鹰的 <a href="https://bigeagle.me/2015/07/gh60/" target="_blank" rel="external">这篇文章</a>（没想到大鹰去年也参了开源哥的团，后来也从同一个卖家手里组装了键盘）。</p>
+<p>当然这之前我找到了一个简便的选择 <a href="http://www.enjoyclick.org/tkg/#help" target="_blank" rel="external">TKG Keypad Generator</a>，它能自动生成 avr 单片机的 eep 文件，理论上可以直接刷入。但是我刷入之后无法正常引导键盘，所以还是需要使用 <a href="https://github.com/kairyu/tmk_keyboard_custom" target="_blank" rel="external">tmk-keyboard-custom</a> 自己编译刷入（<code>git clone</code> 的时候切记加入 <code>recursive</code> 参数，因为核心模块以 <code>submodule</code> 的形式出现在这个 <code>repository</code> 中）。不过还是可以使用 TKG Keypad Generator 所生成的 c 语言代码，稍作修改进行编译即可。</p>
+<p>首先把生成的文件命名成 <code>keypad_xxx.c</code> 文件，<code>xxx</code> 为你配列自己的命名。不过直接刷入似乎会遇到一些编译问题，需要在文件后加入如下代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> KEYMAP_IN_EEPROM_ENABLE</span></span><br><span class="line"><span class="keyword">uint16_t</span> keys_count(<span class="keyword">void</span>) &#123;</span><br><span class="line">    return <span class="keyword">sizeof</span>(keymaps) / <span class="keyword">sizeof</span>(keymaps[<span class="number">0</span>]) * MATRIX_ROWS * MATRIX_COLS;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">uint16_t</span> fn_actions_count(<span class="keyword">void</span>) &#123;</span><br><span class="line">    return <span class="keyword">sizeof</span>(fn_actions) / <span class="keyword">sizeof</span>(fn_actions[<span class="number">0</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>然后按下键盘背后的 dfu 按钮，使用命令行指令刷入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make KEYPAD=xxx</span><br><span class="line">make KEYPAD=xxx dfu</span><br></pre></td></tr></table></figure>
+<p>刷入后拔掉 USB 线，按住 BackSpace + Space，插入线缆，3 秒后放掉按键刷新 EEPROM 后，新配列即可工作。</p>
+<p>然后我发现我设计的三个多媒体用途的键中，只有暂停键是可用的，上一首和下一首都不能正常工作，仔细研究后才发现 Mac 机器的上一首和下一首的 KeyCode 和 PC 略有区别，修改后重新编译了固件，按键都能正常工作了。</p>
+<h2 id="后"><a href="#后" class="headerlink" title="后"></a>后</h2><p>当然这块键盘有哪些不满意的地方呢，还是有的。一个问题是右上角的大按键如果拆成两个小按键，对于 <code>BackSpace</code> 和 <code>\</code> 的设计会变得方便更多，这个实在定位板的选择上出了一些问题。</p>
+<p>另一个就是白色的 LED 灯，哪怕是最低亮度也能轻易地透过白色的按键却无法透过别的按键，这使得这个灯的开启变成了一个比较尴尬的问题。</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/04/24/problems-of-it-textbooks-now/" class="next">下一篇</a></div><div data-thread-key="2016/05/14/customized-machanical-keyboard/" data-title="一款祖传的机械键盘" data-url="http://blog.heckpsi.com/2016/05/14/customized-machanical-keyboard/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"heckpsi-blog"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+
+</script><script src="http://7u2lcg.com1.z0.glb.clouddn.com/tw_cn.js"></script><div class="copyright"><p><a id="translateLink" href="javascript:translatePage();">轉換成繁體中文</a></p><script>var defaultEncoding = 2;var translateDelay = 0;
+var cookieDomain = "http://blog.heckpsi.com/";
+var msgToTraditionalChinese = "轉換成繁體中文";
+var msgToSimplifiedChinese = "转换成简体中文";
+var translateButtonId = "translateLink";
+translateInitilization();</script><p>© 2013 - 2016 <a href="http://blog.heckpsi.com">上海骇咕赛信息科技有限公司</a> | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">沪ICP备15046530号</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-61251352-2",'auto');ga('send','pageview');</script></body></html>
