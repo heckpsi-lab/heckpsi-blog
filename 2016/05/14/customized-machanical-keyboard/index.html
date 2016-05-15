@@ -44,10 +44,10 @@
 </table>
 <p>由于我这个烙铁苦手，就上淘宝找了一家常州的 <a href="https://yikewaishe.taobao.com/shop/view_shop.htm?user_number_id=134583372" target="_blank" rel="external">厂家</a>（并没有广告关系，也没有肮脏的交易），对方当天就组装完发货，第二天一大早竟然就送到了。于是拿到手后就进入了修改固件，修改键位的过程了。</p>
 <p>到手的货物长这样：</p>
-<p><img src="http://7u2lcg.com1.z0.glb.clouddn.com/keyboard-2.jpg" alt=""></p>
-<p><img src="http://7u2lcg.com1.z0.glb.clouddn.com/keyboard-1.jpg" alt=""></p>
+<p><img src="http://cdn.heckpsi.com/keyboard-2.jpg" alt=""></p>
+<p><img src="http://cdn.heckpsi.com/keyboard-1.jpg" alt=""></p>
 <h2 id="固件"><a href="#固件" class="headerlink" title="固件"></a>固件</h2><p>客制化键盘的一大好处就是客制化的按键配列，这一点在 60% 和 40% 的键盘上非常重要。我结合我之前 HHKB 的使用经验，我就大致设计了一个如下的配列：</p>
-<p><img src="http://7u2lcg.com1.z0.glb.clouddn.com/keyboard_5.png" alt=""></p>
+<p><img src="http://cdn.heckpsi.com/keyboard_5.png" alt=""></p>
 <p>（其中左前方的按键为 Fn 组合键，右前方的是 Fn1 组合键）</p>
 <p>然而客制化固件的刷入还有一些问题。首先这板子是 Rev.CHN 的，一上来刷入就失败了好几次。直到看到了大鹰的 <a href="https://bigeagle.me/2015/07/gh60/" target="_blank" rel="external">这篇文章</a>（没想到大鹰去年也参了开源哥的团，后来也从同一个卖家手里组装了键盘）。</p>
 <p>当然这之前我找到了一个简便的选择 <a href="http://www.enjoyclick.org/tkg/#help" target="_blank" rel="external">TKG Keypad Generator</a>，它能自动生成 avr 单片机的 eep 文件，理论上可以直接刷入。但是我刷入之后无法正常引导键盘，所以还是需要使用 <a href="https://github.com/kairyu/tmk_keyboard_custom" target="_blank" rel="external">tmk-keyboard-custom</a> 自己编译刷入（<code>git clone</code> 的时候切记加入 <code>recursive</code> 参数，因为核心模块以 <code>submodule</code> 的形式出现在这个 <code>repository</code> 中）。不过还是可以使用 TKG Keypad Generator 所生成的 c 语言代码，稍作修改进行编译即可。</p>

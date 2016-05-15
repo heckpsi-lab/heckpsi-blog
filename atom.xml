@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
-  <updated>2016-05-14T09:55:37.000Z</updated>
+  <updated>2016-05-15T03:20:12.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.heckpsi.com/2016/05/14/customized-machanical-keyboard/"/>
     <id>http://blog.heckpsi.com/2016/05/14/customized-machanical-keyboard/</id>
     <published>2016-05-14T08:31:15.000Z</published>
-    <updated>2016-05-14T09:55:37.000Z</updated>
+    <updated>2016-05-15T03:20:12.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;引&quot;&gt;&lt;a href=&quot;#引&quot; class=&quot;headerlink&quot; title=&quot;引&quot;&gt;&lt;/a&gt;引&lt;/h2&gt;&lt;p&gt;去年的时候就打算购买一款 60% 键盘以方便日常携带。时值开源哥在搞团购 Vim 布局的机械键盘的订购，就订了一把，结果由于一些原因，这单子被取消了。于是我就购买了一把 HHKB pro 2 静电容键盘。虽然说 HHKB 的键位设置和跳线的设计携带起来非常好，但是缺乏段落感的按键还是让人没有那种敲打起来的爽快感。于是我就打算客制化一把机械键盘来满足这个要求。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -68,10 +68,10 @@
 &lt;/table&gt;
 &lt;p&gt;由于我这个烙铁苦手，就上淘宝找了一家常州的 &lt;a href=&quot;https://yikewaishe.taobao.com/shop/view_shop.htm?user_number_id=134583372&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;厂家&lt;/a&gt;（并没有广告关系，也没有肮脏的交易），对方当天就组装完发货，第二天一大早竟然就送到了。于是拿到手后就进入了修改固件，修改键位的过程了。&lt;/p&gt;
 &lt;p&gt;到手的货物长这样：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/keyboard-2.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/keyboard-1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/keyboard-2.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/keyboard-1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;固件&quot;&gt;&lt;a href=&quot;#固件&quot; class=&quot;headerlink&quot; title=&quot;固件&quot;&gt;&lt;/a&gt;固件&lt;/h2&gt;&lt;p&gt;客制化键盘的一大好处就是客制化的按键配列，这一点在 60% 和 40% 的键盘上非常重要。我结合我之前 HHKB 的使用经验，我就大致设计了一个如下的配列：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/keyboard_5.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/keyboard_5.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;（其中左前方的按键为 Fn 组合键，右前方的是 Fn1 组合键）&lt;/p&gt;
 &lt;p&gt;然而客制化固件的刷入还有一些问题。首先这板子是 Rev.CHN 的，一上来刷入就失败了好几次。直到看到了大鹰的 &lt;a href=&quot;https://bigeagle.me/2015/07/gh60/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;（没想到大鹰去年也参了开源哥的团，后来也从同一个卖家手里组装了键盘）。&lt;/p&gt;
 &lt;p&gt;当然这之前我找到了一个简便的选择 &lt;a href=&quot;http://www.enjoyclick.org/tkg/#help&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;TKG Keypad Generator&lt;/a&gt;，它能自动生成 avr 单片机的 eep 文件，理论上可以直接刷入。但是我刷入之后无法正常引导键盘，所以还是需要使用 &lt;a href=&quot;https://github.com/kairyu/tmk_keyboard_custom&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tmk-keyboard-custom&lt;/a&gt; 自己编译刷入（&lt;code&gt;git clone&lt;/code&gt; 的时候切记加入 &lt;code&gt;recursive&lt;/code&gt; 参数，因为核心模块以 &lt;code&gt;submodule&lt;/code&gt; 的形式出现在这个 &lt;code&gt;repository&lt;/code&gt; 中）。不过还是可以使用 TKG Keypad Generator 所生成的 c 语言代码，稍作修改进行编译即可。&lt;/p&gt;
@@ -544,9 +544,9 @@
     </summary>
     
     
-      <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="算法" scheme="http://blog.heckpsi.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -598,7 +598,7 @@
     <link href="http://blog.heckpsi.com/2015/04/02/danger-of-hybrid-apps/"/>
     <id>http://blog.heckpsi.com/2015/04/02/danger-of-hybrid-apps/</id>
     <published>2015-04-02T05:18:38.000Z</published>
-    <updated>2016-04-22T06:42:17.000Z</updated>
+    <updated>2016-05-15T03:20:12.000Z</updated>
     
     <content type="html">&lt;p&gt;随着 HTML 5 的标准的提出、响应式布局的成熟、许多针对移动优化的网页架构的开源项目的推出，手机浏览器能做的已经远不是以前可以想象的了，它几乎可以做任何事情。所以许多概念认为手机上的浏览器应该起到主要作用，Web App 在手机上的一个用这几年成为了一个热点。Ubuntu Mobile 的手机 ROM 更是以 Web App 作为主要功能，也让人体验到了这种想法的可能性。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -610,7 +610,7 @@
 &lt;p&gt;但是实际问题是，什么时候传呢？&lt;/p&gt;
 &lt;p&gt;我们继续以昨天人人网的漏洞为例，由于人人在聊天时也可以调用 WebView 来打开第三方的链接，所以就使得传输这个参数成为一个比较难的问题。如果打开第三方链接的时候也把参数传递进去，显然地，我们可以通过伪造一个链接来抓取这个 Cookie 使得 user - token 泄露，实现对用户权限的全部控制，所以是绝对不可取的。所以人人采取的方法是 —— 不传 token。&lt;/p&gt;
 &lt;p&gt;不传 token 带来的问题叫做 “死无对证”，用户的ID是可以随便并且非常轻易的伪造的。尤其是当人人今天愚人节活动页面最后会发送一条可编辑的消息到用户网页上时，通过伪造 user 可以对所有用户进行操作，造成了重大安全漏洞的爆发。而且更糟糕的是，传递参数这事是在客户端完成的，如果不更新客户端，就永远不会多传一个参数进来，出了问题也无法及时解决。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/1009_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/1009_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;（通过绕过 token 可以任意账号发布信息）&lt;/p&gt;
 &lt;p&gt;而这一问题同样存在于许多混合应用之中，不过是他们对待 token 的传递处理方式不同，问题的细节上各有差别。那么，我们也可以来思考一下，假如你是人人网的程序员，同时，你也知道不传 token 和见谁都传 token 都是不对的（其实许多应用都是栽在这前两个问题上）。现在要修复这一问题，你会如何重新选择你何时传递 token 参数这一问题呢？&lt;/p&gt;
 &lt;p&gt;一、当访问的网址以 &lt;a href=&quot;http://www.renren.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.renren.com&lt;/a&gt; 开始时，将参数传入。&lt;/p&gt;
@@ -644,27 +644,27 @@
     <link href="http://blog.heckpsi.com/2015/03/29/why-material-design-pushes-difficult-in-china/"/>
     <id>http://blog.heckpsi.com/2015/03/29/why-material-design-pushes-difficult-in-china/</id>
     <published>2015-03-29T04:51:12.000Z</published>
-    <updated>2016-04-23T12:41:43.000Z</updated>
+    <updated>2016-05-15T03:20:12.000Z</updated>
     
     <content type="html">&lt;p&gt;这个问题其实是相当复杂的。从 Google 的发布会提出 Material Design 的设计规范以来，许多人都为 Material Design 所惊艳到。但事实上，大多数应用都无法很好及时跟进这一设计标准。这一点，尤其是在国内，显得更为的突出。我自己实践 Material Design 也有了一段时间，我觉得至少有三点原因。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;一、Material-Design-设计语言非常复杂，学习成本高，实现难度大。&quot;&gt;&lt;a href=&quot;#一、Material-Design-设计语言非常复杂，学习成本高，实现难度大。&quot; class=&quot;headerlink&quot; title=&quot;一、Material Design 设计语言非常复杂，学习成本高，实现难度大。&quot;&gt;&lt;/a&gt;一、Material Design 设计语言非常复杂，学习成本高，实现难度大。&lt;/h3&gt;&lt;p&gt;于 Material Design 复杂的设计语言相比，我敢说，学习难度比你跟进 iOS 的平面化的开发标准要困难十倍以上。Material Design 并不是使用 Google 提供的这些控件、图片设计出来的东西就是 Material Design 了。Material Design 的核心是一个高度抽象化的设计逻辑是对真实事物的逻辑层面的模拟，比起 iOS 以前那种单纯视觉上的拟物比起来，这是一种非常高层次的拟物概念，理解起来确实比较费事。&lt;/p&gt;
 &lt;p&gt;举个例子来说，&lt;br&gt;当你有一个如同这样的页面布局。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/1003_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/1003_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;这样的页面布局下，当用户手指从下向上滚动屏幕的时候，我们先想象一下，这个布局应该如何跟随调整？通常情况下，我们会选择整页内容一起向上滚动。但实际上，这种方法并不是很正确。&lt;/p&gt;
 &lt;p&gt;我们仔细观察这个布局，去掉状态栏，这个页面也有五个不同的“色块”组成的独立元素。他们分别是 用来选择操作的顶栏Toolbar，然后是 Featured Image，然后是 Topic，下方的 Detail，和一个标记状态的 Button。&lt;/p&gt;
 &lt;p&gt;然后我们把这五个东西想象成五张真实存在的纸片，他们堆叠在一起。&lt;/p&gt;
 &lt;p&gt;当你移动下面的 Detail 页的时候，其他元素其实应该有着不同的相对运动才对，而不是整体上移。比如 Featured Image 不动，下面的纸片从它上方运动覆盖移动过去，而推到顶时，Topic 页可以成为这页的标题，而下方的 Detail 也继续移动。这个设计来自于 Google I/O 2014 App 的设计。（此应用源代码可以到 &lt;a href=&quot;https://github.com/romainguy/google-io-2014&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt; 下载&lt;/p&gt;
 &lt;p&gt;这样的设计逻辑并不是来自于哪个现成的模板，而是针对你应用的不同布局不同考虑的，甚至是像素级的细节考虑，对设计者的要求很高，对程序实现的要求同样也很高。这是 Material Design 中许多细腻的 “激动人心的细节” 背后深藏的设计逻辑。更何况，我只能说，我举的这个例子也是 Material Design 复杂语言的一个很小的部分而已。&lt;/p&gt;
 &lt;p&gt;Material Design 的设备兼容性是比较差的，当然比起当年 Holo 设计在 Android 2.x 上的完全不兼容不同，Material Design 是可以做到 4.x 的半兼容的。所谓半兼容，指的是使用 Google 提供的控件和兼容包，可以基本显示。但是比如状态栏的颜色的设置、各个控件的 elevation 阴影、selectableBackground 的按钮响应动画都会失效。&lt;/p&gt;
-&lt;h3 id=&quot;二、Material-Design-的设备兼容性不够好。&quot;&gt;&lt;a href=&quot;#二、Material-Design-的设备兼容性不够好。&quot; class=&quot;headerlink&quot; title=&quot;二、Material Design 的设备兼容性不够好。&quot;&gt;&lt;/a&gt;二、Material Design 的设备兼容性不够好。&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/1003_3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;二、Material-Design-的设备兼容性不够好。&quot;&gt;&lt;a href=&quot;#二、Material-Design-的设备兼容性不够好。&quot; class=&quot;headerlink&quot; title=&quot;二、Material Design 的设备兼容性不够好。&quot;&gt;&lt;/a&gt;二、Material Design 的设备兼容性不够好。&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/1003_3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;（如上图这样的 Elevation 效果，在 Android 4.x 上会被直接“压扁”显示）&lt;/p&gt;
 &lt;p&gt;而与 Android 2.x 更是完全不兼容了。开发者即使愿意忍痛让 4.x 用户看一个不完整的设计，也不能满足 2.x 用户的兼容需求。&lt;/p&gt;
 &lt;p&gt;虽然这种苛刻的兼容需求对于大多数应用来说都不是很有关系，但是比如像 QQ（最低兼容至 Android 1.6）、微信（最低兼容至 Android 2.2）这样的应用，他们的市场的广度迫使他们不能尝试这样的事情，毕竟在中国，使用 Android 2.x 的手机的用户依然还是有相当一部分的。&lt;/p&gt;
 &lt;p&gt;在这样的背景下，Material Design 在 QQ、微信、淘宝 这样的应用上，短时间是不可能实现的。他们处于兼容性的考量，需要使用系统最基础的控件以及利用这些控件组合的自定义控件，而不能去使用高版本才拥有的特性。这样的应用又卡、又慢、又丑也是有一定客观原因的。&lt;/p&gt;
 &lt;h3 id=&quot;三、Material-Design-的一些其他劣势。&quot;&gt;&lt;a href=&quot;#三、Material-Design-的一些其他劣势。&quot; class=&quot;headerlink&quot; title=&quot;三、Material Design 的一些其他劣势。&quot;&gt;&lt;/a&gt;三、Material Design 的一些其他劣势。&lt;/h3&gt;&lt;p&gt;当然上述的两点原因并不是一些大厂商不使用 Material Design，宁可用自己设计的极丑无比的界面的唯一原因。还有一些细碎的原因，也是左右这个设计普及受阻的砝码。比如像阿里、腾讯、百度这样的企业，他们并不是设计驱动的，而是商业驱动的。如果跟进 Material Design，势必会影响他们的一些商业利益。&lt;/p&gt;
 &lt;p&gt;比如说，页面的逻辑会受到牵制，他们再也无法放一些活动、广告的按钮放在用户最易点击的地方，颜色也不能总是整片整片的大红大绿。一些页面的访问频次会随着逻辑层级变深而降低。这也是当时 微信 5.2 测试版刚开始试图 Holo 化又叫停的重要原因。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/1003_4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/1003_4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;（微信 5.2 内测版截图，图源网络）&lt;br&gt;更有一些想法是希望 Android 和 iOS 能拥有一样的 UI，使得用户降低学习成本，更快上手，更好赚钱。所以在 Android 上出现底栏两层皮、三层皮什么的就是出于这样的想法。&lt;/p&gt;
 &lt;p&gt;在目前中国市场上，用户对设计的品味还处于一个比较初级的阶段，对设计几乎没有要求。而你就算有要求，你为了使用应用也愿意去做这样的妥协。开发者做跟进花费的代价远小于他们的收益。恐怕这是许多公司宁可设计一套奇丑无比的 UI，也不愿意跟进 Material Design 的核心原因。&lt;/p&gt;
 </content>
@@ -753,33 +753,33 @@
     <link href="http://blog.heckpsi.com/2015/02/25/fix-nexus-5-lens/"/>
     <id>http://blog.heckpsi.com/2015/02/25/fix-nexus-5-lens/</id>
     <published>2015-02-25T10:16:02.000Z</published>
-    <updated>2016-04-23T13:45:52.000Z</updated>
+    <updated>2016-05-15T03:20:12.000Z</updated>
     
     <content type="html">&lt;p&gt;手上这台Nexus 5已经用了快要一年的时间了。大概三个月起摄像头画质出现了非常严重的问题。记得以前我们都说一个笑话：“Nexus 4的摄像头，哈哈哈哈哈哈哈哈”。 可是Nexus 5的摄像头还成啊，怎么突然画质变得这么糟糕呢。而且不是一般地糟糕，糟糕到几乎不能看的水平。我给大家上个图，大家感受一下。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/974_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;就算是前置摄像头也拍不成这雾蒙蒙的一片啊！对比度和锐度严重下降，画面糊成一团。如果画面内有光源，光源甚至还能拉出好几条线出来。一开始还没注意，越用越不对劲。显然不是软件上的问题，这一定是摄像头哪里出了事啊！&lt;/p&gt;
 &lt;p&gt;于是默默看了一眼摄像头，保护玻璃上全部都是灰！理论上像这种一体式的手机进灰比起以前可开后盖的难度高了不少，进一两粒也可以理解，也不会影响画质，但是这大片大片的进灰就不对了。我打开闪光灯给大家看一下进灰有多严重。。。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_2.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/974_2.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;显然地，为了正常使用这块摄像头，必须要进行灰尘清理了。据之前 iFixit 做的 &lt;a href=&quot;https://www.ifixit.com/Teardown/Nexus+5+Teardown/19016&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;拆机评测&lt;/a&gt;，显示只要不换屏幕，Nexus 5 的维修难度是极易的。那么我们就开始拆机维修吧。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/974_3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;我并没有用塑料片打开后盖，因为找不到那么薄的塑料片……于是我用吸盘吸起了一个卡扣，然后用指甲一点点打开了后盖。使用吸盘是一个非常好用的拆机技巧。用来拆一体式后盖设计的机器非常方便。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/974_4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;让人非常高兴的是，Nexus 5 的 NFC 天线并没有使用“飞线”来连接，而是使用了一组弹簧触片。这使得打开后盖后安装回去不需要用电烙铁焊回去，还是比较方便的。&lt;/p&gt;
 &lt;p&gt;之前有人说用电吹风热档可以加热保护玻璃膨胀，然后直接从里面顶出来。答案是：不可以。事实上这样操作加热到 70°C 左右的时候玻璃依然不会掉出来，再加热上去可能会损坏其它元件，还是别这么干了。&lt;/p&gt;
 &lt;p&gt;打开后盖后发现了，Nexus 5的保护玻璃并没有安装在后盖上，并不像 锤子 T1 那样后盖一开摄像元件就暴露在外面。同时，Nexus 5 的保护玻璃也没有单独安装在摄像元件的周围那么复杂。实际上保护玻璃是和散热中间件连在了一起，所以要想把保护玻璃取下，需要拆掉上半部分的中间件。&lt;/p&gt;
 &lt;p&gt;不过这时候出现了一个问题，中间件是被一个 Y字螺丝 固定住的，而并不像下方扬声器是用 十字螺丝 固定的。我手上没有Y字螺丝刀，显然拆起来还挺费劲。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_5.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/974_5.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;不过发现我手上最小的 一字螺丝刀 正好能卡住这个 Y字螺丝的一条边，但转起来还是比较容易滑牙。一个比较方便的方法是按紧螺丝刀，然后旋转手机，就可以慢慢把螺丝卸下来。6个螺丝中有三个非常紧，而另外三个却很好拆，不知道是出于什么目的还是装配的问题弄成这样的。&lt;/p&gt;
 &lt;p&gt;拆下所有螺丝后，用螺丝刀伸到中间件的背后，往外轻轻撬动，把卡扣撬开，中间件就连着保护玻璃一起下来了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_6.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/974_6.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;拆下后用 气吹 分别清理摄像头元件上的细灰尘和表面玻璃背后的灰尘。清理完毕后安装回去。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_7.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_8.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/974_7.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/974_8.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;清理完后表面只能看到一些玻璃的划痕了，毕竟 Nexus 5 摄像头凸在外面，划痕不可避。把螺丝拧上背盖安装上开机完工。&lt;/p&gt;
 &lt;p&gt;最后我们来看看清理灰尘前后拍出照片的对比吧。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_9.jpg&quot; alt=&quot;&quot;&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/974_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/974_9.jpg&quot; alt=&quot;&quot;&gt; &lt;/p&gt;
 &lt;p&gt;画质简直感人 QuQ&lt;/p&gt;
 &lt;p&gt;至此，Nexus 5的摄像头恢复了正常的使用。Nexus 5的拆解还是比较容易的，但是这种易拆解的结构也确实导致了灰尘很容易进入，如果有遇到类似问题的同学，也不妨动动手，把这不能忍受的问题解决了吧。&lt;/p&gt;
 </content>
@@ -787,7 +787,7 @@
     <summary type="html">
     
       &lt;p&gt;手上这台Nexus 5已经用了快要一年的时间了。大概三个月起摄像头画质出现了非常严重的问题。记得以前我们都说一个笑话：“Nexus 4的摄像头，哈哈哈哈哈哈哈哈”。 可是Nexus 5的摄像头还成啊，怎么突然画质变得这么糟糕呢。而且不是一般地糟糕，糟糕到几乎不能看的水平。我给大家上个图，大家感受一下。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/974_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/974_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -805,11 +805,11 @@
     <link href="http://blog.heckpsi.com/2015/02/21/how-to-test-a-font/"/>
     <id>http://blog.heckpsi.com/2015/02/21/how-to-test-a-font/</id>
     <published>2015-02-21T08:38:54.000Z</published>
-    <updated>2016-04-21T16:59:45.000Z</updated>
+    <updated>2016-05-15T03:20:12.000Z</updated>
     
     <content type="html">&lt;p&gt;许多使用Ubuntu操作系统的用户都会惊讶于Ubuntu打开一个字体文件的时候用于测试字体而显示的文字：&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;我能吞下玻璃而不伤身体。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/961_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/961_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;为什么是用这样一句句子来测试字体呢？&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;这需要联系到一个由哈佛大学学生 Ethan Mollick 创建的一个语言学项目。叫做 &lt;a href=&quot;http://en.wikipedia.org/wiki/I_Can_Eat_Glass&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;I Can Eat Glass&lt;/a&gt;。根据 Ethan Mollick 的解释，他希望让一个人到一个陌生的国家后说出某句简单易学的话，但能让别人感觉他是这个语言的母语者，从而能更尊重地对待他。这句话要有这种神奇的吓唬人的力量，几经思考之后他们选择了 “I can eat glass, but it does not hurt me.” 这句句子。（虽然我完全没有办法理解为什么这句话有这样的作用）他们将这句话翻译成了许多种语言，并制作成了网页。非常糟糕的是，这些网页在今年已经无法正常访问，好在一些好心人制作了这一网站的 &lt;a href=&quot;http://reocities.com/nodotus/hbglass.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;镜像&lt;/a&gt;。&lt;/p&gt;
@@ -822,10 +822,10 @@
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;The quick brown fox jumps over the lazy dog.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;上面这句话使用了全部的26个字母（但并不包含每个大小写）。这样的句子基本上测试了西文字体在显示英文的主要效果。但是对于中文、日文、韩文这些非字母化的重灾区，几个字可能是很难测试好一个字体的。可能你能从中看出是衬线字体还是非衬线字体、宋体还是黑体，但对于其它很多问题并不能很好的测试到。比如对于常见的偏旁部首是怎么设计的、字体覆盖多少汉字、标点符号等宽还是不等宽之类的问题几个字是比较难测试的。靠一句“我能吞下玻璃而不伤身体。”几乎是没什么用的。而 Windows 的“中国智造，慧及全球”就更扯了，完全不能理解这句话能测试出什么东西出来。&lt;/p&gt;
 &lt;p&gt;Mac OS X 字体册在测试日文的时候非常巧妙。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/961_3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/961_3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;测试了假名、汉字、标点符号、复杂汉字的显示效果。选用的是日本诗人 宮沢賢治 的 &lt;a href=&quot;http://www.aozora.gr.jp/cards/000081/files/1935_19925.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《ポラーノの広場》&lt;/a&gt; 的一节。不但用了一个短小的文字，而且测试了实际使用中的大多数字形的问题，可以说是解决地非常巧妙。&lt;/p&gt;
 &lt;p&gt;然而对于中文的字体测试显得就差了很多。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/961_2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/961_2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;选择的几个字比起 Windows 和 Ubuntu 测试了更多的偏旁部首的显示，这点虽然更好一点，但堆砌了这样一堆没有意义的文字也不很能理解是出于什么样的目的。更重要的是，竟然没有测试标点符号，反而测试了一些奇奇怪怪的中文序号。这一点不但解决地不如日文测试时那么巧妙，甚至连功能都是不够完整的。不过 Mac OS X 在测试字体是支持“自定”测试，可以输入自己需要测试的内容保存下来，还是满足了功能上的需求。&lt;/p&gt;
 &lt;p&gt;其实比较下来，Ubuntu 的字体测试是最为通用的测试，能覆盖UTF-8编码下各种语言的测试，但是对于每种语言的测试却是不足够的。Mac OS X 确实对于设计者最为友好，但在中文测试的时候还是不够全面优秀。至于 Windows 嘛……&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;微软唯一的问题是没品位，他们根本的绝对的没品位。——史蒂夫·乔布斯&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -836,7 +836,7 @@
     
       &lt;p&gt;许多使用Ubuntu操作系统的用户都会惊讶于Ubuntu打开一个字体文件的时候用于测试字体而显示的文字：&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;我能吞下玻璃而不伤身体。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/961_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/961_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;为什么是用这样一句句子来测试字体呢？&lt;/p&gt;
     
     </summary>
@@ -853,24 +853,24 @@
     <link href="http://blog.heckpsi.com/2015/01/28/things-about-dpi/"/>
     <id>http://blog.heckpsi.com/2015/01/28/things-about-dpi/</id>
     <published>2015-01-28T10:19:23.000Z</published>
-    <updated>2016-04-22T03:04:41.000Z</updated>
+    <updated>2016-05-15T03:20:12.000Z</updated>
     
     <content type="html">&lt;p&gt;为什么这个软件在其他电脑上运行时很正常，而到我电脑上的界面/字体/图片会显示得很小？这个问题，大概是在13年前第一次被人问及。第一次被问到这个问题的时候是感觉别人的电脑玩 Windows 98 自带的纸牌竟是撑满整个屏幕的，而在这台电脑上却空出了很大的空间，即使是最大化这个窗口，显示的牌的大小也很小。而最近更多的则是一些软件，比如旧版本的 Photoshop 之类图标小得根本没法点究竟是什么原因？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/928_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/928_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;当然，其实这些问题从原理上来说是殊途同归，同一个问题。而且这个问题是历史遗留问题，这一遗留，已经留了 28 年了。1987 年的一个晚上，IBM 的工程师制定了一种叫做VGA (Video Graphics Array) 的视频传输标准。这是一种模拟信号的传输标准，旨在创造一种统一的视频传输的方式。这个标准下包括了我们目前也依然在使用的 D-Sub 接口（也就是俗称的 VGA 接口），一套通讯的协议，以及当时制定的最基础的视频制式和它的分辨率：640×480。这个标准被广泛应用，以至于当时计算机最常用的分辨率都是 640×480。&lt;/p&gt;
 &lt;p&gt;Windows 95 的设计当时默认了一个前提，那就是 PC 使用的是640×480的分辨率，这当时看来似乎没有太大的问题。那么既然大家分辨率差不多，那屏幕尺寸的大小相当于等大地“放大”或“缩小”屏幕上的东西。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/928_2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/928_2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;为了方便理解这个概念。我们需要进一步阐释一下分辨率的概念。分辨率指屏幕上显示多少个“点”。比如 640×480 值得就是屏幕上每一行显示 640 个点，而一共显示 480 行。如果这个屏幕比较大，那么这个“点”会变得更大一些，以使得总的显示的点数要维持在 640×480 这个数字上以符合标准。虽然显然地，这个点的尺寸越小，屏幕能显示的东西越细腻，显示的效果会越好。但是标准的制定者似乎也想到另一个观点，屏幕的尺寸越大，大家观看屏幕的距离也会变远，那么大屏幕的“点”稍微大一点也不成什么问题。&lt;/p&gt;
 &lt;p&gt;所有的设计都是基于这个前提上进行的。所以 Windows 的所有窗口程序都是基于“像素”，也就是“点”的数量这一概念。所有的程序只需要告诉系统，我的窗口是 300×200 大小的，在任何屏幕上显示都会是大约占屏幕1/4的地方，毫无问题。&lt;/p&gt;
 &lt;p&gt;但是实际上，屏幕的发展却像另外一个方向行进了。640×480 的分辨率做成的 15 或者 17 寸屏幕，人坐在一个合理的距离时，屏幕上面的点并没有小到肉眼不可辨啊，再加上 D-Sub 接口也完全兼容更高的分辨率，这么看来，显示完全可以向更细腻的方向发展。不久后市面上也出现了被称为 Super VGA（800×600）分辨率的屏幕，并且微软很快为 Windows 95 推出了SVGA的驱动程序，使之显示更为细腻。&lt;/p&gt;
 &lt;p&gt;但是这时候就出现了一个问题，原先我定义窗口大小是 640×480 的话能撑满屏幕，而现在却撑不满了。但是实际想想 800×600 虽然比 640×480 大，但却没大多少，对体验的影响并不大，所以没有引起很大的重视。但是后来推出了 XVGA 的屏幕，也就是 1024×768 的分辨率。但是此时其实也没大多少，再加上 640×480 已经基本淘汰，开发者以 800×600 和 1024×768 为标准就可以了。这个时候大概是 Windows XP 开始盛行的时代。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/928_3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/928_3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;各大系统厂商在这几年里开始慢慢发现问题的严重性， 1024×768 慢慢变成了过去时，尤其是越来越多的宽屏分辨率的出现，连 4:3 的比例都不是了，屏幕分辨率多得越来越离奇了，1920×1080 的全高清更是比 640×480 不知道大到哪里去了。所以大家似乎都意识到，光靠基于像素的界面再下去，在不同显示器上的显示效果会很糟糕，于是都推出了不同的方案。&lt;/p&gt;
 &lt;p&gt;比如苹果的 Mac OS X 10.4 Tiger（2005年4月29日上市）就把整个设计模式都进行了质的变化，XCode 2.0 中采用了全新的视觉模型。视觉是完全基于DPI（即每一英寸有多少个像素点）这样一个比例值为基础来设计的。这一关系更是在之后每一代的 OS X 中得到了强化。但是这种翻天覆地的变化带来一个很不好的结果就是：很差的向后兼容性。这意味着为旧版本 Mac OS X 设计的程序很可能不能在新版本的系统上运行。这一点来说非常糟糕。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/928_4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/928_4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;尤其是 Windows 这样面对着大量商业用户的操作系统而言，绝对不能这样做。但是，分辨率的问题也要解决。虽然 XP 下也能调节 DPI 来放大或缩小，但是那种放大镜式的调节，显示效果只能用恶心来形容。于是微软在 Windows Vista 上也试图在保证可运行旧程序这一兼容性要求下引入可变化的DPI模式。这个功能无需原有的软件做任何更改，完全是系统级别的放大和缩小的处理。听起来似乎很有道理，但是依然有两点问题。第一、这个功能藏得深得根本找不到，也没有明确的引导。第二、有些应用的显示尤其是字体的显示会直接错位，这点体验很糟糕。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/928_5.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/928_5.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;到了 Windows 7 再到 Windows 8 之后，微软不断地完善了这一项功能，至少它现在基本能用了，也成为了一个默认功能。当你的屏幕尺寸比饺小而分辨率很高时，安装完系统就会默认调高你的 DPI 值以获得更好的显示效果，而不会是基于简单的像素把内容显示在很小一坨。但是，这一功能的兼容性，还是有限的。对于一些完完全全基于像素写的旧软件，如果系统强制放大了内容，可能会导致错位，就像在 Windows Vista 上那样，而如今微软选择，彻底不去动它们。于是，就会有各位在高分屏上安装个 Photoshop 7.0 出现了各种小的可怜的图标，以及其它一些旧程序的显示问题。&lt;/p&gt;
 &lt;p&gt;当然，微软这么做也是实在出于无奈。Windows 的应用范围如此之广，从地铁的闸机到银行的 ATM 机，从电子广告屏到你手中的 PC，都可能是 Windows。如果搞一个像苹果那样的大清洗，估计大家都没有兴趣升级新系统了，这卖不掉可才会变成更大的问题。进退两难之中，又要做好基于dpi的显示功能，又要做好对之前程序的兼容，也许对于旧程序，能运行和使用，但显示效果不是很好也算是一个权宜之策、无奈之举吧。&lt;/p&gt;
 </content>
@@ -878,7 +878,7 @@
     <summary type="html">
     
       &lt;p&gt;为什么这个软件在其他电脑上运行时很正常，而到我电脑上的界面/字体/图片会显示得很小？这个问题，大概是在13年前第一次被人问及。第一次被问到这个问题的时候是感觉别人的电脑玩 Windows 98 自带的纸牌竟是撑满整个屏幕的，而在这台电脑上却空出了很大的空间，即使是最大化这个窗口，显示的牌的大小也很小。而最近更多的则是一些软件，比如旧版本的 Photoshop 之类图标小得根本没法点究竟是什么原因？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7u2lcg.com1.z0.glb.clouddn.com/928_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/928_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
