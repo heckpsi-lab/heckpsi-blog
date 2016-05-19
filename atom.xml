@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
-  <updated>2016-05-19T13:24:06.000Z</updated>
+  <updated>2016-05-19T13:27:13.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
   
   <author>
@@ -20,12 +20,12 @@
     <link href="http://blog.heckpsi.com/2016/05/19/google-io-2016-review/"/>
     <id>http://blog.heckpsi.com/2016/05/19/google-io-2016-review/</id>
     <published>2016-05-19T13:19:17.000Z</published>
-    <updated>2016-05-19T13:24:06.000Z</updated>
+    <updated>2016-05-19T13:27:13.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;引&quot;&gt;&lt;a href=&quot;#引&quot; class=&quot;headerlink&quot; title=&quot;引&quot;&gt;&lt;/a&gt;引&lt;/h3&gt;&lt;p&gt;Google I/O 2016 的 Keynote 部分结束后，各大媒体总会开始进行报道。然而作为一项面向开发者的活动，一般媒体都将其当作产品发布会来报道，以至于通篇流水账，完全不知所云。我今年是在桂林路的 GDG Shanghai Launchpad 和许多人一起观看了 Google I/O 2016 的直播。报名人数远超预期，导致场馆拥挤不堪，说实话，我甚至只能看半个屏幕。好在我英语听力水平不次，回来又看了一遍重播，对于 Google 在这次 Keynote 中想表达的大概有了清晰的认识。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;Google-的机器学习能力有多深？&quot;&gt;&lt;a href=&quot;#Google-的机器学习能力有多深？&quot; class=&quot;headerlink&quot; title=&quot;Google 的机器学习能力有多深？&quot;&gt;&lt;/a&gt;Google 的机器学习能力有多深？&lt;/h3&gt;&lt;p&gt;Google 在这次会议上确实是以「产品」作为支撑发布会结构的。但是 Google Home, Google Assistant, Allo 再到 SyntaxNet，Google 在试图表达的重要观点是他们在机器学习，特别是自然语义处理（Netural Language Processing, NLP）上绝对过人的天赋。&lt;/p&gt;
-&lt;p&gt;要说人工智能，不得不提到 Allan Turing 在 1950 年发表的论文「COMPUTING MACHINERY AND INTELLIGENCE」，机器计算和智能。在这篇论文中，Allan Turing 革命性提出了 &lt;strong&gt;人工智能&lt;/strong&gt; 的判断标准，也就是所谓 &lt;strong&gt;图灵测试&lt;/strong&gt;。在这篇论文中，图灵特意举出了一些机器在做智能时需要克服的点，尤其是机器需要对上下文拥有智能。&lt;/p&gt;
+&lt;p&gt;要说人工智能，不得不提到 Allan Turing 在 1950 年发表的论文&lt;a href=&quot;http://loebner.net/Prizef/TuringArticle.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;「COMPUTING MACHINERY AND INTELLIGENCE」&lt;/a&gt;，机器计算和智能。在这篇论文中，Allan Turing 革命性提出了 &lt;strong&gt;人工智能&lt;/strong&gt; 的判断标准，也就是所谓 &lt;strong&gt;图灵测试&lt;/strong&gt;。在这篇论文中，图灵特意举出了一些机器在做智能时需要克服的点，尤其是机器需要对上下文拥有智能。&lt;/p&gt;
 &lt;p&gt;Google Now 的进化版本，Google Assistant 就拥有上下文的智能。你可以先问「这附近有什么好吃的意大利菜吗？」「能预定后天去这家餐厅吗？」「能告诉 Allen 一起来吗？」Google Assistant 具有理解上下文的能力，所以它知道你说的这家餐厅是上文中由 Google 推荐的意大利菜餐厅，以及你希望通知给 Allan 的是你想约他去这家餐厅在后天吃饭的事情。这就是不可多得的上下文理解能力，它并不是受限于实际规定好的语音助手对话的思路，而是完全基于其对自然语义的理解。&lt;/p&gt;
 &lt;p&gt;拥有了对上下文理解的神奇能力，Google 自然可以做更多。除了终端形态的 Google Home 以外，Allo 其实是 Google Assistant 的进阶产品。有些国内媒体报道说 Allo 是 Google 向社交领域的又一次新的尝试，这绝对是无中生有的事情，Google 可从来没有这么说过。拥有了上下文理解的能力，Google 可以依据上下文为你的回复提出建议，从而使你处理消息的效率得到空前的提高。至于 Due 的视频聊天、可以变化的聊天框之类的，不过是丰富产品功能，而不是发布一个原型的点睛之笔而已。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Google Assistant 是 Siri 的竞品吗？你就胡扯吧，Google Assistant 是 Skynet 的竞品。&lt;/strong&gt;&lt;/p&gt;
