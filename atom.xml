@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
-  <updated>2016-05-18T15:57:23.000Z</updated>
+  <updated>2016-05-19T13:22:31.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
   
   <author>
@@ -16,21 +16,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Google I/O 2016 评价</title>
-    <link href="http://blog.heckpsi.com/2016/05/18/google-io-2016-review/"/>
-    <id>http://blog.heckpsi.com/2016/05/18/google-io-2016-review/</id>
-    <published>2016-05-18T15:56:17.000Z</published>
-    <updated>2016-05-18T15:57:23.000Z</updated>
+    <title>我来告诉你 Google I/O 2016 到底讲了什么</title>
+    <link href="http://blog.heckpsi.com/2016/05/19/google-io-2016-review/"/>
+    <id>http://blog.heckpsi.com/2016/05/19/google-io-2016-review/</id>
+    <published>2016-05-19T13:19:17.000Z</published>
+    <updated>2016-05-19T13:22:31.000Z</updated>
     
-    <content type="html">&lt;iframe src=&quot;https://events.google.com/io2016/embed&quot; style=&quot;width:875px;height:450px&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-
+    <content type="html">&lt;h3 id=&quot;引&quot;&gt;&lt;a href=&quot;#引&quot; class=&quot;headerlink&quot; title=&quot;引&quot;&gt;&lt;/a&gt;引&lt;/h3&gt;&lt;p&gt;Google I/O 2016 的 Keynote 部分结束后，各大媒体总会开始进行报道。然而作为一项面向开发者的活动，一般媒体都将其当作产品发布会来报道，以至于通篇流水账，完全不知所云。我今年是在桂林路的 GDG Shanghai Launchpad 和许多人一起观看了 Google I/O 2016 的直播。报名人数远超预期，导致场馆拥挤不堪，说实话，我甚至只能看半个屏幕。好在我英语听力水平不次，回来又看了一遍重播，对于 Google 在这次 Keynote 中想表达的大概有了清晰的认识。&lt;/p&gt;
+&lt;h3 id=&quot;Google-的机器学习能力有多深？&quot;&gt;&lt;a href=&quot;#Google-的机器学习能力有多深？&quot; class=&quot;headerlink&quot; title=&quot;Google 的机器学习能力有多深？&quot;&gt;&lt;/a&gt;Google 的机器学习能力有多深？&lt;/h3&gt;&lt;p&gt;Google 在这次会议上确实是以「产品」作为支撑发布会结构的。但是 Google Home, Google Assistant, Allo 再到 SyntaxNet，Google 在试图表达的重要观点是他们在机器学习，特别是自然语义处理（Netural Language Processing, NLP）上绝对过人的天赋。&lt;/p&gt;
+&lt;p&gt;要说人工智能，不得不提到 Allan Turing 在 1950 年发表的论文「COMPUTING MACHINERY AND INTELLIGENCE」，机器计算和智能。在这篇论文中，Allan Turing 革命性提出了 &lt;strong&gt;人工智能&lt;/strong&gt; 的判断标准，也就是所谓 &lt;strong&gt;图灵测试&lt;/strong&gt;。在这篇论文中，图灵特意举出了一些机器在做智能时需要克服的点，尤其是机器需要对上下文拥有智能。&lt;/p&gt;
+&lt;p&gt;Google Now 的进化版本，Google Assistant 就拥有上下文的智能。你可以先问「这附近有什么好吃的意大利菜吗？」「能预定后天去这家餐厅吗？」「能告诉 Allen 一起来吗？」Google Assistant 具有理解上下文的能力，所以它知道你说的这家餐厅是上文中由 Google 推荐的意大利菜餐厅，以及你希望通知给 Allan 的是你想约他去这家餐厅在后天吃饭的事情。这就是不可多得的上下文理解能力，它并不是受限于实际规定好的语音助手对话的思路，而是完全基于其对自然语义的理解。&lt;/p&gt;
+&lt;p&gt;拥有了对上下文理解的神奇能力，Google 自然可以做更多。除了终端形态的 Google Home 以外，Allo 其实是 Google Assistant 的进阶产品。有些国内媒体报道说 Allo 是 Google 向社交领域的又一次新的尝试，这绝对是无中生有的事情，Google 可从来没有这么说过。拥有了上下文理解的能力，Google 可以依据上下文为你的回复提出建议，从而使你处理消息的效率得到空前的提高。至于 Due 的视频聊天、可以变化的聊天框之类的，不过是丰富产品功能，而不是发布一个原型的点睛之笔而已。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Google Assistant 是 Siri 的竞品吗？你就胡扯吧，Google Assistant 是 Skynet 的竞品。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Google 今天拥有了任何其他互联网公司都难以匹敌的机器学习的能力，Google 现在所作的，就是将这种空前的智能，尽可能多地运用到 Google 的产品中。这是这场 I/O 大会上，花最大篇幅讲的事情。&lt;/p&gt;
+&lt;h3 id=&quot;VR-需要怎样的生态？&quot;&gt;&lt;a href=&quot;#VR-需要怎样的生态？&quot; class=&quot;headerlink&quot; title=&quot;VR 需要怎样的生态？&quot;&gt;&lt;/a&gt;VR 需要怎样的生态？&lt;/h3&gt;&lt;p&gt;Google Daydream 的提出不是孤立的，它是 Android N 的一部分，大可不能孤立来看。VR 设备对于渲染的要求是空前的，对于相同场景的渲染，其算力的要求几乎是数倍于传统 3D 应用的。所以我们见到 VR 设备通常需要一台性能强大的主机作为其算力的提供。手机能作为 VR 的运算显示设备吗？&lt;/p&gt;
+&lt;p&gt;首先，为什么要用手机作 VR 的运算显示设备。在今天，VR 还没有广泛普及，更实际的情况是，大多数人都没有体验过 VR 的神奇。VR 设备昂贵的价格注定了它推广和铺货难度极高。在三年前的 Google I/O 大会上 Google 拿出的 Cardboard 将 VR 的成本一下子降低到了一个极低的程度，中国现在销售的大多数 VR 设备，无疑就是 Cardboard，以及基于 Cardboard 设计修改的延伸产品。&lt;/p&gt;
+&lt;p&gt;但 Cardboard 的体验无疑是比较差的，受限于手机的算力，手机的 VR 场景过于简单。Google 所构想的手机 VR 是「可用于体验」的，而不是「存在于技术」的。作为一家软件公司，Google 所作的是支持 Vulkan API 大幅提高渲染性能、新的 JIT 编译器大幅提高运算性能、提出硬件标准给予参考。而这三者都囊括在了 Android N 的更新之中。&lt;/p&gt;
+&lt;p&gt;硬件 -&amp;gt; API -&amp;gt; 应用 的完整生态由 Google 所构建。没有便于开发的 API，大多数开发者都没有足够的性能优化能力。没有合适的硬件标准，那么硬件厂商也只会随心所欲地设计而不能兼容。Google 所作的比起国内大多数 VR 公司想得都清楚和明白得多，而 Google 也有这个技术能力去实现它。&lt;/p&gt;
+&lt;h3 id=&quot;Android-N&quot;&gt;&lt;a href=&quot;#Android-N&quot; class=&quot;headerlink&quot; title=&quot;Android N&quot;&gt;&lt;/a&gt;Android N&lt;/h3&gt;&lt;p&gt;Android N 还有一些其它关键的点。Google 这次 N Preview 提出得非常早，现在又放出给 N 的开发代号起名字的活动。以及这次放出的 Android Wear 2.0 的系统，我们可以看成 Android Wear N 的版本。其实际是希望开发者参与到 Android N 的开发中来，由开发者的实际使用来进化 Android N 的 API 设计。Android N 从某种角度就是微软的 Windows 10，一个由社区推动，不断更新的操作系统。不过好在 Google 似乎对于品控非常在意，就目前的测试版来看，也不至于存在那么多 bug。也避免新版本系统对应用适配存在问题。&lt;/p&gt;
+&lt;p&gt;另一方面 Android N 与 Android Studio 的新更新结合非常紧密。Android Studio 所提出的 Instant Deploy，也就是在测试程序时，通过分析修改了的部分的代码，部分更新程序而不必整个重新运行，大大方便了软件开发过程中调试的过程。而利用这种部分更新的特性，Google 这次也带来了可以即时运行的程序，让 App 的体验省去了下载的步骤。虽然是细微的变化，但带来的用户体验的提升是非常好的，同时也证明了 Google Android Studio 的开发与 Android Platform 的开发步调一致。&lt;/p&gt;
+&lt;h3 id=&quot;后&quot;&gt;&lt;a href=&quot;#后&quot; class=&quot;headerlink&quot; title=&quot;后&quot;&gt;&lt;/a&gt;后&lt;/h3&gt;&lt;p&gt;Google 这次通过 Google I/O 所展示的，并不是一个个孤立的产品。其实所要展示的是 Google 产品之间的联系、生态，以及 Google 在这些产品背后的技术实力。这种贯穿始终的硬实力，是任何一家国内靠情怀、贬低友商、炒股票和耍猴为生的国内互联网厂商所根本无法达到的。看起来相似的演说、场地和产品发布，其背后的深度实在是大为不同。&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;iframe src=&quot;https://events.google.com/io2016/embed&quot; style=&quot;width:875px;height:450px&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-
-
+      &lt;h3 id=&quot;引&quot;&gt;&lt;a href=&quot;#引&quot; class=&quot;headerlink&quot; title=&quot;引&quot;&gt;&lt;/a&gt;引&lt;/h3&gt;&lt;p&gt;Google I/O 2016 的 Keynote 部分结束后，各大媒体总会开始进行报道。然而作为一项面向开发者的活动，一般媒体都将其当作产品发布会
     
     </summary>
     
@@ -286,13 +296,13 @@
     
       <category term="Google" scheme="http://blog.heckpsi.com/tags/Google/"/>
     
-      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
-    
       <category term="AlphaGo" scheme="http://blog.heckpsi.com/tags/AlphaGo/"/>
     
       <category term="AI" scheme="http://blog.heckpsi.com/tags/AI/"/>
     
       <category term="机器学习" scheme="http://blog.heckpsi.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
     
   </entry>
   
@@ -570,9 +580,9 @@
     </summary>
     
     
-      <category term="算法" scheme="http://blog.heckpsi.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="算法" scheme="http://blog.heckpsi.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
