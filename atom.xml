@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
-  <updated>2016-06-10T23:08:11.000Z</updated>
+  <updated>2016-06-21T12:42:59.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
   
   <author>
@@ -14,6 +14,132 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>围绕 MacBook Pro 打造的工作站设计日志</title>
+    <link href="http://blog.heckpsi.com/2016/06/21/workstation-setup-guide/"/>
+    <id>http://blog.heckpsi.com/2016/06/21/workstation-setup-guide/</id>
+    <published>2016-06-21T12:41:31.000Z</published>
+    <updated>2016-06-21T12:42:59.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;为什么&quot;&gt;&lt;a href=&quot;#为什么&quot; class=&quot;headerlink&quot; title=&quot;为什么&quot;&gt;&lt;/a&gt;为什么&lt;/h3&gt;&lt;h4 id=&quot;为什么我一定要用-macOS？&quot;&gt;&lt;a href=&quot;#为什么我一定要用-macOS？&quot; class=&quot;headerlink&quot; title=&quot;为什么我一定要用 macOS？&quot;&gt;&lt;/a&gt;为什么我一定要用 macOS？&lt;/h4&gt;&lt;p&gt;这个问题需要放在一上来就被解释清楚，尤其当你发现这个 setup 的性价比其实非常低。然而这么设计自然有它存在的意义。首先，这和我的工作性质有关。我的日常开发同时涉及后端、前端和设计。尤其是我的后端围绕着 Ruby 展开。Ruby 的 native extensions 在 Windows 上不免没有那么好用，甚至在兼容性上有一些问题。使用一个 POSIX 兼容的操作系统是非常必要的。然而涉及前端的用户界面设计时，我还需要用到 Illustrator、Photoshop、Sketch 等一些软件。哪怕不使用 Sketch，剩下的软件也没有 Linux 的兼容版本。这使得 macOS 是我能避免频繁切换操作系统的唯一选择。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;为什么不使用台式机的选项？&quot;&gt;&lt;a href=&quot;#为什么不使用台式机的选项？&quot; class=&quot;headerlink&quot; title=&quot;为什么不使用台式机的选项？&quot;&gt;&lt;/a&gt;为什么不使用台式机的选项？&lt;/h4&gt;&lt;p&gt;在组建这个工作站系统的一开始，我希望围绕一款苹果的台式机来开始。苹果目前仍然在销售的台式机有 Mac Mini、Mac Pro 和 iMac，其中 iMac 带一块 27 寸的 5K 屏幕。但是 Mac Mini 和 iMac 本质上使用的仍然是移动级别的 CPU。而 Mac Pro 由于长久没有更新，目前的购买选项性价实在太差，并且 Mac Pro 的风道虽然设计非常合理，但是很多使用经验表明，数个月后当灰尘覆盖底部后风道会收到极严重的影响，故不作考虑。&lt;/p&gt;
+&lt;h3 id=&quot;如何&quot;&gt;&lt;a href=&quot;#如何&quot; class=&quot;headerlink&quot; title=&quot;如何&quot;&gt;&lt;/a&gt;如何&lt;/h3&gt;&lt;h4 id=&quot;屏幕设置&quot;&gt;&lt;a href=&quot;#屏幕设置&quot; class=&quot;headerlink&quot; title=&quot;屏幕设置&quot;&gt;&lt;/a&gt;屏幕设置&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/screen-setup.jpg&quot; alt=&quot;Screen Setup&quot;&gt;&lt;/p&gt;
+&lt;p&gt;中间是 34 英寸 21:9 带鱼屏幕，用来做视频剪辑等素材复杂的工作时能很好胜任。写代码时也能同时照顾多个文件。右侧 24 英寸 16:9 屏幕竖放，用于看适合竖着看的内容，比如开发文档、论文，不看的时候把聊天窗口丢在右侧避免对主要工作视线的干扰。上方 23 英寸 16:9 屏幕，用于连接 PC，用于偶尔需要看的 Visual Studio 上的项目，或者玩一些 PC 独占的游戏等。&lt;/p&gt;
+&lt;h4 id=&quot;性能&quot;&gt;&lt;a href=&quot;#性能&quot; class=&quot;headerlink&quot; title=&quot;性能&quot;&gt;&lt;/a&gt;性能&lt;/h4&gt;&lt;p&gt;当两块高分辨率的屏幕插入 MacBook Pro 后，你能看到显著的性能下滑，发热非常明显。如果试图利用 21:9 屏幕的优势玩一些 macOS 系统兼容的游戏比如 欧洲卡车模拟器 的时候哪怕在全低画质下也不能流畅运行。如果跑视频渲染、压片等操作时，同样的性能问题明显。相反在一些 CPU 密集的应用场景下，比如编译程序的时候，反而没有太大的问题。而内存上，16GB 也基本够使用，虽然如果是 32GB 或者 64GB 的配置的话，性能上更游刃有余一些。&lt;/p&gt;
+&lt;p&gt;综上我们可以发现，主要问题出在 MacBook Pro 的显卡上。那么想到的方案自然就是外置显卡。不过，凡是做过 expressCard 外置显卡的人都知道，对显卡性能的损失是非常严重的。这是因为 expressCard 虽然是总线接口，但是其带宽只有 PCI-E x1。然而 MacBook Pro 所提供的雷电接口，在 Thunderbolt 2.0 协议下就有 20Gbps 的带宽，这相当于 PCI-E x4 的带宽，哪怕使用 GTX 970 这样的显卡，也只有 10% 的性能损失。&lt;/p&gt;
+&lt;p&gt;我使用的外置 PCI-E 盒子是 AKiTiO 的产品。外包装上明显标注，不支持显卡。这是因为显卡需要额外的供电，而盒子只能提供 60W 的供电，远小于显卡的需求，直接插上用可能会把显卡烧坏。所以我们将显卡盒外壳拆开后，单独接一个 400W 电源到显卡的 8pin 上。只不过，只这么操作，电源并不会认为自己开机了，所以不会供电。我们还需要用回形针把电源 24pin 的 13 引脚短接到地线，来模拟一个开机的情况。在我用了一天后，我发现 Dell 曾经为他们的迷你电脑推出过一款电源，其输出正是 12V 的 8pin，并且功率高达 220W，这是 Dell DA-2 电源适配器。所以如果不想魔改电源的话，可以使用这一解决方案。&lt;/p&gt;
+&lt;p&gt;驱动上的话，NVIDIA 只为 Mac Pro 推出过显卡驱动，而不是 MacBook Pro。当然，操作系统层面的事情，当然我们可以魔改驱动，有一个一键安装的脚本项目在此 &lt;a href=&quot;https://github.com/goalque/automate-eGPU&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;automate-eGPU&lt;/a&gt;。不过由于新的 Mac 的安全策略，你还需要 Command + R 开机进入恢复模式，在实用工具-终端中输入命令关闭驱动签名校验，才能正常使用，这一点这个一键脚本也会做出相应的提示。&lt;/p&gt;
+&lt;p&gt;至此，我们解决了显卡性能上的问题。&lt;/p&gt;
+&lt;h4 id=&quot;存储&quot;&gt;&lt;a href=&quot;#存储&quot; class=&quot;headerlink&quot; title=&quot;存储&quot;&gt;&lt;/a&gt;存储&lt;/h4&gt;&lt;p&gt;买 256GB 版本 MacBook Pro 省下来的钱就是脑袋里进的水。为了解决把笔记本变为工作站后增加的大量数据，不得不寻找外置的存储方案进行妥协。最常见的解决方案当然就是移动硬盘。但事实上，移动硬盘通过 USB 3.0 连接，经常容易发生连接不稳定的情况，从而导致一些存储意外发生，我曾因这些原因导致过数据丢失一次。直到我见到了 Transcend 的 256GB 扩容存储卡，其长度比一般卡还要短一些，插入 MacBook Pro 中能几乎贴合于卡槽，从而避免了携带和使用上的不安全。唯一麻烦的是拿出来的时候需要使用一把面包刀或者尖锐的支架才能让卡与机器分离。&lt;/p&gt;
+&lt;h4 id=&quot;噪音&quot;&gt;&lt;a href=&quot;#噪音&quot; class=&quot;headerlink&quot; title=&quot;噪音&quot;&gt;&lt;/a&gt;噪音&lt;/h4&gt;&lt;p&gt;虽然我们把显卡外置了，理论上机器散热没有任何压力。但实际上，Thunderbolt 2 的连接处由于非常巨大的数据交换，实际上左侧发热相对还是有点严重。考虑到，MacBook Pro 不止通过风道具有很强的散热能力，其铝合金外壳本身也被设计成其散热的一部分，我们大可通过降低外壳温度来降低整体温度。我选择了目前还只有在日本市场销售的 USB 水冷套件，为我的 MacBook Pro 做进一步降温。&lt;/p&gt;
+&lt;h4 id=&quot;外设&quot;&gt;&lt;a href=&quot;#外设&quot; class=&quot;headerlink&quot; title=&quot;外设&quot;&gt;&lt;/a&gt;外设&lt;/h4&gt;&lt;p&gt;关于键盘，不多说，参考之前的文章&lt;a href=&quot;http://blog.heckpsi.com/2016/05/14/customized-machanical-keyboard/&quot;&gt;《一款祖传的机械键盘》&lt;/a&gt;。在我使用的那么多的鼠标中，没有一款鼠标能比 Logitech M558 更适合 Mac 了，说实话 Apple Magic Mouse 还是省省吧，那东西就是个能挪动的触摸板。M558 从设计到重量甚至是电池，简直就是天生为 MacBook 准备的。而且，很便宜，并不是 Logitech 的高端产品。&lt;/p&gt;
+&lt;h4 id=&quot;便携&quot;&gt;&lt;a href=&quot;#便携&quot; class=&quot;headerlink&quot; title=&quot;便携&quot;&gt;&lt;/a&gt;便携&lt;/h4&gt;&lt;p&gt;虽然我们对整个 setup 进行了巨大的改动。但是其便携性没有遭到下降。我只需要关机后断开先开连接，就能带出门。而我的数据、执行了一半的工作流都能随身携带。续航也能维持在 8 - 9 小时的 MacBook Pro 的正常续航水平，而选择的 60% 键盘和 Logitech M558 也都很适合携带。这是单独搭建的工作站无法得到的优秀体验。&lt;/p&gt;
+&lt;h3 id=&quot;购物列表&quot;&gt;&lt;a href=&quot;#购物列表&quot; class=&quot;headerlink&quot; title=&quot;购物列表&quot;&gt;&lt;/a&gt;购物列表&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;选项&lt;/th&gt;
+&lt;th&gt;价格（人民币元）&lt;/th&gt;
+&lt;th&gt;备注&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;MacBook Pro 15’’&lt;/td&gt;
+&lt;td&gt;14288&lt;/td&gt;
+&lt;td&gt;国行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Transcent JetDrive Lite 256GB&lt;/td&gt;
+&lt;td&gt;1099&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;x86 兼容机&lt;/td&gt;
+&lt;td&gt;5000&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AOC Q3477FQ&lt;/td&gt;
+&lt;td&gt;2399&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AKiTiO Thunderbolt 2 PCI-E&lt;/td&gt;
+&lt;td&gt;1200&lt;/td&gt;
+&lt;td&gt;二手&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NVIDIA GTX 970 ITX&lt;/td&gt;
+&lt;td&gt;1700&lt;/td&gt;
+&lt;td&gt;二手&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dell DA-2 Adapter&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;td&gt;二手&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ViewSonic VA2462H&lt;/td&gt;
+&lt;td&gt;899&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ViewSonic VA2349S&lt;/td&gt;
+&lt;td&gt;699&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;乐歌 D3 显示器支架&lt;/td&gt;
+&lt;td&gt;199&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;乐歌 L1 显示器支架&lt;/td&gt;
+&lt;td&gt;79&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Logitech M558&lt;/td&gt;
+&lt;td&gt;169&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;客制化机械键盘&lt;/td&gt;
+&lt;td&gt;1290&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;笔记本水冷套价 USBWATC2&lt;/td&gt;
+&lt;td&gt;583.73&lt;/td&gt;
+&lt;td&gt;日本 Amazon&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;总计&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;29604.73&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&quot;缺点&quot;&gt;&lt;a href=&quot;#缺点&quot; class=&quot;headerlink&quot; title=&quot;缺点&quot;&gt;&lt;/a&gt;缺点&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;当 CPU 和内存遇到了瓶颈&lt;/strong&gt;：由于使用的是移动的 CPU 和内存，虽然都算不错，但在一些任务上依然会遇到瓶颈，比如机器学习或者大型编译。于是我在房间里准备了一台 22 核 44 线程 64GB 内存的服务器，让 Mac 可以随时随地远程登录来执行这部分任务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内置的屏幕无法关闭&lt;/strong&gt;：当系统默认显卡切换为 GTX 970 时，把屏幕盖子盖上后，虽然屏幕已不作显示，但操作系统仍然认为该屏幕存在并耗费资源进行渲染。这可以被认为是 macOS 的一个 bug。暂时没有解决方案。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Synergy 在多屏下检测有误&lt;/strong&gt;：Synergy 跨机器的检测逻辑是你达到了屏幕的边缘，而这个边缘是指你最边缘的那块屏幕的边缘。比如我的设置中，我无法向 Synergy 正确描述我 PC 的位置。从而不能使得跨机器的使用完全符合直觉。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;音频&lt;/strong&gt;：由于盖上盖子的 MacBook Pro 发出的声音很奇怪会破音。而几块屏幕的声音几乎就是只能用「听个响」来形容，所以需要外接一个音响。同时 PC 和 MacBook Pro 的音频不能在同一个音响输出。我试图使用 3.5mm音频线一分二母 立体声音频转接线，但实际上还存在一点问题，仍然在解决中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;以后的搭建&quot;&gt;&lt;a href=&quot;#以后的搭建&quot; class=&quot;headerlink&quot; title=&quot;以后的搭建&quot;&gt;&lt;/a&gt;以后的搭建&lt;/h3&gt;&lt;p&gt;由于这些都是在我卧室床头搭建的，以满足我起床就能写代码，写累了就睡的要求。当然我还购买了一把没有腿的椅子，这样我能长时间坐在床上而不至于腰背疼痛。那么既然是卧室，还需要点娱乐设施。所以打算把窗帘拆了改装成投影幕，加装投影仪供 PS4 使用，在 120 英寸的屏幕上畅玩 PS4。目前仍然在筹划中，如果搭建完了，会给大家分享相关的日志。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;为什么&quot;&gt;&lt;a href=&quot;#为什么&quot; class=&quot;headerlink&quot; title=&quot;为什么&quot;&gt;&lt;/a&gt;为什么&lt;/h3&gt;&lt;h4 id=&quot;为什么我一定要用-macOS？&quot;&gt;&lt;a href=&quot;#为什么我一定要用-macOS？&quot; class=&quot;headerlink&quot; title=&quot;为什么我一定要用 macOS？&quot;&gt;&lt;/a&gt;为什么我一定要用 macOS？&lt;/h4&gt;&lt;p&gt;这个问题需要放在一上来就被解释清楚，尤其当你发现这个 setup 的性价比其实非常低。然而这么设计自然有它存在的意义。首先，这和我的工作性质有关。我的日常开发同时涉及后端、前端和设计。尤其是我的后端围绕着 Ruby 展开。Ruby 的 native extensions 在 Windows 上不免没有那么好用，甚至在兼容性上有一些问题。使用一个 POSIX 兼容的操作系统是非常必要的。然而涉及前端的用户界面设计时，我还需要用到 Illustrator、Photoshop、Sketch 等一些软件。哪怕不使用 Sketch，剩下的软件也没有 Linux 的兼容版本。这使得 macOS 是我能避免频繁切换操作系统的唯一选择。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="日志" scheme="http://blog.heckpsi.com/tags/%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
   
   <entry>
     <title>从零开始 Ruby on PHP</title>
@@ -330,13 +456,13 @@
     
       <category term="Google" scheme="http://blog.heckpsi.com/tags/Google/"/>
     
+      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
+    
       <category term="AlphaGo" scheme="http://blog.heckpsi.com/tags/AlphaGo/"/>
     
       <category term="AI" scheme="http://blog.heckpsi.com/tags/AI/"/>
     
       <category term="机器学习" scheme="http://blog.heckpsi.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
     
   </entry>
   
@@ -867,54 +993,6 @@
       <category term="硬件" scheme="http://blog.heckpsi.com/tags/%E7%A1%AC%E4%BB%B6/"/>
     
       <category term="维修" scheme="http://blog.heckpsi.com/tags/%E7%BB%B4%E4%BF%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从我能吞下玻璃而不伤身体说字体测试</title>
-    <link href="http://blog.heckpsi.com/2015/02/21/how-to-test-a-font/"/>
-    <id>http://blog.heckpsi.com/2015/02/21/how-to-test-a-font/</id>
-    <published>2015-02-21T08:38:54.000Z</published>
-    <updated>2016-05-15T03:20:12.000Z</updated>
-    
-    <content type="html">&lt;p&gt;许多使用Ubuntu操作系统的用户都会惊讶于Ubuntu打开一个字体文件的时候用于测试字体而显示的文字：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;我能吞下玻璃而不伤身体。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/961_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;为什么是用这样一句句子来测试字体呢？&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;这需要联系到一个由哈佛大学学生 Ethan Mollick 创建的一个语言学项目。叫做 &lt;a href=&quot;http://en.wikipedia.org/wiki/I_Can_Eat_Glass&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;I Can Eat Glass&lt;/a&gt;。根据 Ethan Mollick 的解释，他希望让一个人到一个陌生的国家后说出某句简单易学的话，但能让别人感觉他是这个语言的母语者，从而能更尊重地对待他。这句话要有这种神奇的吓唬人的力量，几经思考之后他们选择了 “I can eat glass, but it does not hurt me.” 这句句子。（虽然我完全没有办法理解为什么这句话有这样的作用）他们将这句话翻译成了许多种语言，并制作成了网页。非常糟糕的是，这些网页在今年已经无法正常访问，好在一些好心人制作了这一网站的 &lt;a href=&quot;http://reocities.com/nodotus/hbglass.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;镜像&lt;/a&gt;。&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Wo ke yi chi bo li, wo bu huei sho shang.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;写作：我可藝吃玻璃，我不毀受傷。（显然地，他们还写了许多错别字）&lt;/p&gt;
-&lt;p&gt;但是他们所做的神奇之处并不是他们达到了他们一开始想要达到的目的（显然他们不能），相反地，之后哥伦比亚大学的同学在试图制作 UTF-8 编码的样例的时候想到了这个项目。众所周知，UTF-8 编码希望能通过一种编码正常显示世界上所有语言。而哈佛的这个项目恰好已经把一句话翻译成了各种各样的语言，用来做 UTF-8 编码的显示样例再好不过了。于是哥大的同学就做了这么一个 &lt;a href=&quot;http://www.columbia.edu/~fdc/utf8/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;项目&lt;/a&gt;。并优化了其中的翻译，其中简体中文的翻译被翻译成了 “我能吞下玻璃而不伤身体。”，也就是现在的样子。&lt;/p&gt;
-&lt;p&gt;那为什么 Ubuntu 会选择这样一句句子作为字体测试的句子呢？目的是为了测试编码的完整性，也就是这个字体支持的语言的数量。&lt;/p&gt;
-&lt;p&gt;但是这样的测试真的是好的吗？或者说是足够好的吗？我想可能并不是这样。&lt;/p&gt;
-&lt;p&gt;对于西文字体而言一个完整的字形测试也就四五十个字符（包含大小写和常用符号）。一种常见的测试方法是大家在 Windows 系统上常见到的范例句子。&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;The quick brown fox jumps over the lazy dog.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;上面这句话使用了全部的26个字母（但并不包含每个大小写）。这样的句子基本上测试了西文字体在显示英文的主要效果。但是对于中文、日文、韩文这些非字母化的重灾区，几个字可能是很难测试好一个字体的。可能你能从中看出是衬线字体还是非衬线字体、宋体还是黑体，但对于其它很多问题并不能很好的测试到。比如对于常见的偏旁部首是怎么设计的、字体覆盖多少汉字、标点符号等宽还是不等宽之类的问题几个字是比较难测试的。靠一句“我能吞下玻璃而不伤身体。”几乎是没什么用的。而 Windows 的“中国智造，慧及全球”就更扯了，完全不能理解这句话能测试出什么东西出来。&lt;/p&gt;
-&lt;p&gt;Mac OS X 字体册在测试日文的时候非常巧妙。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/961_3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;测试了假名、汉字、标点符号、复杂汉字的显示效果。选用的是日本诗人 宮沢賢治 的 &lt;a href=&quot;http://www.aozora.gr.jp/cards/000081/files/1935_19925.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《ポラーノの広場》&lt;/a&gt; 的一节。不但用了一个短小的文字，而且测试了实际使用中的大多数字形的问题，可以说是解决地非常巧妙。&lt;/p&gt;
-&lt;p&gt;然而对于中文的字体测试显得就差了很多。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/961_2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;选择的几个字比起 Windows 和 Ubuntu 测试了更多的偏旁部首的显示，这点虽然更好一点，但堆砌了这样一堆没有意义的文字也不很能理解是出于什么样的目的。更重要的是，竟然没有测试标点符号，反而测试了一些奇奇怪怪的中文序号。这一点不但解决地不如日文测试时那么巧妙，甚至连功能都是不够完整的。不过 Mac OS X 在测试字体是支持“自定”测试，可以输入自己需要测试的内容保存下来，还是满足了功能上的需求。&lt;/p&gt;
-&lt;p&gt;其实比较下来，Ubuntu 的字体测试是最为通用的测试，能覆盖UTF-8编码下各种语言的测试，但是对于每种语言的测试却是不足够的。Mac OS X 确实对于设计者最为友好，但在中文测试的时候还是不够全面优秀。至于 Windows 嘛……&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;微软唯一的问题是没品位，他们根本的绝对的没品位。——史蒂夫·乔布斯&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;所以指望 Windows 在字体上搞出点什么还是省省吧。如果在 Windows 上对字体有比较高的要求，建议使用第三方的字体管理软件，比如 Adobe Typekit 之类的……&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;许多使用Ubuntu操作系统的用户都会惊讶于Ubuntu打开一个字体文件的时候用于测试字体而显示的文字：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;我能吞下玻璃而不伤身体。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;img src=&quot;http://cdn.heckpsi.com/961_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;为什么是用这样一句句子来测试字体呢？&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
-    
-      <category term="字体" scheme="http://blog.heckpsi.com/tags/%E5%AD%97%E4%BD%93/"/>
     
   </entry>
   
