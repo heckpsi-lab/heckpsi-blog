@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
-  <updated>2016-10-17T19:01:58.000Z</updated>
+  <updated>2016-10-17T19:08:00.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.heckpsi.com/2016/10/18/em-midori-40-days/"/>
     <id>http://blog.heckpsi.com/2016/10/18/em-midori-40-days/</id>
     <published>2016-10-17T18:59:12.000Z</published>
-    <updated>2016-10-17T19:01:58.000Z</updated>
+    <updated>2016-10-17T19:08:00.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>这篇文章写在 <a href="https://github.com/heckpsi-lab/em-midori" target="_blank" rel="external">em-midori</a> 项目建立的第 40 天，从决定写这样一个框架，到现在勉强能用只花了 40 天里空闲的日子。从原先写开源代码光挖坑不填，到这次能把项目带到即将 development ready 的地步，确实在开发和思考的过程有非常多的不同。于是我变把这些地方记录下来，希望给以后的开发和诸位提供一些些帮助。</p>
 <a id="more"></a>
@@ -37,7 +37,7 @@
 <p>总体来说，它看起来很像 sinatra 和它的姊妹们。但稍有不同的还是有一些地方。</p>
 <p>比如：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">websocket <span class="string">'/websocket'</span> <span class="keyword">do</span> <span class="params">|ws|</span></div><div class="line">  ws.on <span class="symbol">:open</span> <span class="keyword">do</span></div><div class="line">    ws.send <span class="string">'Hello'</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>虽然，WebSocket 在 HTTP/1.1 上其实是个 GET 请求，但作为一个 DSL，不应该让开发者考虑底层是什么实现的，而是考虑应用上是怎么做的。所以把 WebSocket 和 EventMachine 单独拿出来当动词。</p>
+<p>虽然，WebSocket 在 HTTP/1.1 上其实是个 GET 请求，但作为一个 DSL，不应该让开发者考虑底层是什么实现的，而是考虑应用上是怎么做的。所以把 WebSocket 和 EventSource 单独拿出来当动词。</p>
 <p>还有例如：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">post <span class="string">'/user/login'</span> <span class="keyword">do</span></div><div class="line">  define_error <span class="symbol">:forbidden_request</span>, <span class="symbol">:unauthorized_error</span></div><div class="line">  <span class="keyword">begin</span></div><div class="line">    request = JSON.parse(@request.body)</div><div class="line">    UserController.login(request[<span class="string">'username'</span>], request[<span class="string">'password'</span>]).to_json</div><div class="line">    <span class="comment"># =&gt; &#123;code: 0, token: String&#125;</span></div><div class="line">  <span class="keyword">rescue</span> ForbiddenRequest =&gt; _e</div><div class="line">    Midori::Response.new(<span class="number">403</span>, &#123;<span class="symbol">code:</span> <span class="number">403</span>, <span class="symbol">message:</span> <span class="string">'Illegal request'</span>&#125;.to_json)</div><div class="line">  <span class="keyword">rescue</span> UnauthorizedError =&gt; _e</div><div class="line">    Midori::Response.new(<span class="number">401</span>, &#123;<span class="symbol">code:</span> <span class="number">401</span>, <span class="symbol">message:</span> <span class="string">'Incorrect username or password'</span>&#125;.to_json)</div><div class="line">  <span class="keyword">rescue</span> =&gt; _e</div><div class="line">    Midori::Response.new(<span class="number">400</span>, &#123;<span class="symbol">code:</span> <span class="number">400</span>, <span class="symbol">message:</span> <span class="string">'Bad Request'</span>&#125;.to_json)</div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
 <p>在这个例子中，考虑了一个路由的重要特性，那就是希望做到「路由即文档」。请求的类型、参数、可能的错误、错误处理方式都被代码本身描述出来了。唯独正确处理的返回需要单独写一下文档。</p>
