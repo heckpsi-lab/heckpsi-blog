@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="theme-color" content="#43bea2"><title> 自制开源 Web 框架的 40 天 · HeckPsi Blog</title><meta name="description" content="自制开源 Web 框架的 40 天 - 上海骇咕赛信息科技有限公司"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://blog.heckpsi.com/atom.xml" title="HeckPsi Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="http://heckpsi.com" target="_blank" class="nav-list-link">HOME</a></li><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/heckpsi" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/heckpsi-lab" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">自制开源 Web 框架的 40 天</h1><div class="post-info">2016年10月18日</div><div class="post-content"><h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>这篇文章写在 <a href="https://github.com/heckpsi-lab/em-midori" target="_blank" rel="external">em-midori</a> 项目建立的第 40 天，从决定写这样一个框架，到现在勉强能用只花了 40 天里空闲的日子。从原先写开源代码光挖坑不填，到这次能把项目带到即将 development ready 的地步，确实在开发和思考的过程有非常多的不同。于是我变把这些地方记录下来，希望给以后的开发和诸位提供一些些帮助。</p>
+<h2 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h2><h3 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h3><p>最早有类似于我开发的这个框架的想法大概已经过去了大半年的时间里。在此之前，我使用的 Web 框架主要是 Rails 和 Sinatra。Rails 的强大我想不必多述，在生产中大量使用 Sinatra 还是出于几个原因。一个是使用 Vue.js 做前端框架后，后端做 API 就足够了，而 Rails API Standalone 则是 Rails 5 发布的，相对来说晚一些；Sinatra 有一个设计良好的 DSL，在做路由的时候更加直观和灵活；最后就是 Rails 基于栈实现的路由匹配速度略慢，导致了大约是 Sinatra 性能的一半。</p>
+<p>不过说起性能，无论是 Sinatra 还是 Rails 都是 IO 阻塞 的。主要的原因当然是 IO 非阻塞的框架在用起来的时候通常非常反人类。但 IO 阻塞模型在高并发或长连接下确实表现不佳，以至于 Rails 在 ActionCable 的实现中也不得不使用了非阻塞的 EventMachine。</p>
+<p>在 Ruby 上比较有名的，出过三个非阻塞 IO 的 Web 框架，他们是 cramp，sinatra-synchrony 和 angelo。然而前两者都出现在 EventMachine 出现的早期，一个很早就停止维护了，而另一个也受限于完全照搬 sinatra 对异步仅限于网络 IO 的层面。而后者使用了 Celluloid::IO 作为事件模型的实现，然而其开发进度极慢，并有不维护的迹象，因为其特别的 IO 库，也愈发地有不维护的可能。</p>
+<p>试图想改变这一问题之前，我考虑过很多问题。一方面是如何优雅地解决问题，而另一方面则是 Ruby 现有生态是否会接受。</p>
+<h3 id="转机"><a href="#转机" class="headerlink" title="转机"></a>转机</h3><p>此事出现转机主要是两件事。</p>
+<p>一个是我们做的某个项目，需要对政府的接口做代理并封装。而这个政府的 API 接口访问奇慢，以至于出现了严重的阻塞导致了性能问题。在一台四核的机器上最后只有 20 req/s 的性能，简直是不能忍受。</p>
+<p>另一件事是去 RubyKaigi 2016 听了不少的安利，发现许多演讲更是一个比一个激进。与其说去讨论现有生态是否会接受，不如先把事情做得足够优秀来得更重要。至少，我自己现在有用这东西的需求不是吗。</p>
+<h2 id="开坑"><a href="#开坑" class="headerlink" title="开坑"></a>开坑</h2><h3 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h3><p>2016 年 9 月 9 日是 RubyKaigi 2016 的第二天，在 10:25，也就是某个日本人正要介绍如何更好地做语法绑定之前，我开启了这个弥天大坑。一开始考虑的问题是依赖、路线和 API 设计。</p>
+<p>我一开始就打算好用 EventMachine 作为事件模型的实现。然而如何减少恼人的 callback，我决定选择在 Fiber 上构建一个类似于 async/await 的语法来避免。至少，依靠元编程的力量，我们无需做把 ES7 编译成 ES5 这种奇怪的工作，也不需要 import future，只需要把它当做框架理所当然的一部分就好了。</p>
+<p>今天设计 Web 框架毫无疑问需要对 WebSocket 和 EventSource 进行良好的支持，而不是在 Rack 上打一层奇怪的补丁之类的。至少，我在设计 API 的过程中，参考了 sinatra, grape, rack, angelo 的设计，并阅读了相应的源代码，也是做好了完全的准备。所以，一开始在我脑中的 API 设计很快就变成了<a href="https://github.com/heckpsi-lab/em-midori/blob/master/example/route.rb" target="_blank" rel="external">这样</a>。</p>
+<p>总体来说，它看起来很像 sinatra 和它的姊妹们。但稍有不同的还是有一些地方。</p>
+<p>比如：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">websocket <span class="string">'/websocket'</span> <span class="keyword">do</span> <span class="params">|ws|</span></div><div class="line">  ws.on <span class="symbol">:open</span> <span class="keyword">do</span></div><div class="line">    ws.send <span class="string">'Hello'</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>虽然，WebSocket 在 HTTP/1.1 上其实是个 GET 请求，但作为一个 DSL，不应该让开发者考虑底层是什么实现的，而是考虑应用上是怎么做的。所以把 WebSocket 和 EventMachine 单独拿出来当动词。</p>
+<p>还有例如：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">post <span class="string">'/user/login'</span> <span class="keyword">do</span></div><div class="line">  define_error <span class="symbol">:forbidden_request</span>, <span class="symbol">:unauthorized_error</span></div><div class="line">  <span class="keyword">begin</span></div><div class="line">    request = JSON.parse(@request.body)</div><div class="line">    UserController.login(request[<span class="string">'username'</span>], request[<span class="string">'password'</span>]).to_json</div><div class="line">    <span class="comment"># =&gt; &#123;code: 0, token: String&#125;</span></div><div class="line">  <span class="keyword">rescue</span> ForbiddenRequest =&gt; _e</div><div class="line">    Midori::Response.new(<span class="number">403</span>, &#123;<span class="symbol">code:</span> <span class="number">403</span>, <span class="symbol">message:</span> <span class="string">'Illegal request'</span>&#125;.to_json)</div><div class="line">  <span class="keyword">rescue</span> UnauthorizedError =&gt; _e</div><div class="line">    Midori::Response.new(<span class="number">401</span>, &#123;<span class="symbol">code:</span> <span class="number">401</span>, <span class="symbol">message:</span> <span class="string">'Incorrect username or password'</span>&#125;.to_json)</div><div class="line">  <span class="keyword">rescue</span> =&gt; _e</div><div class="line">    Midori::Response.new(<span class="number">400</span>, &#123;<span class="symbol">code:</span> <span class="number">400</span>, <span class="symbol">message:</span> <span class="string">'Bad Request'</span>&#125;.to_json)</div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>在这个例子中，考虑了一个路由的重要特性，那就是希望做到「路由即文档」。请求的类型、参数、可能的错误、错误处理方式都被代码本身描述出来了。唯独正确处理的返回需要单独写一下文档。</p>
+<p>当然在这个例子中，还没有使用中间件，而使用中间件能更好解决问题。</p>
+<p>相比 Rack 的中间件，我考虑再三，最后把其设计成 Android Xposed 那样 hook 的形式。简单来说中间件流程如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">请求 -&gt; 中间件 1 -&gt; 中间件 2 -&gt; 处理 -&gt; 中间件 2 -&gt; 中间件 1 -&gt; 返回</div></pre></td></tr></table></figure>
+<p>这使得 JSON API 的实现变得非常容易，只需要把最靠近处理的那一层加入如下的中间件：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">JSONMiddleware</span> &lt; Middleware</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">before</span><span class="params">(request)</span></span></div><div class="line">    request.body = JSON.parse(request.body) <span class="keyword">unless</span> request.body == <span class="string">''</span></div><div class="line">    request</div><div class="line">  <span class="keyword">end</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">after</span><span class="params">(_request, response)</span></span></div><div class="line">    response.header[<span class="string">'Content-Type'</span>] = <span class="string">'application/json'</span></div><div class="line">    response.body = response.body.to_json</div><div class="line">    response</div><div class="line">  <span class="keyword">end</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">body_accept</span></span></div><div class="line">    [Hash, Array]</div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>另外，中间件还允许跳过，类似于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">请求 -&gt; 中间件 1 -&gt; (跳过) -&gt; 中间件 1 -&gt; 返回</div></pre></td></tr></table></figure>
+<p>这使得实现登录校验功能的中间件变得异常方便和容易。</p>
+<p>我在一开始就给项目设定了一些重要的指标，比如持续集成、code coverage 必须是 100%、code climate 评分必须是 4.0。并且提前设计了路线图。这之后被证明是非常有效的，极大且有效避免了我想偷懒而制造理由。这些东西我非常推荐在项目一开始就做。否则当中期加进去发现有巨多事情要做时，就基本失去了做这件事的动力。</p>
+<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>真正激励到我的，是 <code>v0.0.4</code> 后的一次关于 Hello World 的性能 benchmark。</p>
+<p>在 <strong>单核单线程</strong> 的情况下进行了如下框架的测试对比</p>
+<table>
+<thead>
+<tr>
+<th>框架</th>
+<th style="text-align:right">req/s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rails</td>
+<td style="text-align:right">817</td>
+</tr>
+<tr>
+<td>Rails API Mode</td>
+<td style="text-align:right">930</td>
+</tr>
+<tr>
+<td>Sinatra</td>
+<td style="text-align:right">2563</td>
+</tr>
+<tr>
+<td>express.js</td>
+<td style="text-align:right">6129</td>
+</tr>
+<tr>
+<td>em-midori</td>
+<td style="text-align:right">11440</td>
+</tr>
+</tbody>
+</table>
+<p>虽然一些特性还没有实现，所以跑得会比之后版本更快。但这充分说明了 Ruby 不但不满，而且可以非常快。这大大增加了我继续开发的动力。</p>
+<h3 id="元编程"><a href="#元编程" class="headerlink" title="元编程"></a>元编程</h3><p>关于元编程，我最喜欢的一句话来自于《Ruby 元编程》的后记：</p>
+<blockquote>
+<p>元编程不过是编程。</p>
+<p>Meta Programming is Just Programming.</p>
+</blockquote>
+<p>元编程做到不伤害，是重要且困难的。在 DSL 中使用元编程实际上是对元编程本身的约束。也就是说，你希望给用户一个无害的新特性。比如路由中  <code>define_error</code>  的实现如下：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">module</span> <span class="title">Kernel</span> <span class="comment">#:nodoc:</span></span></div><div class="line">  <span class="comment"># This method is implemented to dynamically generate class with given name and template.</span></div><div class="line">  <span class="comment"># Referenced from &#123;Ruby China&#125;[https://ruby-china.org/topics/17382]</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">define_class</span><span class="params">(name, ancestor = Object)</span></span></div><div class="line">    Object.const_set(name, Class.new(ancestor))</div><div class="line">    Object.const_get(name).class_eval(&amp;Proc.new) <span class="keyword">if</span> block_given?</div><div class="line">    Object.const_get(name)</div><div class="line">  <span class="keyword">end</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">define_error</span><span class="params">(*args)</span></span></div><div class="line">    args.each <span class="keyword">do</span> <span class="params">|arg|</span></div><div class="line">      class_name = arg.to_s.split(<span class="string">'_'</span>).map &#123; <span class="params">|word|</span> word[<span class="number">0</span>] = word[<span class="number">0</span>].upcase; word &#125;.join</div><div class="line">      define_class(class_name, StandardError)</div><div class="line">    <span class="keyword">end</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>与其直接暴露一个 <code>define_lass</code> ，暴露 <code>define_error</code> 就能完成我们对路由定义错误的需求，也不至于被滥用。设计元编程 API 的时候需要多考虑类似的问题。但实际上，好的 DSL API 的设计本身不就是对这些问题能否考虑周到吗？</p>
+<p>Ruby 对元编程极好的支持是 Ruby 重要的特性，与其说害怕而放之不用，不如说好好学习如何无害地使用。比如当我试图加入 await 关键字的时候，我一点都不觉得害怕，因为加入带来的好处，以及清晰的实现思路使得其变成非常自然的事情。这也正是「元编程不过是编程」的含义。</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>在 WebSocket 开发中，由于是通过阅读 RFC 标准实现的，实现出了许多常见客户端并没有的功能。这使得测试变得异常困难。这些一开始考虑时根本没想到会遇到的问题，无疑会严重影响开发的进程。这个测试问题甚至导致了路线图的修改和部分的延误。但这些问题与其说避免，不如说只有不断遇到才能以后更好解决。100% 的测试覆盖率非常难达到，但既然是奔着负责的开源项目去的，又是一个框架项目，这样的问题是不能逃避的。</p>
+<p>一开始甚至想要重新造一遍客户端轮子。但再三思考下，还是放弃而直接写入二进制数据流的方式来处理。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">it <span class="string">'should decode masked Hello String correctly'</span> <span class="keyword">do</span></div><div class="line">  websocket.decode(StringIO.new([<span class="number">0x81</span>, <span class="number">0x85</span>, <span class="number">0x37</span>, <span class="number">0xfa</span>, <span class="number">0x21</span>, <span class="number">0x3d</span>, <span class="number">0x7f</span>, <span class="number">0x9f</span>, <span class="number">0x4d</span>, <span class="number">0x51</span>, <span class="number">0x58</span>].pack(<span class="string">'C*'</span>)))</div><div class="line">  expect(websocket.msg).to eq(<span class="string">'Hello'</span>)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h2 id="以后的计划"><a href="#以后的计划" class="headerlink" title="以后的计划"></a>以后的计划</h2><p>要做一个完善的开源框架的路是非常长的。短短列一下计划就有很多，比如：</p>
+<ul>
+<li>实现异步文件读写</li>
+<li>实现异步数据库读写驱动</li>
+<li>驱动接入数据库 ORM</li>
+<li>实现 helpers 帮助方法</li>
+<li>用中间件重构早期硬编码</li>
+<li>…</li>
+</ul>
+<p>其实平时司空见惯的很多东西，仔细一想只会越来越多。但只要有良好的规划，稳健的迭代，相信最终都能克服的。</p>
+<p>写下这篇文章与各位 Rubyist 共勉，虽然只做了微小的工作。希望 Ruby 社区能在越来越多开源项目的帮助下发展得越来越好。</p>
+<p>最后，不要脸地求 Star  <a href="https://github.com/heckpsi-lab/em-midori" target="_blank" rel="external">em-midori</a> （逃</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/09/16/why-i-support-alibaba-in-the-problem-of-mooncake/" class="next">下一篇</a></div><div data-thread-key="2016/10/18/em-midori-40-days/" data-title="自制开源 Web 框架的 40 天" data-url="http://blog.heckpsi.com/2016/10/18/em-midori-40-days/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"heckpsi-blog"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+
+</script><script src="http://7u2lcg.com1.z0.glb.clouddn.com/tw_cn.js"></script><div class="copyright"><p><a id="translateLink" href="javascript:translatePage();">轉換成繁體中文</a></p><script>var defaultEncoding = 2;var translateDelay = 0;
+var cookieDomain = "http://blog.heckpsi.com/";
+var msgToTraditionalChinese = "轉換成繁體中文";
+var msgToSimplifiedChinese = "转换成简体中文";
+var translateButtonId = "translateLink";
+translateInitilization();</script><p>© 2013 - 2016 <a href="http://blog.heckpsi.com">上海骇咕赛信息科技有限公司</a> | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">沪ICP备15046530号</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-61251352-2",'auto');ga('send','pageview');</script></body></html>
