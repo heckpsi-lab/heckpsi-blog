@@ -1,4 +1,5 @@
 <!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="theme-color" content="#43bea2"><title> 自制开源 Web 框架的 40 天 · HeckPsi Blog</title><meta name="description" content="自制开源 Web 框架的 40 天 - 上海骇咕赛信息科技有限公司"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://blog.heckpsi.com/atom.xml" title="HeckPsi Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="http://heckpsi.com" target="_blank" class="nav-list-link">HOME</a></li><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/heckpsi" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/heckpsi-lab" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">自制开源 Web 框架的 40 天</h1><div class="post-info">2016年10月18日</div><div class="post-content"><h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>这篇文章写在 <a href="https://github.com/heckpsi-lab/em-midori" target="_blank" rel="external">em-midori</a> 项目建立的第 40 天，从决定写这样一个框架，到现在勉强能用只花了 40 天里空闲的日子。从原先写开源代码光挖坑不填，到这次能把项目带到即将 development ready 的地步，确实在开发和思考的过程有非常多的不同。于是我变把这些地方记录下来，希望给以后的开发和诸位提供一些些帮助。</p>
+<a id="more"></a>
 <h2 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h2><h3 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h3><p>最早有类似于我开发的这个框架的想法大概已经过去了大半年的时间里。在此之前，我使用的 Web 框架主要是 Rails 和 Sinatra。Rails 的强大我想不必多述，在生产中大量使用 Sinatra 还是出于几个原因。一个是使用 Vue.js 做前端框架后，后端做 API 就足够了，而 Rails API Standalone 则是 Rails 5 发布的，相对来说晚一些；Sinatra 有一个设计良好的 DSL，在做路由的时候更加直观和灵活；最后就是 Rails 基于栈实现的路由匹配速度略慢，导致了大约是 Sinatra 性能的一半。</p>
 <p>不过说起性能，无论是 Sinatra 还是 Rails 都是 IO 阻塞 的。主要的原因当然是 IO 非阻塞的框架在用起来的时候通常非常反人类。但 IO 阻塞模型在高并发或长连接下确实表现不佳，以至于 Rails 在 ActionCable 的实现中也不得不使用了非阻塞的 EventMachine。</p>
 <p>在 Ruby 上比较有名的，出过三个非阻塞 IO 的 Web 框架，他们是 cramp，sinatra-synchrony 和 angelo。然而前两者都出现在 EventMachine 出现的早期，一个很早就停止维护了，而另一个也受限于完全照搬 sinatra 对异步仅限于网络 IO 的层面。而后者使用了 Celluloid::IO 作为事件模型的实现，然而其开发进度极慢，并有不维护的迹象，因为其特别的 IO 库，也愈发地有不维护的可能。</p>
@@ -30,29 +31,29 @@
 <table>
 <thead>
 <tr>
-<th>框架</th>
+<th style="text-align:left">框架</th>
 <th style="text-align:right">req/s</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Rails</td>
+<td style="text-align:left">Rails</td>
 <td style="text-align:right">817</td>
 </tr>
 <tr>
-<td>Rails API Mode</td>
+<td style="text-align:left">Rails API Mode</td>
 <td style="text-align:right">930</td>
 </tr>
 <tr>
-<td>Sinatra</td>
+<td style="text-align:left">Sinatra</td>
 <td style="text-align:right">2563</td>
 </tr>
 <tr>
-<td>express.js</td>
+<td style="text-align:left">express.js</td>
 <td style="text-align:right">6129</td>
 </tr>
 <tr>
-<td>em-midori</td>
+<td style="text-align:left">em-midori</td>
 <td style="text-align:right">11440</td>
 </tr>
 </tbody>
