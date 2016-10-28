@@ -58,7 +58,7 @@
 </tr>
 </tbody>
 </table>
-<p>虽然一些特性还没有实现，所以跑得会比之后版本更快。但这充分说明了 Ruby 不但不满，而且可以非常快。这大大增加了我继续开发的动力。</p>
+<p>虽然一些特性还没有实现，所以跑得会比之后版本更快。但这充分说明了 Ruby 不但不慢，而且可以非常快。这大大增加了我继续开发的动力。</p>
 <h3 id="元编程"><a href="#元编程" class="headerlink" title="元编程"></a>元编程</h3><p>关于元编程，我最喜欢的一句话来自于《Ruby 元编程》的后记：</p>
 <blockquote>
 <p>元编程不过是编程。</p>
@@ -66,7 +66,7 @@
 </blockquote>
 <p>元编程做到不伤害，是重要且困难的。在 DSL 中使用元编程实际上是对元编程本身的约束。也就是说，你希望给用户一个无害的新特性。比如路由中  <code>define_error</code>  的实现如下：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">module</span> <span class="title">Kernel</span> <span class="comment">#:nodoc:</span></span></div><div class="line">  <span class="comment"># This method is implemented to dynamically generate class with given name and template.</span></div><div class="line">  <span class="comment"># Referenced from &#123;Ruby China&#125;[https://ruby-china.org/topics/17382]</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">define_class</span><span class="params">(name, ancestor = Object)</span></span></div><div class="line">    Object.const_set(name, Class.new(ancestor))</div><div class="line">    Object.const_get(name).class_eval(&amp;Proc.new) <span class="keyword">if</span> block_given?</div><div class="line">    Object.const_get(name)</div><div class="line">  <span class="keyword">end</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">define_error</span><span class="params">(*args)</span></span></div><div class="line">    args.each <span class="keyword">do</span> <span class="params">|arg|</span></div><div class="line">      class_name = arg.to_s.split(<span class="string">'_'</span>).map &#123; <span class="params">|word|</span> word[<span class="number">0</span>] = word[<span class="number">0</span>].upcase; word &#125;.join</div><div class="line">      define_class(class_name, StandardError)</div><div class="line">    <span class="keyword">end</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>与其直接暴露一个 <code>define_lass</code> ，暴露 <code>define_error</code> 就能完成我们对路由定义错误的需求，也不至于被滥用。设计元编程 API 的时候需要多考虑类似的问题。但实际上，好的 DSL API 的设计本身不就是对这些问题能否考虑周到吗？</p>
+<p>与其直接暴露一个 <code>define_class</code> ，暴露 <code>define_error</code> 就能完成我们对路由定义错误的需求，也不至于被滥用。设计元编程 API 的时候需要多考虑类似的问题。但实际上，好的 DSL API 的设计本身不就是对这些问题能否考虑周到吗？</p>
 <p>Ruby 对元编程极好的支持是 Ruby 重要的特性，与其说害怕而放之不用，不如说好好学习如何无害地使用。比如当我试图加入 await 关键字的时候，我一点都不觉得害怕，因为加入带来的好处，以及清晰的实现思路使得其变成非常自然的事情。这也正是「元编程不过是编程」的含义。</p>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>在 WebSocket 开发中，由于是通过阅读 RFC 标准实现的，实现出了许多常见客户端并没有的功能。这使得测试变得异常困难。这些一开始考虑时根本没想到会遇到的问题，无疑会严重影响开发的进程。这个测试问题甚至导致了路线图的修改和部分的延误。但这些问题与其说避免，不如说只有不断遇到才能以后更好解决。100% 的测试覆盖率非常难达到，但既然是奔着负责的开源项目去的，又是一个框架项目，这样的问题是不能逃避的。</p>
 <p>一开始甚至想要重新造一遍客户端轮子。但再三思考下，还是放弃而直接写入二进制数据流的方式来处理。</p>
@@ -83,7 +83,7 @@
 <p>其实平时司空见惯的很多东西，仔细一想只会越来越多。但只要有良好的规划，稳健的迭代，相信最终都能克服的。</p>
 <p>写下这篇文章与各位 Rubyist 共勉，虽然只做了微小的工作。希望 Ruby 社区能在越来越多开源项目的帮助下发展得越来越好。</p>
 <p>最后，不要脸地求 Star  <a href="https://github.com/heckpsi-lab/em-midori" target="_blank" rel="external">em-midori</a> （逃</p>
-</div></article></div></section><footer><div class="paginator"><a href="/2016/09/16/why-i-support-alibaba-in-the-problem-of-mooncake/" class="next">下一篇</a></div><div data-thread-key="2016/10/18/em-midori-40-days/" data-title="自制开源 Web 框架的 40 天" data-url="http://blog.heckpsi.com/2016/10/18/em-midori-40-days/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"heckpsi-blog"};
+</div></article></div></section><footer><div class="paginator"><a href="/2016/10/29/is-eval-evil/" class="prev">上一篇</a><a href="/2016/09/16/why-i-support-alibaba-in-the-problem-of-mooncake/" class="next">下一篇</a></div><div data-thread-key="2016/10/18/em-midori-40-days/" data-title="自制开源 Web 框架的 40 天" data-url="http://blog.heckpsi.com/2016/10/18/em-midori-40-days/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"heckpsi-blog"};
 (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;
