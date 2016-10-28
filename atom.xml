@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
-  <updated>2016-10-28T19:54:21.000Z</updated>
+  <updated>2016-10-28T19:59:42.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
   
   <author>
@@ -16,17 +16,17 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>关于 Eval 是否 evil 的一些想法</title>
+    <title>关于 eval 是否 evil 的一些想法</title>
     <link href="http://blog.heckpsi.com/2016/10/29/is-eval-evil/"/>
     <id>http://blog.heckpsi.com/2016/10/29/is-eval-evil/</id>
     <published>2016-10-28T19:53:25.000Z</published>
-    <updated>2016-10-28T19:54:21.000Z</updated>
+    <updated>2016-10-28T19:59:42.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="引"><a href="#引" class="headerlink" title="引"></a>引</h3><p>对于大多数动态语言，都支持 <code>eval</code> 这个神奇的函数。这打他们太爷爷 Lisp 开始就支持这种方法。虽然写法（eg: <code>(eval &#39;(+ 1 2 3))</code> ）有稍许不同，但语义是一样的，就是说 <code>eval</code> 函数接受一个字符串类型作为参数，将其解析成语句并混合在当前作用域内运行。但我想大家也都听过这么一句话：</p>
 <blockquote>
-<p>Eval is evil.</p>
+<p>eval is evil.</p>
 </blockquote>
-<p>那么既然 <code>eval</code> 如此罪恶，那么为什么它仍被那么多动态语言作为接口暴露呢？我们不妨来仔细探讨一下 <code>eval</code> 在使用中究竟会产生什么问题，在日常编程中究竟该不该使用 <code>eval</code>，如果要用，那么又该如何使用。</p>
+<p>但是 How evil is eval？那么既然 <code>eval</code> 如此罪恶，那么为什么它仍被那么多动态语言作为接口暴露呢？我们不妨来仔细探讨一下 <code>eval</code> 在使用中究竟会产生什么问题，在日常编程中究竟该不该使用 <code>eval</code>，如果要用，那么又该如何使用。</p>
 <a id="more"></a>
 <h3 id="字符串安全"><a href="#字符串安全" class="headerlink" title="字符串安全"></a>字符串安全</h3><p>说到 <code>eval</code> 第一个会被讨论的当然就是其安全性。比如说，我们现在来实现一个四则运算器：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">loop <span class="keyword">do</span></div><div class="line">  print(<span class="string">'Expression: '</span>)</div><div class="line">  puts(<span class="string">"result: <span class="subst">#&#123;eval gets.chomp&#125;</span>"</span>)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
@@ -79,9 +79,9 @@
     
       &lt;h3 id=&quot;引&quot;&gt;&lt;a href=&quot;#引&quot; class=&quot;headerlink&quot; title=&quot;引&quot;&gt;&lt;/a&gt;引&lt;/h3&gt;&lt;p&gt;对于大多数动态语言，都支持 &lt;code&gt;eval&lt;/code&gt; 这个神奇的函数。这打他们太爷爷 Lisp 开始就支持这种方法。虽然写法（eg: &lt;code&gt;(eval &amp;#39;(+ 1 2 3))&lt;/code&gt; ）有稍许不同，但语义是一样的，就是说 &lt;code&gt;eval&lt;/code&gt; 函数接受一个字符串类型作为参数，将其解析成语句并混合在当前作用域内运行。但我想大家也都听过这么一句话：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Eval is evil.&lt;/p&gt;
+&lt;p&gt;eval is evil.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;那么既然 &lt;code&gt;eval&lt;/code&gt; 如此罪恶，那么为什么它仍被那么多动态语言作为接口暴露呢？我们不妨来仔细探讨一下 &lt;code&gt;eval&lt;/code&gt; 在使用中究竟会产生什么问题，在日常编程中究竟该不该使用 &lt;code&gt;eval&lt;/code&gt;，如果要用，那么又该如何使用。&lt;/p&gt;
+&lt;p&gt;但是 How evil is eval？那么既然 &lt;code&gt;eval&lt;/code&gt; 如此罪恶，那么为什么它仍被那么多动态语言作为接口暴露呢？我们不妨来仔细探讨一下 &lt;code&gt;eval&lt;/code&gt; 在使用中究竟会产生什么问题，在日常编程中究竟该不该使用 &lt;code&gt;eval&lt;/code&gt;，如果要用，那么又该如何使用。&lt;/p&gt;
     
     </summary>
     
@@ -695,13 +695,13 @@
     
       <category term="Google" scheme="http://blog.heckpsi.com/tags/Google/"/>
     
+      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
+    
       <category term="AlphaGo" scheme="http://blog.heckpsi.com/tags/AlphaGo/"/>
     
       <category term="AI" scheme="http://blog.heckpsi.com/tags/AI/"/>
     
       <category term="机器学习" scheme="http://blog.heckpsi.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
     
   </entry>
   
