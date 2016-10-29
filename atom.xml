@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
-  <updated>2016-10-28T20:33:40.000Z</updated>
+  <updated>2016-10-29T08:53:06.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.heckpsi.com/2016/10/29/is-eval-evil/"/>
     <id>http://blog.heckpsi.com/2016/10/29/is-eval-evil/</id>
     <published>2016-10-28T19:53:25.000Z</published>
-    <updated>2016-10-28T20:33:40.000Z</updated>
+    <updated>2016-10-29T08:53:06.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="引"><a href="#引" class="headerlink" title="引"></a>引</h3><p>对于大多数动态语言，都支持 <code>eval</code> 这个神奇的函数。这打他们太爷爷 Lisp 开始就支持这种方法。虽然写法（eg: <code>(eval &#39;(+ 1 2 3))</code> ）有稍许不同，但语义是一样的，就是说 <code>eval</code> 函数接受一个字符串类型作为参数，将其解析成语句并混合在当前作用域内运行。但我想大家也都听过这么一句话：</p>
 <blockquote>
@@ -66,7 +66,9 @@
 <p>但下面这段尾递归代码在即使开启优化的情况下，一样不会得到优化：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">recursion_loop</span><span class="params">(count)</span></span></div><div class="line">  puts(<span class="string">"Count: <span class="subst">#&#123;count&#125;</span>"</span>)</div><div class="line">  <span class="keyword">return</span> <span class="keyword">if</span> count == <span class="number">0</span></div><div class="line">  eval(<span class="string">'recursion_loop(count - 1)'</span>)</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">recursion_loop(<span class="number">100000</span>)</div></pre></td></tr></table></figure>
 <p>这段代码把一个明明是尾递归的情况破坏成了非尾递归。因为编译器静态分析的时候根本不知道你 <code>eval</code> 里是什么东西。怎么可能给你优化？</p>
-<p>虽然这个例子非常极端，但事实上不止 <code>eval</code>，大多数动态方法，都没有办法被静态分析，以提供足够的优化。以至于动态语言的代码优化也一直是一大难点。</p>
+<p>虽然这个例子非常极端，但其实不止 <code>eval</code>，比如：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@next_recursion = proc &#123; <span class="params">|count|</span></div><div class="line">  recursion_loop(count - <span class="number">1</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">recursion_loop</span><span class="params">(count)</span></span></div><div class="line">  puts(<span class="string">"Count: <span class="subst">#&#123;count&#125;</span>"</span>)</div><div class="line">  <span class="keyword">return</span> <span class="keyword">if</span> count == <span class="number">0</span></div><div class="line">  @next_recursion.call(count)</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">recursion_loop(<span class="number">100000</span>)</div></pre></td></tr></table></figure>
+<p>大多数动态方法，都没有办法被静态分析，以提供足够的优化。以至于动态语言的代码优化也一直是一大难点。</p>
 <h3 id="对-eval-魔法的思考"><a href="#对-eval-魔法的思考" class="headerlink" title="对 eval 魔法的思考"></a>对 eval 魔法的思考</h3><p>总结一下，谈一谈对「eval 魔法」的思考。<code>eval</code> 在元编程里也一直属于接近于禁术的那种类型。就好像核武器一样可怕。在用 <code>eval</code> 的时候要充分认识到可能带来的后果，才能对其进行使用。核国家的战争也不一定非要互相丢核武器，如果常规武器可以解决的，不必如此大动干戈。比如说前面 rest-client 的例子，也可以不用 <code>eval</code>：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">POSSIBLE_VERBS = [<span class="string">'get'</span>, <span class="string">'put'</span>, <span class="string">'post'</span>, <span class="string">'delete'</span>]</div><div class="line">POSSIBLE_VERBS.each <span class="keyword">do</span> <span class="params">|m|</span></div><div class="line">  define_method(m) <span class="keyword">do</span> <span class="params">|path, *args, &amp;b|</span></div><div class="line">    r[path].send(m, *args, &amp;b)</div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
 <p>也可以解决这样的问题。不过 <code>define_method</code> 的方法，也不能给代码带来静态分析，而这又是在启动时一次性执行的代码，对性能的提升是微乎其微的。所以 rest-client 的 <code>eval</code> 实现并谈不上 evil。</p>
@@ -695,13 +697,13 @@
     
       <category term="Google" scheme="http://blog.heckpsi.com/tags/Google/"/>
     
-      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
-    
       <category term="AlphaGo" scheme="http://blog.heckpsi.com/tags/AlphaGo/"/>
     
       <category term="AI" scheme="http://blog.heckpsi.com/tags/AI/"/>
     
       <category term="机器学习" scheme="http://blog.heckpsi.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
     
   </entry>
   
@@ -979,9 +981,9 @@
     </summary>
     
     
-      <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="算法" scheme="http://blog.heckpsi.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
