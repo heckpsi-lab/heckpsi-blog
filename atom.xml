@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
-  <updated>2016-12-16T02:25:27.000Z</updated>
+  <updated>2016-12-16T02:30:53.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.heckpsi.com/2016/12/15/em-midori-100-days/"/>
     <id>http://blog.heckpsi.com/2016/12/15/em-midori-100-days/</id>
     <published>2016-12-15T15:58:04.000Z</published>
-    <updated>2016-12-16T02:25:27.000Z</updated>
+    <updated>2016-12-16T02:30:53.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上次在 40 天的时候介绍了一些<a href="https://ruby-china.org/topics/31358" target="_blank" rel="external">人生的经验</a>，做了些<a href="https://ruby-china.org/topics/31885" target="_blank" rel="external">微小的贡献</a>。一个人的命运啊，当然要靠自我奋斗，但是也要考虑到历史的进程，我绝对不知道我刚写了能跑 Hello World 的程序怎么把我选到 GitHub Trending 去了。这之后就莫名其妙上了 Ruby Weekly，还被 Matsumoto 桑给 retweet 了。然而上次那篇文章用的是中文写的，这直接导致一些不明真相的外国友人进行了<a href="https://www.reddit.com/r/ruby/comments/58kaqe/em_midori_lightweight_flexible_and_fast/" target="_blank" rel="external">迷之看空</a>的讨论。</p>
 <p>不过在之后 60 天里，这个项目的 API 逐渐完善，对于原先很多的问题逐渐都在修正。我已经开始使用 em-midori 开发逻辑复杂的业务的尝试，并且目前进展非常顺利。在这 100 天之际，将 em-midori 的设计思路更好得整理一下，来仔细说说 em-midori 在解决什么问题，以及怎么解决。</p>
@@ -42,7 +42,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+---+        +---+  +---+  +---+  +---+</div><div class="line">|   |        |   |  |   |  |   |  |   |</div><div class="line">| 1 |        | 1 |  | 2 |  | 3 |  | 4 |</div><div class="line">|   |        |   |  |   |  |   |  |   |</div><div class="line">+---+        +---+  +---+  +---+  +---+</div><div class="line"></div><div class="line">+-------------------------------------&gt;</div></pre></td></tr></table></figure>
 <p>1 号任务处理了一半休眠了 1 秒，不处理任何东西，只是白白贡献了自己的 1 秒。如果我们的程序时异步的。那么 1 号任务可以让出处理权，先让 2 3 4 处理。而这种情况除非是有意的 <code>sleep</code> 操作，通常都是由于 <strong>I/O 阻塞</strong> 造成的，也就是处理了一半，正在等待一个网络请求或文件读写完成才能继续处理的这种情况。所以 Node 与其说是异步，不如说是由异步产生了一个无阻塞的网络框架产生的性能提升。</p>
 <h3 id="回调地狱"><a href="#回调地狱" class="headerlink" title="回调地狱"></a>回调地狱</h3><p>那么说清楚了上面这个问题，我们就来说说，我们都不想这么写的原因：回调地狱 (callback hell)。如果我们在网上搜索一下，我想可以看到无数有关的段子。</p>
-<p><img src="http://cdn.heckpsi.com/midori_1.png" alt="回调地狱"></p>
+<p><img src="http://cdn.heckpsi.com/midori_3.png" alt="回调地狱"></p>
 <p>然而事实上，在 Node 自己的样例中我们很少看到这种糟糕的代码，这种代码更多的是出现在我们的业务中。因为业务的实现主要就是 CRUD，而这些操作的明显特点就是每个业务都存在其自己内在的逻辑关系，有其自己的执行顺序，即使抽象也很难复用。而业务 API 通常都有着及时的反馈，这使得我们一定是：</p>
 <ol>
 <li>读入请求</li>
