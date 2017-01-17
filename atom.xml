@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
-  <updated>2017-01-17T15:00:57.000Z</updated>
+  <updated>2017-01-17T15:03:06.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://blog.heckpsi.com/2017/01/07/ruby-meta-programming_0/"/>
     <id>http://blog.heckpsi.com/2017/01/07/ruby-meta-programming_0/</id>
     <published>2017-01-07T14:45:00.000Z</published>
-    <updated>2017-01-17T15:00:57.000Z</updated>
+    <updated>2017-01-17T15:03:06.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="元-meta-是什么？"><a href="#元-meta-是什么？" class="headerlink" title="元 (meta-) 是什么？"></a>元 (meta-) 是什么？</h2><p>很难用一个中文的词汇来概括英文中 meta- 词缀的含义。如果我们去找这个词缀词语的翻译的话，也很难找到究竟是什么时候，开始将这一类词翻译成「元XX」的。但我们可以看到的是，这一类词通常都很难翻译，比如说 physics 物理，metaphysics 形而上学；morphological 形态的 metamorphosis 质变。</p>
-<p>对于这个词，我认为有个非常有趣的英语翻译，是杰克小说家卡夫卡的著名小说《Die Verwandlung》（变形记）的英语翻译《The Metamorphosis》。因为德语 Verwandlung 本身更接近于 change, transformation 的意思，而 metamorphosis 更突出了变化的彻底性，更体现了主人公格里高尔变成跳蚤之后个人、家人、社会对他的全面变化。</p>
+<p>对于这个词，我认为有个非常有趣的英语翻译，是捷克小说家卡夫卡的著名小说《Die Verwandlung》（变形记）的英语翻译《The Metamorphosis》。因为德语 Verwandlung 本身更接近于 change, transformation 的意思，而 metamorphosis 更突出了变化的彻底性，更体现了主人公格里高尔变成跳蚤之后个人、家人、社会对他的全面变化。</p>
 <p>meta- 这个词缀更类似于关于 x 的 x 的这么一种感觉。比如 metaphysics 在讨论的是事物原理本身的原理，metamorphosis 讨论的是变化导致的根本变化。meta- 这个词缀源于希腊语前缀 μετά，意思是 “之后”、“之外”、“之上”、“之间”。中国大陆一般将这个词缀的词翻译成「元」，而台湾地区通常翻译成「後設」或「超」。</p>
 <p>在讨论元编程之前，我们不如先讨论一下，元概念是如何被用于其它创作性工作的，这样我们可以更好理解元编程，以及如何将元编程用于编程工作之中。</p>
 <a id="more"></a>
@@ -52,7 +52,7 @@
     <summary type="html">
     
       &lt;h2 id=&quot;元-meta-是什么？&quot;&gt;&lt;a href=&quot;#元-meta-是什么？&quot; class=&quot;headerlink&quot; title=&quot;元 (meta-) 是什么？&quot;&gt;&lt;/a&gt;元 (meta-) 是什么？&lt;/h2&gt;&lt;p&gt;很难用一个中文的词汇来概括英文中 meta- 词缀的含义。如果我们去找这个词缀词语的翻译的话，也很难找到究竟是什么时候，开始将这一类词翻译成「元XX」的。但我们可以看到的是，这一类词通常都很难翻译，比如说 physics 物理，metaphysics 形而上学；morphological 形态的 metamorphosis 质变。&lt;/p&gt;
-&lt;p&gt;对于这个词，我认为有个非常有趣的英语翻译，是杰克小说家卡夫卡的著名小说《Die Verwandlung》（变形记）的英语翻译《The Metamorphosis》。因为德语 Verwandlung 本身更接近于 change, transformation 的意思，而 metamorphosis 更突出了变化的彻底性，更体现了主人公格里高尔变成跳蚤之后个人、家人、社会对他的全面变化。&lt;/p&gt;
+&lt;p&gt;对于这个词，我认为有个非常有趣的英语翻译，是捷克小说家卡夫卡的著名小说《Die Verwandlung》（变形记）的英语翻译《The Metamorphosis》。因为德语 Verwandlung 本身更接近于 change, transformation 的意思，而 metamorphosis 更突出了变化的彻底性，更体现了主人公格里高尔变成跳蚤之后个人、家人、社会对他的全面变化。&lt;/p&gt;
 &lt;p&gt;meta- 这个词缀更类似于关于 x 的 x 的这么一种感觉。比如 metaphysics 在讨论的是事物原理本身的原理，metamorphosis 讨论的是变化导致的根本变化。meta- 这个词缀源于希腊语前缀 μετά，意思是 “之后”、“之外”、“之上”、“之间”。中国大陆一般将这个词缀的词翻译成「元」，而台湾地区通常翻译成「後設」或「超」。&lt;/p&gt;
 &lt;p&gt;在讨论元编程之前，我们不如先讨论一下，元概念是如何被用于其它创作性工作的，这样我们可以更好理解元编程，以及如何将元编程用于编程工作之中。&lt;/p&gt;
     
@@ -846,13 +846,13 @@
     
       <category term="Google" scheme="http://blog.heckpsi.com/tags/Google/"/>
     
+      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
+    
       <category term="AlphaGo" scheme="http://blog.heckpsi.com/tags/AlphaGo/"/>
     
       <category term="AI" scheme="http://blog.heckpsi.com/tags/AI/"/>
     
       <category term="机器学习" scheme="http://blog.heckpsi.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="科普" scheme="http://blog.heckpsi.com/tags/%E7%A7%91%E6%99%AE/"/>
     
   </entry>
   
@@ -1130,9 +1130,9 @@
     </summary>
     
     
-      <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="算法" scheme="http://blog.heckpsi.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
