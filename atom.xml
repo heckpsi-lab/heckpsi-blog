@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
-  <updated>2016-12-16T02:30:53.000Z</updated>
+  <updated>2017-01-17T14:45:48.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
   
   <author>
@@ -16,13 +16,103 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>关于完全听不懂 Ruby 元编程在说什么的事（零）</title>
+    <link href="http://blog.heckpsi.com/2017/01/07/ruby-meta-programming_0/"/>
+    <id>http://blog.heckpsi.com/2017/01/07/ruby-meta-programming_0/</id>
+    <published>2017-01-07T14:45:00.000Z</published>
+    <updated>2017-01-17T14:45:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="元-meta-是什么？"><a href="#元-meta-是什么？" class="headerlink" title="元 (meta-) 是什么？"></a>元 (meta-) 是什么？</h2><p>很难用一个中文的词汇来概括英文中 meta- 词缀的含义。如果我们去找这个词缀词语的翻译的话，也很难找到究竟是什么时候，开始将这一类词翻译成「元XX」的。但我们可以看到的是，这一类词通常都很难翻译，比如说 physics 物理，metaphysics 形而上学；morphological 形态的 metamorphosis 质变。</p>
+<p>对于这个词，我认为有个非常有趣的英语翻译，是杰克小说家卡夫卡的著名小说《Die Verwandlung》（变形记）的英语翻译《The Metamorphosis》。因为德语 Verwandlung 本身更接近于 change, transformation 的意思，而 metamorphosis 更突出了变化的彻底性，更体现了主人公格里高尔变成跳蚤之后个人、家人、社会对他的全面变化。</p>
+<p>meta- 这个词缀更类似于关于 x 的 x 的这么一种感觉。比如 metaphysics 在讨论的是事物原理本身的原理，metamorphosis 讨论的是变化导致的根本变化。meta- 这个词缀源于希腊语前缀 μετά，意思是 “之后”、“之外”、“之上”、“之间”。中国大陆一般将这个词缀的词翻译成「元」，而台湾地区通常翻译成「後設」或「超」。</p>
+<p>在讨论元编程之前，我们不如先讨论一下，元概念是如何被用于其它创作性工作的，这样我们可以更好理解元编程，以及如何将元编程用于编程工作之中。</p>
+<h2 id="将元用于文学性创作"><a href="#将元用于文学性创作" class="headerlink" title="将元用于文学性创作"></a>将元用于文学性创作</h2><p>塞万提斯的《堂吉诃德》通常被认为是最早的元小说之一。故事发生在已经没有骑士的年代，主角堂吉诃德幻想自己是一个骑士。这种在小说作品中创作的形式就可以被认为是元小说。更严格的元小说通常是故事中的作家创造另一个故事或故事中的读者阅读一本书，比如《苏菲的世界》。</p>
+<p>现代和后现代时期的元小说产生的一大特点是，故事主角对自己是故事的一部分这样的概念具有意识。这一类作品的特点也很大影响了其它类型作品，包括元电影和元游戏。</p>
+<p>可交互性更是使得这种自我意识觉醒题材的元创作有了更多的创作型。比如著名独立游戏《史丹利的寓言》(The Stanley Parable) 就以玩家与旁白之间的听从与对抗作为手段，试图讨论游戏本质和玩家自我意识的概念。</p>
+<h2 id="将元用于理学性创作"><a href="#将元用于理学性创作" class="headerlink" title="将元用于理学性创作"></a>将元用于理学性创作</h2><p>如果说当你将元用于文学性创作时，你是有意识地进行着元创作；当你将元用于理学性/科学性的创作的时候，你通常是无意识的。就好像相声中的传统段子《捧逗争哏》，就可以称之为元相声，只不过是没有人这么叫而已。</p>
+<p>大学数学中有一门有关形式语言的课程叫范畴论。其实就是用抽象的方法来处理数学概念也可以称之为元数学。在计算机科学中，元概念的应用其实极其普遍，以至于我们其实在日常开发中无数次使用过。</p>
+<p>当我们现在有一个 HTTP 服务器，用户访问服务器通常都会返回一个网页。但我们有时需要返回的是一个给用户下载的文件，在这种情况下，浏览器需要不同的方式来处理这是个网页还是文件。最常见的就是我们会通过 HTTP/1.1 的 Headers 中的 Content-Type 来定义浏览器应该如何处理收到的数据。而这些 Headers 定义了数据本身，作为一种描述数据的数据，我们就可以称之为元数据。</p>
+<p>当你设计了一门编程语言，你需要为它实现一个编译器。而编译器的一开始，你需要做一个语法分析器 (parser)。由于一门编程语言的语法通常非常复杂，手动定义其中的关系有时不那么方便，于是很多时候我们会有类似于 yacc 之类的（编译器编译程序）compiler-compiler 来生成。通常这样的程序会允许输入一个巴科斯范式 (BNF) 作为语法定义，而巴科斯范式本身就可以被认为是一种元编程，你在通过编程实现编程。</p>
+<h2 id="Ruby-元编程"><a href="#Ruby-元编程" class="headerlink" title="Ruby 元编程"></a>Ruby 元编程</h2><p>我们通常把 Ruby 元编程单独拿出来说是因为 Ruby 可以通过编程修改 Ruby 语言自己。事实上，有这种能力的不止 Ruby 本身。且不论 Lisp 的各类方言，当年 C++ 模板元编程技术就够大家喝一大壶。如果说 Ruby 元编程被 Rubyist 经常单独出来说的原因是，我们可以通过元编程，不仅仅是给语言「增加」能力，或者是在 Ruby 上开发一个「DSL」，更多的是依靠 Ruby 本身丰富的语法糖设计，带来更好的编程范式和灵活性。</p>
+<p>但 Ruby 元编程并非是一个有益而无害的东西，错误地使用元编程会给代码可读性和程序性能带来灾难性的后果。这一系列的文章将通过介绍 Ruby 元编程来达成以下目的：</p>
+<ul>
+<li>介绍 Ruby 元编程方法</li>
+<li>介绍 Ruby 元编程陷阱</li>
+<li>介绍 Ruby 元编程原理</li>
+<li>相关方法在 YARV 中实现的变化</li>
+<li>认为 Ruby 不再是魔法</li>
+<li>能找到使用元编程技巧的正确场合</li>
+<li>比较 Ruby 和其他语言的元编程实现</li>
+</ul>
+<p>写这些文章之前我反复读了《Ruby 元编程》和《Ruby 原理剖析》这两本书，结合我自己 Ruby 开发的经验和实例，在这系列文章中，将会由浅入深地从方法介绍深入到实现细节，更系统地就元编程问题进行讨论。</p>
+<p>本系列文章采取月更，连载长度约为一个月，每个月的内容大约 1500-3000 字之间。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;元-meta-是什么？&quot;&gt;&lt;a href=&quot;#元-meta-是什么？&quot; class=&quot;headerlink&quot; title=&quot;元 (meta-) 是什么？&quot;&gt;&lt;/a&gt;元 (meta-) 是什么？&lt;/h2&gt;&lt;p&gt;很难用一个中文的词汇来概括英文中 meta- 词缀的含义
+    
+    </summary>
+    
+    
+      <category term="Ruby" scheme="http://blog.heckpsi.com/tags/Ruby/"/>
+    
+      <category term="元编程" scheme="http://blog.heckpsi.com/tags/%E5%85%83%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一些没有错误的原因</title>
+    <link href="http://blog.heckpsi.com/2016/12/22/without_problems/"/>
+    <id>http://blog.heckpsi.com/2016/12/22/without_problems/</id>
+    <published>2016-12-22T08:07:00.000Z</published>
+    <updated>2017-01-17T14:44:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一些没有错误的原因"><a href="#一些没有错误的原因" class="headerlink" title="一些没有错误的原因"></a>一些没有错误的原因</h2><p>之前写了一次<a href="http://www.jianshu.com/p/ddf8cdf6f370" target="_blank" rel="external">《我所熟知的两种愚昧》</a>，这大概可以被认为是这篇文章的精神续篇。</p>
+<p>今天早上我说</p>
+<blockquote>
+<p>感觉我还是涂样啊。一边说让你搞技术，一边自己上线把服务器搞挂掉然后让你来擦屁股；一边要你全力开发，一边一天打断你个十几次让你写不了代码；一边说不搞传统公司一套，一边用上线时间替代考勤时间，事情不上敏捷排期，想事起来大半夜来你个电话；一边把说着自己看不起的公司，一边把自己看不起的一套全做一遍。我真的想不懂有些人天天想些什么。</p>
+</blockquote>
+<p>原来就是想发发牢骚，谁知道搞出 7 家公司来问我要不要去他们公司。当然，一事归一事，我最近倒是对行业风气感到十分堪忧。主要是这个膨胀的行业，每个人都觉得自己能做出点什么，虽然并没有什么所作所为，但在读了一些鸡汤之后，总觉得自己大有作为。这世界上自然无法去评价一本书、一个人或者一件事本身是错误的，自然我只能说这些人是没有错误的。于是我今天只能说得罪你们一下，毕竟我是身经百战，见得多了。</p>
+<h2 id="一些没有错误的事"><a href="#一些没有错误的事" class="headerlink" title="一些没有错误的事"></a>一些没有错误的事</h2><p>上次说的时候说有一些人买很多书放在书柜里，束之高阁什么都不看，说这是叶公子高好龙。不过我现在倒是还发现一些人，他们买回来鸡汤书确实看，只是看得方式非常奇怪。我觉得稍有技术水平的人都应该把《黑客与画家》当小说看，把《代码大全》当管理类书籍看。但确实有一些人，把这书当技术书籍来看。当然，这书没法当技术书籍来看，因为这书只有技术名词，并不真的有技术内容在里面啊？</p>
+<p>没关系，对于他们来说名词是他们技术生涯中最重要的东西。我们要实行敏捷的开发工作流，要通过建立 TDD 开发来提高工作效率和工程的鲁棒性。至于敏捷要做什么？TDD 要做什么？不知道，我也不要知道。如果下面完不成工期，就说：上次我不就和你说我们要敏捷开发了吗？你现在脑子里想的应该是：去你妈的敏捷开发，这项目用的是人肉测试的能敏捷个鬼啊。但你不敢这么说，毕竟看着领导把这些词都写进报告里，老板看着非常高兴，至于下面代码写成一坨什么样的垃圾又怎么样呢？虽然是开发背锅，但开发你敢辞职吗？他早就料你不敢了，而且就算你辞职了，他也早就准备好和老板的说辞，又有什么用。</p>
+<p>以前以为这种风气在一些国企很流行，谁知道现在创业公司里这种风也是越吹越大了。一方面是像风一样吹过来的，另一方面则是创业公司里也在助长这种风气。以前国企能有这种风气，主要是领导又不懂技术，也没有什么结果导向，谁能吹自然就成了评价标准。这几年创业公司很大程度就是投资人也不关心你技术，反正钱多项目少，一定得把钱花出去才好。看哪个老板能吹，下一轮及时退出就是了。</p>
+<p>Paul Graham 有错吗？Paul Graham 就算明天边抽大麻边骂 Common Lisp 也想不到你们是这么理解他写的书的。</p>
+<hr>
+<p>除了书，一些人的言辞也很有意思。比如一个创业公司的老板告诉你：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/304980-37ca285ea680db3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>确实是他写的，只不过他在 bash 里敲了个 <code>rails new</code> 罢了。有错吗？没有。只是第二行代码开始就和他没关系了。他确实没说公司的早期技术是他负责的，但是他让你感到了错觉，这公司早期技术连老板都亲自参与，是一家技术驱动的可靠公司。然而你真的看了才发现，狗日的技术驱动，就跟个密集劳力的工厂似的。没有人在骗你，只是在误导你。至于这种误导是有意还是无意的，那就不好揣测了。</p>
+<p>如此类似的还有某人说：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/304980-b27381e45eda3e7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>因为全栈并没有标准来界定，你就算前端后端都只会写个 Hello World 也没有人敢否定你是全栈工程师啊。至于全栈工程师是把前后端架构都有着较为清晰的认知和理解，能够很好把握整个项目的人；还是只是会前端糊糊墙，后端糊糊屎，就真的没有人知道了。现在一些 PM 也说自己能写代码，真的写的不错的代码有，problem maker 的也有。又如何，又没人真拉着产品上去写代码。</p>
+<p>说这些话的人本身有错吗？你说不上他们错，你不能把一个道德上衡量和人类语言固有的缺点来攻击一个人吧。</p>
+<hr>
+<p>一些公司和你介绍说，我们用先进的技术架构，我们用 Rails ；用 Vue；用 React；用 Ansible；用 Git，反正啥流行啥都用了。结果你一看，没有一个不把这框架用处墙上糊屎的感觉，你能有什么好说的吗？</p>
+<p>你用 Node.js 我可以给你写出一坨耦合；你用 Rails 我可以给你写出 model 巨婴；你就算用 Java 我可以给你搞出混乱的组件关系。就算你没踩到语言的坑，进去一看，这起变量名的英语水平和小布什似的。你能说什么不对吗？并没有人在欺骗你，只是他们在掩盖不想让你看到的东西，或者他们自己都没有意识到这是问题。</p>
+<p>世界上不存在任何一个自动化程序能阻止人类所有的破坏，如果有，那么这个自动化程序的复杂度不亚于能自动写程序的程序。所以当别人和你说别人在用多先进的自动化，也不代表这个项目是质量优秀的。如果你假设它是优秀的，那么就是你自己的问题了。</p>
+<h2 id="一些没有错误的结论"><a href="#一些没有错误的结论" class="headerlink" title="一些没有错误的结论"></a>一些没有错误的结论</h2><p>做事对自己负责，对社会负责。你又不是个政客，请只说自己真的熟悉的东西。Don’t do evil.</p>
+<p>但听别人说话，就算别人不是在说谎，也不一定是真相。Don’t stay foolish.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一些没有错误的原因&quot;&gt;&lt;a href=&quot;#一些没有错误的原因&quot; class=&quot;headerlink&quot; title=&quot;一些没有错误的原因&quot;&gt;&lt;/a&gt;一些没有错误的原因&lt;/h2&gt;&lt;p&gt;之前写了一次&lt;a href=&quot;http://www.jianshu.com/p/dd
+    
+    </summary>
+    
+    
+      <category term="杂文" scheme="http://blog.heckpsi.com/tags/%E6%9D%82%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
     <title>em-midori 100 天记</title>
     <link href="http://blog.heckpsi.com/2016/12/15/em-midori-100-days/"/>
     <id>http://blog.heckpsi.com/2016/12/15/em-midori-100-days/</id>
     <published>2016-12-15T15:58:04.000Z</published>
-    <updated>2016-12-16T02:30:53.000Z</updated>
+    <updated>2016-12-16T15:35:57.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上次在 40 天的时候介绍了一些<a href="https://ruby-china.org/topics/31358" target="_blank" rel="external">人生的经验</a>，做了些<a href="https://ruby-china.org/topics/31885" target="_blank" rel="external">微小的贡献</a>。一个人的命运啊，当然要靠自我奋斗，但是也要考虑到历史的进程，我绝对不知道我刚写了能跑 Hello World 的程序怎么把我选到 GitHub Trending 去了。这之后就莫名其妙上了 Ruby Weekly，还被 Matsumoto 桑给 retweet 了。然而上次那篇文章用的是中文写的，这直接导致一些不明真相的外国友人进行了<a href="https://www.reddit.com/r/ruby/comments/58kaqe/em_midori_lightweight_flexible_and_fast/" target="_blank" rel="external">迷之看空</a>的讨论。</p>
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上次在 40 天的时候介绍了一些<a href="https://ruby-china.org/topics/31358" target="_blank" rel="external">人生的经验</a>，做了些<a href="https://ruby-china.org/topics/31421" target="_blank" rel="external">微小的贡献</a>。一个人的命运啊，当然要靠自我奋斗，但是也要考虑到历史的进程，我绝对不知道我刚写了能跑 Hello World 的程序怎么把我选到 GitHub Trending 去了。这之后就莫名其妙上了 Ruby Weekly，还被 Matsumoto 桑给 retweet 了。然而上次那篇文章用的是中文写的，这直接导致一些不明真相的外国友人进行了<a href="https://www.reddit.com/r/ruby/comments/58kaqe/em_midori_lightweight_flexible_and_fast/" target="_blank" rel="external">迷之看空</a>的讨论。</p>
 <p>不过在之后 60 天里，这个项目的 API 逐渐完善，对于原先很多的问题逐渐都在修正。我已经开始使用 em-midori 开发逻辑复杂的业务的尝试，并且目前进展非常顺利。在这 100 天之际，将 em-midori 的设计思路更好得整理一下，来仔细说说 em-midori 在解决什么问题，以及怎么解决。</p>
 <a id="more"></a>
 <h2 id="异步的思考"><a href="#异步的思考" class="headerlink" title="异步的思考"></a>异步的思考</h2><h3 id="瘾君子-JavaScript"><a href="#瘾君子-JavaScript" class="headerlink" title="瘾君子 JavaScript"></a>瘾君子 JavaScript</h3><p>JavaScript 不是所有语言中最早做异步的，但却是近年来非常引人瞩目的一个。这是因为，在并不十分快的 V8 虚拟机上，JavaScript 在主流解释型动态类型语言网络后端对比中，达到了不俗的性能表现。一般认为这是由 Node 纯异步设计带来的性能优势，然而事实上真的如此吗？</p>
@@ -34,7 +124,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">+-----------------+                  +----------------------------+</div><div class="line">|   parse header  | +--------------&gt; | req.header = parser.header |</div><div class="line">+-----------------+                  +---------------+------------+</div><div class="line">                                                     |</div><div class="line">         +-------------------------------------------+</div><div class="line">         |</div><div class="line">+--------v--------+                  +----------------------------+</div><div class="line">|   parse body    | +--------------&gt; | req.body.push(chunk)       |</div><div class="line">+---+-------------+                  +---------------+------------+</div><div class="line">    ^                                                |</div><div class="line">   N|    +-------------------------------------------+</div><div class="line">    |    |</div><div class="line">+---+----v--------+        Y         +----------------------------+</div><div class="line">|   complete?     | +--------------&gt; | ...                        |</div><div class="line">+-----------------+                  +----------------------------+</div></pre></td></tr></table></figure>
 <p>如果你觉得这图有点晕，不如我们换个方向来看这个图</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">     +-----------------+</div><div class="line">     |   parse header  |</div><div class="line">     +--------+--------+</div><div class="line">              |</div><div class="line">+-------------v--------------+</div><div class="line">| req.header = parser.header |</div><div class="line">+-------------+--------------+</div><div class="line">              |</div><div class="line">     +--------v--------+</div><div class="line">     |   parse body    |</div><div class="line">     +--------+--------+</div><div class="line">              |</div><div class="line">+-------------v--------------+</div><div class="line">| req.body.push(chunk)       &lt;---+</div><div class="line">+-------------+--------------+   |</div><div class="line">              |                  | N</div><div class="line">      +-------v---------+        |</div><div class="line">      |   complete?     +--------+</div><div class="line">      +-------+---------+</div></pre></td></tr></table></figure>
-<p>这就算现在找个高中生来，也看得出这东西就是个依次运行的同步流程了吧。因为这几步之间是有关系的。如果 header 没处理完，你连 body 在哪都还没找到，怎么可能能异步呢？Node 的许多地方都是 <strong>语义异步，运行同步</strong> 的。之所以要这么做很大程度上是为了贯彻 Node 纯异步的本身，希望编程者把思路完全变成异步的思路。如果说想上面这个例子中，同步和异步并不存在运行上的差异，那么影响运行效率的到底是什么呢？</p>
+<p>这就算现在找个没怎么学过编程的学生来，也看得出这东西就是个依次运行的同步流程了吧。因为这几步之间是有关系的。如果 header 没处理完，你连 body 在哪都还没找到，怎么可能能异步呢？Node 的许多地方都是 <strong>语义异步，运行同步</strong> 的。之所以要这么做很大程度上是为了贯彻 Node 纯异步的本身，希望编程者把思路完全变成异步的思路。如果说想上面这个例子中，同步和异步并不存在运行上的差异，那么影响运行效率的到底是什么呢？</p>
 <p>说到底是 <strong>阻塞</strong> 在作怪。 </p>
 <p>如果一个核心一个线程一次只能正在处理一个队列的任务，每个任务耗时需要 1s 完成：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+---+  +---+  +---+  +---+  +---+</div><div class="line">|   |  |   |  |   |  |   |  |   |</div><div class="line">| 1 |  | 2 |  | 3 |  | 4 |  | 5 |</div><div class="line">|   |  |   |  |   |  |   |  |   |</div><div class="line">+---+  +---+  +---+  +---+  +---+</div><div class="line"></div><div class="line">+-------------------------------&gt;</div></pre></td></tr></table></figure>
@@ -58,7 +148,7 @@
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(</div><div class="line">  (</div><div class="line">    (</div><div class="line">      ()</div><div class="line">    )</div><div class="line">  )</div><div class="line">)</div></pre></td></tr></table></figure>
 <p>这种括号组成的语法关系是不是让人有一种：</p>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(<span class="name">on</span> connection 'received (<span class="name">lambda</span> (<span class="name">data</span>)</div><div class="line">  (<span class="name">query</span> DB (<span class="name">format</span> <span class="literal">nil</span> <span class="string">"SELECT * FROM A WHERE x=~A"</span> (<span class="name">data</span> 'test)) (<span class="name">lambda</span> (<span class="name">result</span>) </div><div class="line">    (<span class="name">query</span> DB (<span class="name">format</span> <span class="literal">nil</span> <span class="string">"SELECT * FROM B WHERE x=~A"</span> (<span class="name">data</span> 'test2)) (<span class="name">lambda</span> (<span class="name">result2</span>) </div><div class="line">      (<span class="name">response</span> connection (<span class="name">+</span> result result2))</div><div class="line">    ) (<span class="name">lambda</span> (<span class="name">err2</span>) ())</div><div class="line">  )) (<span class="name">lambda</span> (<span class="name">err</span>) ())</div><div class="line">)))</div></pre></td></tr></table></figure>
-<p>的错觉。这个错觉并没有错，JavaScript 可以说就是披着 C 语言外衣的 Lisp。它除了长得像 C 语法以外都和 Lisp 比较像。那么 Lisp 的括号嵌套是什么关系？本质上是栈的关系。所以一系列的回调本质是栈吗？稍有一些区别。回调被调用之时就是入栈之时，然而回调执行完并不是出栈之时，因为栈底的东西已经被执行完了。但如果我们更近一步，假设栈底什么都没有的话，那么我们就已经找到了一种非常基础的数据结构来描述这一行为的本质，这东西更像是一个 <strong>队列</strong>。</p>
+<p>的错觉。这个错觉并没有错，JavaScript 可以说就是披着 C 语言外衣的 Lisp。它除了长得像 C 语法以外都和 Lisp 比较像。那么 Lisp 的括号嵌套是什么关系？本质上是栈的关系。所以一系列的回调本质是栈吗？稍有一些区别。回调被调用之时就是入栈之时，然而回调执行完并不是出栈之时，因为栈底的东西已经被执行完了。但如果我们更近一步，假设栈底什么都没有的话，那么我们就已经找到了一种非常基础的数据结构来描述这一行为的本质，这东西更像是一个 <strong>队列</strong>，每次回调只是在告诉队列，你可以处理下一项了。</p>
 <p>也就是说，每个请求的处理都是一个队列，每个 I/O 操作都是队列中的一项，当这个队列被运行完了，这个请求就被处理完了。它和原先同步的代码比起来的唯一区别是，同步代码可以被认为这个队列是依次接连执行的，而现在队列中的每一项只在它可以执行的时候再执行，否则，我可以去执行其他队列里的东西，把 CPU 的 Idle 吃完，就能达到很好的性能。</p>
 <h3 id="已有的尝试"><a href="#已有的尝试" class="headerlink" title="已有的尝试"></a>已有的尝试</h3><p>事实上在比如 Thin 或者 Puma 之类的 Web 服务器中都已经使用 EventMachine 实现了一部分的异步，也就是将网络的 I/O，读取请求和写回返回部分写了非阻塞的写法。所以如果你跑一个 Hello World 服务器，那么其实性能并不太差。</p>
 <p>比如最简单的 sinatra 例子</p>
@@ -102,7 +192,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;上次在 40 天的时候介绍了一些&lt;a href=&quot;https://ruby-china.org/topics/31358&quot;&gt;人生的经验&lt;/a&gt;，做了些&lt;a href=&quot;https://ruby-china.org/topics/31885&quot;&gt;微小的贡献&lt;/a&gt;。一个人的命运啊，当然要靠自我奋斗，但是也要考虑到历史的进程，我绝对不知道我刚写了能跑 Hello World 的程序怎么把我选到 GitHub Trending 去了。这之后就莫名其妙上了 Ruby Weekly，还被 Matsumoto 桑给 retweet 了。然而上次那篇文章用的是中文写的，这直接导致一些不明真相的外国友人进行了&lt;a href=&quot;https://www.reddit.com/r/ruby/comments/58kaqe/em_midori_lightweight_flexible_and_fast/&quot;&gt;迷之看空&lt;/a&gt;的讨论。&lt;/p&gt;
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;上次在 40 天的时候介绍了一些&lt;a href=&quot;https://ruby-china.org/topics/31358&quot;&gt;人生的经验&lt;/a&gt;，做了些&lt;a href=&quot;https://ruby-china.org/topics/31421&quot;&gt;微小的贡献&lt;/a&gt;。一个人的命运啊，当然要靠自我奋斗，但是也要考虑到历史的进程，我绝对不知道我刚写了能跑 Hello World 的程序怎么把我选到 GitHub Trending 去了。这之后就莫名其妙上了 Ruby Weekly，还被 Matsumoto 桑给 retweet 了。然而上次那篇文章用的是中文写的，这直接导致一些不明真相的外国友人进行了&lt;a href=&quot;https://www.reddit.com/r/ruby/comments/58kaqe/em_midori_lightweight_flexible_and_fast/&quot;&gt;迷之看空&lt;/a&gt;的讨论。&lt;/p&gt;
 &lt;p&gt;不过在之后 60 天里，这个项目的 API 逐渐完善，对于原先很多的问题逐渐都在修正。我已经开始使用 em-midori 开发逻辑复杂的业务的尝试，并且目前进展非常顺利。在这 100 天之际，将 em-midori 的设计思路更好得整理一下，来仔细说说 em-midori 在解决什么问题，以及怎么解决。&lt;/p&gt;
     
     </summary>
@@ -1083,95 +1173,6 @@
       <category term="数学" scheme="http://blog.heckpsi.com/tags/%E6%95%B0%E5%AD%A6/"/>
     
       <category term="算法" scheme="http://blog.heckpsi.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTPS 是如何保证安全的？</title>
-    <link href="http://blog.heckpsi.com/2015/04/16/how-https-makes-communication-secured/"/>
-    <id>http://blog.heckpsi.com/2015/04/16/how-https-makes-communication-secured/</id>
-    <published>2015-04-15T20:21:48.000Z</published>
-    <updated>2016-04-21T18:32:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>每当我们讨论到信息安全的时候，我们最长接触到的信息加密传输的方式莫过于 HTTPS 了，当我们浏览器地址栏闪现出绿色时，就代表着这个网站支持 HTTPS 的加密信息传输方式，并且你与它的连接确实被加密了。但是 HTTPS 并不是一个单一的东西，它知识我们常见的 HTTP 协议和某个加密协议的一个混合，这个加密协议通常会是 TLS。那么 HTTPS 为什么安全呢？其实我们需要先考虑 HTTP 为什么不安全。</p>
-<a id="more"></a>
-<p>假设你坐在一个教室里，你现在非常想把某个信息传递给教室里的另一个人，一般来说，会选择，传纸条。传纸条这个比喻其实非常正确，这就是互联网的一个基础协议 TCP/IP 协议基本的工作模式。而通常，HTTP 协议的数据是使用 TCP/IP 协议进行发送的。HTTP 指的是你在纸条上写明你要传送的目的地是哪个同学的坐位，然后再是要传递的内容。途径的同学拿到纸条后根据纸条上显示的地址依次传过去就好了。这样要面临的第一个问题就是：途径的同学可以完全知道你写了什么。</p>
-<p>这就是 HTTP 面临的第一个问题，这个问题通常被叫做 “窃听” 或者 “嗅探” ，指的是和你在同一个网络下或者是途径的路由上的攻击者可以偷窥到你传输的内容。这是 HTTPS 要解决的第一个问题。这种问题通常是通过“加密”来解决的。从非常原始的角度来考虑，其实就是双方约定一个暗号。用什么字母去替代什么字母之类的。不过考虑到互联网每天有无数信息需要加密，这种原始的加密方法似乎不太适合。不过实际上方法也差不多，一般是采用一种叫做 AES 的算法来解决的。这种算法需要一个 密钥 key 来加密整个信息，加密和解密所需要使用的 key 是一样的，所以这种加密一般也被称为“对称加密”。AES 在数学上保证了，只要你使用的 key 足够足够足够足够的长，破解是几乎不可能的。</p>
-<p>我们先假设这种破解确实是不可能的，而且目前也确实没有对 AES 本身能发动起有效的攻击的案例出现。</p>
-<p>我们再回到这个教室，你接着要传小纸条，你把地址写上后，把要传输的内容用 AES 蹭蹭蹭加密了起来。刚准备传，问题来了。AES 不是有一个 key 吗？key 怎么给目的地啊？如果我把密钥直接写在纸条上，那么中间的人不依然可以解密吗？在现实中你可以通过一些其它方法来把密钥安全传输给目的地而不被其他人看见，但是在互联网上，要想这么做难度就很大了，毕竟传输终究要经过这些路由，所以要做加密，还得找一个更复杂的数学方法。</p>
-<p>于是聪明的人们发明了一种更复杂的加密算法——非对称加密。这种加密或许理解起来比较困难，这种加密指的是可以生成一对密钥 (k1, k2)。凡是 k1 加密的数据，k1 自身不能解密，而需要 k2 才能解密；凡是 k2 加密的数据，k2 不能解密，需要 k1 才能解密。这种算法事实上有很多，常用的是 RSA，其基于的数学原理是两个大素数的乘积很容易算，而拿到这个乘积去算出是哪两个素数相乘就很复杂了。好在以目前的技术，分解大数的素因数确实比较困难，尤其是当这个大数足够大的时候（通常使用2的10次方个二进制位这么大），就算是超级计算机解密也需要非常长的时间。</p>
-<p>现在利用这种非对称加密的方法，我们来设想一个场景。你继续想要传纸条，但是传纸条之前你先准备把接下来通讯的对称加密密钥给传输过去。于是你用 RSA 技术生成了一对 k1、k2，你把 k1 用明文发送了出去，路经有人或许会截取，但是没有用，k1 加密的数据需要用 k2 才能解密。而此时，k2 在你自己的手里。k1 送达目的地后，目的地的人会去准备一个接下来用于对称加密传输的密钥 key，然后用收到的 k1 把 key 加密了，把加密好的数据传回来。路上的人就算截取到了，也解密不出 key。等到了你自己手上，你用手上的 k2 把用 k1 加密的 key 解出来，现在全教室就只有你和你的目的地拥有 key，你们就可以用 AES 算法进行对称加密的传输啦！这时候你和目的地的通讯将无法再被任何人窃听！</p>
-<p>当然，这时候你可能会问两个问题。</p>
-<p>既然 非对称加密 可以那么安全，为什么我们不直接用它来加密信息，而是去加密 对称加密 的密钥呢？</p>
-<p>这是因为 非对称加密 的密码对生成和加密的消耗时间比较长，为了节省双方的计算时间，通常只用它来交换密钥，而非直接用来传输数据。</p>
-<p>使用 非对称加密 是完全安全的吗？</p>
-<p>听起来确实是挺安全的，但实际上，还有一种更恶劣的攻击是这种方法无法防范的，这就是传说中的“中间人攻击”。我们继续让你坐在教室里传小纸条。现在你和目的地上途径一个中间人，他有意想要知道你们的消息。由于这个描述比较复杂，我们将你称为 A，你的目的地称为 B，而中间人称为 M。当你要和 B 完成第一次密钥交换的时候，途径了 M。M 知道你要进行密钥交换了，它把小纸条扣了下来，假装自己是 B，伪造了一个 key ，然后用你发来的 k1 加密了 key 发还给你，你以为你和 B 完成了密钥交换，实际上你是和 M 完成了密钥交换。同时 M 和 B 完成一次密钥交换，让 B 误以为和你完成了密钥交换。现在，由 A -&gt; B完整的加密，变成了 A（加密连接1） -&gt; M（明文）-&gt;B（加密连接2）的情况了。这时候 M 依然可以知道 A 和 B 传输中的全部信息。</p>
-<p>对于这种事，我们似乎很难找到一个解决方法来解决这个问题，除非我们能从源头保证，你密钥交换的对象是安全的。这时候我们就要认识互联网 HTTPS 和你传纸条的微妙区别了。你传纸条时，你和你的目的地的关系几乎是对等的。而你访问网站时，你访问的对象通常是一个比较大的服务供应商，他们有充沛的资源，也许可以证明他们的合法性。</p>
-<p>这时候我们会引入一个第三方叫做 CA。CA 是一些非常权威的专门用于认证一个网站合法性的组织。服务商可以向他们申请一个证书，使得他们建立安全连接时可以带上 CA 的签名。而 CA 的安全性由操作系统或浏览器来认证。你的 Windows、Mac、Linux、Chrome、Safari 等会在安装时带上一个他们认为安全的 CA 证书列表。如果和你建立安全连接的人带着这些人的签名，那么认为这个安全连接是安全的，没有遭到中间人攻击。</p>
-<p>CA 证书通常情况下是安全的。因为一旦某个 CA 颁发出的某个证书被用于了非法用途，浏览器和操作系统一般会通过更新将整个 CA 颁发过的全部证书全部视为不安全。这使得 CA 通常在颁发证书时是比较小心的。</p>
-<p>所以通过 对称加密 + 非对称加密 + CA认证 这三个技术混合在一起，才使得 HTTP 的后面加上了一个 S —— Security。实际上 HTTPS 的协议比我这里描述的更复杂一些，我这里说的主要是基本的实现原理。因为其中任何一环稍有闪失，就会使得整个加密都将变得不安全。这也是为什么 HTTPS 的加密协议从SSL 1.0 升级到 SSL 3.0 再被 TLS 1.0 现在被 TLS 1.2 取代，其背后都是一环环细节上的修改，以防任何地方的闪失。</p>
-<p>但即使如此，你的 HTTPS 尽可能的保证了你传输的安全，但这种安全也不是绝对的。比如 CA 证书出了问题被用于了中间人攻击，在短期内，你的安全将会陷入直接的麻烦直到浏览器或操作系统重新更新了你的 CA 列表或者你手动调整了这个列表。但大多情况下不必杞人忧天，它基本上是安全的。</p>
-<p>当然了，路由也可以选择直接丢包，它看不到的，也不让你看到。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;每当我们讨论到信息安全的时候，我们最长接触到的信息加密传输的方式莫过于 HTTPS 了，当我们浏览器地址栏闪现出绿色时，就代表着这个网站支持 HTTPS 的加密信息传输方式，并且你与它的连接确实被加密了。但是 HTTPS 并不是一个单一的东西，它知识我们常见的 HTTP 协议和某个加密协议的一个混合，这个加密协议通常会是 TLS。那么 HTTPS 为什么安全呢？其实我们需要先考虑 HTTP 为什么不安全。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="安全" scheme="http://blog.heckpsi.com/tags/%E5%AE%89%E5%85%A8/"/>
-    
-      <category term="HTTPS" scheme="http://blog.heckpsi.com/tags/HTTPS/"/>
-    
-      <category term="通讯" scheme="http://blog.heckpsi.com/tags/%E9%80%9A%E8%AE%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>混合应用 —— 一场美味却危险的盛宴</title>
-    <link href="http://blog.heckpsi.com/2015/04/02/danger-of-hybrid-apps/"/>
-    <id>http://blog.heckpsi.com/2015/04/02/danger-of-hybrid-apps/</id>
-    <published>2015-04-02T05:18:38.000Z</published>
-    <updated>2016-05-15T03:20:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>随着 HTML 5 的标准的提出、响应式布局的成熟、许多针对移动优化的网页架构的开源项目的推出，手机浏览器能做的已经远不是以前可以想象的了，它几乎可以做任何事情。所以许多概念认为手机上的浏览器应该起到主要作用，Web App 在手机上的一个用这几年成为了一个热点。Ubuntu Mobile 的手机 ROM 更是以 Web App 作为主要功能，也让人体验到了这种想法的可能性。</p>
-<a id="more"></a>
-<p>网页最大的优势莫过于灵活，用户不需要去更新新版客户端，只要你后端悄悄上线就行了，甚至不需要有版本号这样可以的东西，并且能在各种平台上兼容，同步更新。容器可以随意变化，可以变身文章阅读器、视频播放器甚至是复杂的3D游戏，可以给应用带来各种各样的变化，而且这种变化是非常灵活的，随时都可以。但是就目前使用最常见的 Android iOS WP 系统而言，浏览器还不足以实现全部的特性以支撑整个系统，比如及时的通知系统、后台系统。</p>
-<p>在这两者的矛盾下，很快就有人提出了混合应用（Hybrid App），这种应用通过系统私有的方法实现一些网页不能完成的事情，把剩下的内容全部用一个网页容器来实现，大大降低了开发成本。即使许多应用不完全采用这种模式，但多少也会整幅地使用 WebView，尤其是来部署一些灵活的活动信息等，比如微信、微博等都多少有这样的方法。</p>
-<p>其实这样的开发虽然降低了复杂度并增加了灵活性，但是其中的安全性却是值得商榷的。比如之前在所有系统版本小于 Android 4.4 的手机上都曝出了 WebView 的 Javascript 注入漏洞，并且 Google 放弃了对这一漏洞的修补，因为认为就安全性而言用户应该先升级到 Android 4.4，无限的向下补丁是不现实的，这么说来也是有道理的。但也使得混合应用的开发存在了一丝疑问。如果这样的漏洞还只是偶然，实际情况中出现的问题常常更为简单，但是却很难想到。</p>
-<p>这一类问题往往出现在 Native - WebView 层上。昨天早上人人网愚人节活动系统曝出了系统漏洞，使得黑客在调用后可以任意以任何用户的身份进行发帖，这实在是愚人不成反被愚。曝出后人人的公关部门进行了紧急的处理制止了事态的进一步扩展，实际上，在4月1日一结束后，人人网草草撤下了页面，因为从技术上来说，修复的可能性非常小。</p>
-<p>为什么非常小呢？其实核心问题在于，如果 WebView 拥有可以发帖的权限时，我们应该如何确认发帖者的身份。这个问题通常是显然的，常用的方法就是 user - token 验证。即验证用户的 id 和登录成功后系统返回的唯一编号是否一致。但是，在混合应用上这一点却存在一定的问题。有时 token 并不直接由网页获取到，而是由客户端的 Native 部分获取到的。那么当它打开 WebView 的时候就需要将这参数传递进去，这通常是通过创建一个 Cookie 来实现的，在技术上也没有问题。</p>
-<p>但是实际问题是，什么时候传呢？</p>
-<p>我们继续以昨天人人网的漏洞为例，由于人人在聊天时也可以调用 WebView 来打开第三方的链接，所以就使得传输这个参数成为一个比较难的问题。如果打开第三方链接的时候也把参数传递进去，显然地，我们可以通过伪造一个链接来抓取这个 Cookie 使得 user - token 泄露，实现对用户权限的全部控制，所以是绝对不可取的。所以人人采取的方法是 —— 不传 token。</p>
-<p>不传 token 带来的问题叫做 “死无对证”，用户的ID是可以随便并且非常轻易的伪造的。尤其是当人人今天愚人节活动页面最后会发送一条可编辑的消息到用户网页上时，通过伪造 user 可以对所有用户进行操作，造成了重大安全漏洞的爆发。而且更糟糕的是，传递参数这事是在客户端完成的，如果不更新客户端，就永远不会多传一个参数进来，出了问题也无法及时解决。</p>
-<p><img src="http://cdn.heckpsi.com/1009_1.png" alt=""></p>
-<p>（通过绕过 token 可以任意账号发布信息）</p>
-<p>而这一问题同样存在于许多混合应用之中，不过是他们对待 token 的传递处理方式不同，问题的细节上各有差别。那么，我们也可以来思考一下，假如你是人人网的程序员，同时，你也知道不传 token 和见谁都传 token 都是不对的（其实许多应用都是栽在这前两个问题上）。现在要修复这一问题，你会如何重新选择你何时传递 token 参数这一问题呢？</p>
-<p>一、当访问的网址以 <a href="http://www.renren.com" target="_blank" rel="external">http://www.renren.com</a> 开始时，将参数传入。</p>
-<p>我想，这是很多人的第一想法。这个方法看起来逻辑是正确的。只有网址以自己网站的目标地址开头时再传，而且这一点是非常容易从 URL 上判断出来的，并且也可以避免访问第三方网站时传入。但是这种方法真的是正确的吗？</p>
-<p>答案是否。如果你这么操作了，其实是你对 http 协议的认识不够完备。显然我可以伪造一个这样的地址 <a href="http://www.renren.com@heckpsi.com" target="_blank" rel="external">http://www.renren.com@heckpsi.com</a> 。这个地址也是以自己目标网站开始的，但是用了@符号，这事实上指的是用 www.renren.com 为用户名登录 heckpsi.com 的网站。不信的用户可以复制上面的地址到浏览器里看一下，它绝对会打开 heckpsi.com 的。所以这么操作是不行的。</p>
-<p>二、判断 WebView 访问的目标 Host 是不是 www.renren.com。</p>
-<p>这种方法比上面一种显然更靠谱，因为判断的是目标 Host。像上面这种障眼法是不可能改变实际的目标服务器的。但是这种操作在实现上往往会遇到问题，因为当从一个 URL 变成一个目标 Host 的时候实际上浏览器已经开始了解析的工作，这使得你无法及时传入参数了。这样的实现方法在主流的操作系统上都是非常困难的，因为在运行着的 WebView 上试图再写入数据在安全性上是比较有问题的，操作系统一般也不会允许你这么做。而且这么做也并非完全避开了真正的危险，因为显然这种方法可以被下面这种方法所替代。</p>
-<p>三、通过字符串解析 URL，算出实际的访问地址，再判断。</p>
-<p>这一点其实模拟了浏览器解析 Host 的地址的行为。但解析 URL 这事是否安全本身取决于你解析的方法，当然，我们假设，解析不存在任何问题，它得到了目标的访问地址。这时候再判断一定可以确认用户是否访问的是 www.renren.com 这个地址。这通常来说是安全的了，但是其实还是可以进行攻击的，只不过攻击范围减小了，需要进行路由上的攻击。只要我们将 www.renren.com 的包进行解析商的伪造引向我们的攻击地址，依然可以实现攻击。但是这一点，我认为可以不用很深刻考虑。因为同样我们也能发现，Native 的应用也可以用这种方法进行攻击，已经不是混合应用才有的问题了。</p>
-<p>但是真正的安全是不存在的吗？其实也不见得。对于这种伪造地址的方法最方便的解决方案当然是 HTTPS。至于能解决的原因可以参见<a href="http://blog.heckpsi.com/2015/04/16/how-https-makes-communication-secured/">“HTTPS 是如何保证安全的？”</a> 。HTTPS 可以从根本上杜绝嗅探攻击和中间人攻击。对于所有的敏感数据如密码、token 传输的唯一解决方案只有可靠的加密。相比之下，twitter 全网支持 https 传输，Facebook 全网支持 https 传输，而微博和人人都全部不支持 https 传输，可见安全意识之差。</p>
-<p>所以混合应用增加了一层传输使得安全性上存在未知的隐患。但大多数安全问题并不是出在理论意义的系统层面上，不过是安全意识差导致的。而归根究底，其实还是做产品的时候，究竟是有什么作为根本驱动的。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;随着 HTML 5 的标准的提出、响应式布局的成熟、许多针对移动优化的网页架构的开源项目的推出，手机浏览器能做的已经远不是以前可以想象的了，它几乎可以做任何事情。所以许多概念认为手机上的浏览器应该起到主要作用，Web App 在手机上的一个用这几年成为了一个热点。Ubuntu Mobile 的手机 ROM 更是以 Web App 作为主要功能，也让人体验到了这种想法的可能性。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="安全" scheme="http://blog.heckpsi.com/tags/%E5%AE%89%E5%85%A8/"/>
-    
-      <category term="App" scheme="http://blog.heckpsi.com/tags/App/"/>
-    
-      <category term="Hybrid" scheme="http://blog.heckpsi.com/tags/Hybrid/"/>
     
   </entry>
   
