@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.heckpsi.com/2017/01/26/lotus-out-of-mouth/</loc>
+    
+    <lastmod>2017-01-26T09:49:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.heckpsi.com/2017/01/07/ruby-meta-programming_0/</loc>
     
     <lastmod>2017-01-18T17:33:01.000Z</lastmod>
@@ -58,21 +65,14 @@
   </url>
   
   <url>
-    <loc>http://blog.heckpsi.com/2015/01/19/application-of-bayes-theorem/</loc>
-    
-    <lastmod>2016-05-15T03:20:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.heckpsi.com/2013/08/24/why-retina-isnt-enough/</loc>
-    
-    <lastmod>2016-05-15T03:20:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.heckpsi.com/2015/02/25/fix-nexus-5-lens/</loc>
+    
+    <lastmod>2016-05-15T03:20:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.heckpsi.com/2015/01/19/application-of-bayes-theorem/</loc>
     
     <lastmod>2016-05-15T03:20:12.000Z</lastmod>
     
@@ -93,14 +93,7 @@
   </url>
   
   <url>
-    <loc>http://blog.heckpsi.com/2015/03/29/why-material-design-pushes-difficult-in-china/</loc>
-    
-    <lastmod>2016-05-15T03:20:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.heckpsi.com/2015/02/21/how-to-test-a-font/</loc>
+    <loc>http://blog.heckpsi.com/2013/08/24/why-retina-isnt-enough/</loc>
     
     <lastmod>2016-05-15T03:20:12.000Z</lastmod>
     
@@ -108,6 +101,13 @@
   
   <url>
     <loc>http://blog.heckpsi.com/2016/05/14/customized-machanical-keyboard/</loc>
+    
+    <lastmod>2016-05-15T03:20:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.heckpsi.com/2015/02/21/how-to-test-a-font/</loc>
     
     <lastmod>2016-05-15T03:20:12.000Z</lastmod>
     
@@ -122,6 +122,13 @@
   
   <url>
     <loc>http://blog.heckpsi.com/2015/01/20/how-cmos-works/</loc>
+    
+    <lastmod>2016-05-15T03:20:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.heckpsi.com/2015/03/29/why-material-design-pushes-difficult-in-china/</loc>
     
     <lastmod>2016-05-15T03:20:12.000Z</lastmod>
     
