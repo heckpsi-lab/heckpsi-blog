@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.heckpsi.com/"/>
-  <updated>2017-01-26T09:49:27.000Z</updated>
+  <updated>2017-01-26T09:51:06.000Z</updated>
   <id>http://blog.heckpsi.com/</id>
   
   <author>
@@ -20,13 +20,14 @@
     <link href="http://blog.heckpsi.com/2017/01/26/lotus-out-of-mouth/"/>
     <id>http://blog.heckpsi.com/2017/01/26/lotus-out-of-mouth/</id>
     <published>2017-01-26T09:48:47.000Z</published>
-    <updated>2017-01-26T09:49:27.000Z</updated>
+    <updated>2017-01-26T09:51:06.000Z</updated>
     
     <content type="html"><![CDATA[<p>甲：我平时工作写程序，但我对相声也颇有研究。</p>
 <p>乙：诶，您老还对相声有研究啊。</p>
 <p>甲：可不是嘛，我主要是发现啊，这说相声和写代码完完全全是一回事。</p>
 <p>乙：哈？</p>
 <p>甲：可不是嘛，你看学相声占四个字：说、学、逗、唱。这写代码也是这四门。</p>
+<a id="more"></a>
 <p>乙：诶，停停停，你等等。没听说过写个代码也要会说学逗唱的。</p>
 <p>甲：怎么不要会说学逗唱了。先说「说」，你要说不过产品经理，你不得加班累死，你还能好好写代码吗？</p>
 <p>乙：啊？</p>
@@ -145,7 +146,7 @@
 &lt;p&gt;乙：诶，您老还对相声有研究啊。&lt;/p&gt;
 &lt;p&gt;甲：可不是嘛，我主要是发现啊，这说相声和写代码完完全全是一回事。&lt;/p&gt;
 &lt;p&gt;乙：哈？&lt;/p&gt;
-&lt;p&gt;甲：可不是嘛，你看学相声占四个字：说、学、逗、唱。这写代码也是这
+&lt;p&gt;甲：可不是嘛，你看学相声占四个字：说、学、逗、唱。这写代码也是这四门。&lt;/p&gt;
     
     </summary>
     
